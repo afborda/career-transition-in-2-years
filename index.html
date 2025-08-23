@@ -1020,8 +1020,9 @@
         let allJobs = [];
         let currentFilter = 'all';
 
-        // Dados mock de vagas (backup caso APIs falhem)
+        // Dados mock de vagas (backup caso APIs falhem) - EXPANDIDO
         const mockJobs = [
+            // Mobile Development Jobs
             {
                 id: 1,
                 title: "Senior Mobile Developer - Flutter",
@@ -1035,39 +1036,6 @@
             },
             {
                 id: 2,
-                title: "Analista de Dados Pleno",
-                company: "Magazine Luiza",
-                location: "São Paulo - SP",
-                salary: "R$ 8.000 - R$ 12.000",
-                description: "Análise de dados de vendas, criação de dashboards, SQL avançado, Python, Power BI. Experiência com e-commerce é um diferencial.",
-                link: "https://magazineluiza.com.br/trabalhe-conosco",
-                category: "analista",
-                type: "pleno"
-            },
-            {
-                id: 3,
-                title: "Cientista de Dados Senior",
-                company: "iFood",
-                location: "São Paulo - SP (Híbrido)",
-                salary: "R$ 15.000 - R$ 25.000",
-                description: "Machine Learning para recomendação, Python, TensorFlow, MLOps, deploy em produção. Experiência com big data e sistemas distribuídos.",
-                link: "https://carreiras.ifood.com.br",
-                category: "cientista",
-                type: "senior"
-            },
-            {
-                id: 4,
-                title: "ML Engineer - IA Generativa",
-                company: "Globo",
-                location: "Rio de Janeiro - RJ (Remoto)",
-                salary: "R$ 18.000 - R$ 30.000",
-                description: "Desenvolvimento de soluções com LLMs, RAG, fine-tuning, PyTorch, transformers. Experiência com cloud (AWS/GCP) e containerização.",
-                link: "https://talentos.globo.com",
-                category: "ia",
-                type: "senior"
-            },
-            {
-                id: 5,
                 title: "Mobile Developer React Native",
                 company: "PicPay",
                 location: "São Paulo - SP (Remoto)",
@@ -1078,18 +1046,42 @@
                 type: "senior"
             },
             {
-                id: 6,
-                title: "Data Scientist - Remoto Internacional",
-                company: "Wildlife Studios",
-                location: "Remoto (USD)",
-                salary: "USD 4.000 - USD 8.000",
-                description: "Análise de dados de jogos mobile, A/B testing, Python, SQL, machine learning para otimização de gameplay e retenção de usuários.",
-                link: "https://wildlifestudios.com/careers",
-                category: "cientista",
+                id: 3,
+                title: "iOS Developer Senior",
+                company: "Stone",
+                location: "Rio de Janeiro - RJ (Híbrido)",
+                salary: "R$ 13.000 - R$ 20.000",
+                description: "Desenvolvimento iOS nativo com Swift, UIKit, SwiftUI, integração com APIs de pagamento, arquitetura MVVM.",
+                link: "https://stone.com.br/carreiras",
+                category: "mobile",
                 type: "senior"
             },
             {
-                id: 7,
+                id: 4,
+                title: "Android Developer Pleno",
+                company: "Mercado Livre",
+                location: "São Paulo - SP (Híbrido)",
+                salary: "R$ 9.000 - R$ 14.000",
+                description: "Desenvolvimento Android com Kotlin, MVVM, Jetpack Compose, testes unitários, integração contínua.",
+                link: "https://mercadolivre.com.br/trabalhe-conosco",
+                category: "mobile",
+                type: "pleno"
+            },
+            
+            // Data Analyst Jobs
+            {
+                id: 5,
+                title: "Analista de Dados Pleno",
+                company: "Magazine Luiza",
+                location: "São Paulo - SP",
+                salary: "R$ 8.000 - R$ 12.000",
+                description: "Análise de dados de vendas, criação de dashboards, SQL avançado, Python, Power BI. Experiência com e-commerce é um diferencial.",
+                link: "https://magazineluiza.com.br/trabalhe-conosco",
+                category: "analista",
+                type: "pleno"
+            },
+            {
+                id: 6,
                 title: "Analista de BI Junior",
                 company: "Banco Inter",
                 location: "Belo Horizonte - MG",
@@ -1100,7 +1092,88 @@
                 type: "junior"
             },
             {
+                id: 7,
+                title: "Business Intelligence Analyst",
+                company: "Creditas",
+                location: "São Paulo - SP (Híbrido)",
+                salary: "R$ 7.000 - R$ 11.000",
+                description: "Análise de dados financeiros, criação de dashboards executivos, SQL, Python, Tableau, relatórios de performance.",
+                link: "https://creditas.com/carreiras",
+                category: "analista",
+                type: "pleno"
+            },
+            {
                 id: 8,
+                title: "Data Analyst - Marketing",
+                company: "Grupo Boticário",
+                location: "Curitiba - PR (Remoto)",
+                salary: "R$ 6.500 - R$ 10.000",
+                description: "Análise de campanhas de marketing, métricas de performance, SQL, Google Analytics, Data Studio, Python básico.",
+                link: "https://grupoboticario.com.br/carreiras",
+                category: "analista",
+                type: "pleno"
+            },
+            
+            // Data Scientist Jobs
+            {
+                id: 9,
+                title: "Cientista de Dados Senior",
+                company: "iFood",
+                location: "São Paulo - SP (Híbrido)",
+                salary: "R$ 15.000 - R$ 25.000",
+                description: "Machine Learning para recomendação, Python, TensorFlow, MLOps, deploy em produção. Experiência com big data e sistemas distribuídos.",
+                link: "https://carreiras.ifood.com.br",
+                category: "cientista",
+                type: "senior"
+            },
+            {
+                id: 10,
+                title: "Data Scientist - Remoto Internacional",
+                company: "Wildlife Studios",
+                location: "Remoto (USD)",
+                salary: "USD 4.000 - USD 8.000",
+                description: "Análise de dados de jogos mobile, A/B testing, Python, SQL, machine learning para otimização de gameplay e retenção de usuários.",
+                link: "https://wildlifestudios.com/careers",
+                category: "cientista",
+                type: "senior"
+            },
+            {
+                id: 11,
+                title: "Data Scientist Pleno",
+                company: "Carrefour Brasil",
+                location: "São Paulo - SP (Híbrido)",
+                salary: "R$ 12.000 - R$ 18.000",
+                description: "Modelos preditivos para retail, análise de comportamento do consumidor, Python, scikit-learn, Spark, SQL.",
+                link: "https://carrefour.com.br/carreiras",
+                category: "cientista",
+                type: "pleno"
+            },
+            {
+                id: 12,
+                title: "Junior Data Scientist",
+                company: "Natura",
+                location: "São Paulo - SP (Híbrido)",
+                salary: "R$ 8.000 - R$ 12.000",
+                description: "Análise de dados de vendas e marketing, modelos de classificação simples, Python, pandas, matplotlib, SQL.",
+                link: "https://natura.com.br/carreiras",
+                category: "cientista",
+                type: "junior"
+            },
+            
+            // AI/ML Engineer Jobs
+            {
+                id: 13,
+                title: "ML Engineer - IA Generativa",
+                company: "Globo",
+                location: "Rio de Janeiro - RJ (Remoto)",
+                salary: "R$ 18.000 - R$ 30.000",
+                description: "Desenvolvimento de soluções com LLMs, RAG, fine-tuning, PyTorch, transformers. Experiência com cloud (AWS/GCP) e containerização.",
+                link: "https://talentos.globo.com",
+                category: "ia",
+                type: "senior"
+            },
+            {
+                id: 14,
                 title: "AI Research Engineer",
                 company: "C6 Bank",
                 location: "São Paulo - SP (Híbrido)",
@@ -1109,6 +1182,74 @@
                 link: "https://c6bank.com.br/carreiras",
                 category: "ia",
                 type: "senior"
+            },
+            {
+                id: 15,
+                title: "ML Engineer Senior",
+                company: "QuintoAndar",
+                location: "São Paulo - SP (Remoto)",
+                salary: "R$ 16.000 - R$ 26.000",
+                description: "MLOps, Kubernetes, Python, TensorFlow, deploy de modelos, monitoramento, data pipelines, arquitetura de ML.",
+                link: "https://quintoandar.com.br/carreiras",
+                category: "ia",
+                type: "senior"
+            },
+            {
+                id: 16,
+                title: "Machine Learning Engineer",
+                company: "Loft",
+                location: "São Paulo - SP (Remoto)",
+                salary: "R$ 14.000 - R$ 22.000",
+                description: "Modelos de precificação de imóveis, computer vision para análise de fotos, Python, scikit-learn, OpenCV.",
+                link: "https://loft.com.br/carreiras",
+                category: "ia",
+                type: "senior"
+            },
+            
+            // Additional Remote/International Jobs
+            {
+                id: 17,
+                title: "Remote Full Stack Developer",
+                company: "Toptal",
+                location: "🌍 Remoto Global",
+                salary: "USD 50 - USD 100/hora",
+                description: "Desenvolvimento full stack para clientes internacionais, React, Node.js, Python, projetos diversos.",
+                link: "https://toptal.com/developers",
+                category: "mobile",
+                type: "remote"
+            },
+            {
+                id: 18,
+                title: "Senior Python Developer",
+                company: "GitLab (Remote)",
+                location: "🌍 Remoto Global",
+                salary: "USD 80.000 - USD 140.000",
+                description: "Desenvolvimento backend Python, Django, APIs, microservices, DevOps, trabalho assíncrono.",
+                link: "https://about.gitlab.com/jobs/",
+                category: "cientista",
+                type: "remote"
+            },
+            {
+                id: 19,
+                title: "Data Engineer",
+                company: "Movile",
+                location: "Campinas - SP (Remoto)",
+                salary: "R$ 12.000 - R$ 18.000",
+                description: "Pipelines de dados, Apache Airflow, Python, SQL, cloud AWS, big data, data lakes.",
+                link: "https://movile.com/carreiras",
+                category: "cientista",
+                type: "senior"
+            },
+            {
+                id: 20,
+                title: "Frontend Developer React",
+                company: "Zé Delivery",
+                location: "São Paulo - SP (Remoto)",
+                salary: "R$ 8.000 - R$ 14.000",
+                description: "Desenvolvimento frontend React, TypeScript, Next.js, styled-components, testes com Jest.",
+                link: "https://zedelivery.com.br/carreiras",
+                category: "mobile",
+                type: "pleno"
             }
         ];
 
@@ -1264,57 +1405,90 @@
         // 1. RemoteOK API - Gratuita, sem necessidade de chave
         async function fetchRemoteOKJobs() {
             try {
-                const response = await fetch('https://remoteok.io/api');
+                // Usar proxy CORS se necessário
+                const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                const apiUrl = 'https://remoteok.io/api';
+                
+                let response;
+                try {
+                    // Tentar direto primeiro
+                    response = await fetch(apiUrl);
+                } catch (corsError) {
+                    // Se falhar por CORS, usar proxy
+                    console.log('Usando proxy CORS para RemoteOK...');
+                    response = await fetch(proxyUrl + encodeURIComponent(apiUrl));
+                }
+                
                 const data = await response.json();
                 
                 // Remove o primeiro item que é apenas metadata
-                const jobs = data.slice(1);
+                const jobs = Array.isArray(data) ? data.slice(1) : [];
                 
-                return jobs
+                console.log(`RemoteOK retornou ${jobs.length} vagas`);
+                
+                const filteredJobs = jobs
                     .filter(job => {
+                        if (!job || !job.position) return false;
+                        
                         const tags = (job.tags || []).join(' ').toLowerCase();
                         const title = (job.position || '').toLowerCase();
                         const description = (job.description || '').toLowerCase();
+                        const company = (job.company || '').toLowerCase();
                         
-                        return (
-                            tags.includes('python') || tags.includes('data') || 
-                            tags.includes('mobile') || tags.includes('react') ||
-                            tags.includes('flutter') || tags.includes('machine-learning') ||
-                            title.includes('data') || title.includes('mobile') ||
-                            title.includes('python') || title.includes('scientist') ||
-                            description.includes('data science') || description.includes('mobile')
-                        );
+                        // Filtros expandidos para capturar mais vagas relevantes
+                        const techKeywords = [
+                            'python', 'data', 'mobile', 'react', 'flutter', 'machine-learning',
+                            'developer', 'engineer', 'analyst', 'scientist', 'backend', 'frontend',
+                            'javascript', 'typescript', 'node', 'django', 'flask', 'pandas',
+                            'sql', 'mongodb', 'postgresql', 'aws', 'gcp', 'azure', 'docker',
+                            'kubernetes', 'tensorflow', 'pytorch', 'sklearn', 'ios', 'android',
+                            'swift', 'kotlin', 'react native', 'vue', 'angular', 'java',
+                            'full stack', 'devops', 'ml', 'ai', 'artificial intelligence',
+                            'big data', 'analytics', 'business intelligence', 'bi'
+                        ];
+                        
+                        const content = `${title} ${tags} ${description} ${company}`;
+                        return techKeywords.some(keyword => content.includes(keyword));
                     })
-                    .slice(0, 8) // Limita a 8 vagas
+                    .slice(0, 12) // Aumenta limite para 12 vagas
                     .map(job => ({
-                        id: `remote_${job.id}`,
+                        id: `remote_${job.id || Math.random()}`,
                         title: job.position || 'Título não informado',
                         company: job.company || 'Empresa não informada',
                         location: `🌍 Remoto ${job.location ? `(${job.location})` : ''}`,
                         salary: job.salary_min && job.salary_max 
                             ? `USD $${job.salary_min.toLocaleString()} - $${job.salary_max.toLocaleString()}` 
+                            : job.salary_min 
+                            ? `USD $${job.salary_min.toLocaleString()}+`
                             : 'Salário a combinar',
-                        description: (job.description || 'Descrição não disponível').substring(0, 200) + '...',
+                        description: (job.description || 'Descrição não disponível').substring(0, 250) + '...',
                         link: job.url || `https://remoteok.io/remote-jobs/${job.id}`,
                         category: categorizeJob(job.position, job.tags, job.description),
                         type: 'remote'
                     }));
+                
+                console.log(`RemoteOK filtrado: ${filteredJobs.length} vagas relevantes`);
+                return filteredJobs;
+                
             } catch (error) {
                 console.error('Erro RemoteOK API:', error);
                 return [];
             }
         }
 
-        // 2. JSearch API via RapidAPI - Vagas brasileiras (usando endpoint público)
+        // 2. JSearch API - Vagas brasileiras (usando endpoint público)
         async function fetchJSearchJobs() {
             try {
-                // Usando uma API alternativa pública para vagas brasileiras
-                const queries = ['python developer brasil', 'data scientist brasil', 'mobile developer brasil'];
+                // Gerar mais vagas mock realistas baseadas em dados do mercado
+                const queries = [
+                    'python developer brasil', 'data scientist brasil', 'mobile developer brasil',
+                    'react native developer', 'flutter developer', 'machine learning engineer',
+                    'data analyst brasil', 'business intelligence', 'backend developer python'
+                ];
                 const allJobs = [];
                 
                 for (const query of queries) {
                     try {
-                        // Simulação de API - na prática você usaria uma chave real
                         const mockJobs = generateMockJobsForQuery(query);
                         allJobs.push(...mockJobs);
                     } catch (error) {
@@ -1322,7 +1496,8 @@
                     }
                 }
                 
-                return allJobs.slice(0, 6);
+                console.log(`JSearch gerou ${allJobs.length} vagas mock`);
+                return allJobs.slice(0, 8); // Aumenta limite
             } catch (error) {
                 console.error('Erro JSearch API:', error);
                 return [];
@@ -1357,56 +1532,154 @@
             }
         }
 
-        // Gerador de vagas mock para queries específicas
+        // Gerador de vagas mock para queries específicas - EXPANDIDO
         function generateMockJobsForQuery(query) {
-            const companies = ['Nubank', 'iFood', 'Stone', 'PicPay', 'Mercado Livre', 'Globo', 'Magazine Luiza', 'Banco Inter'];
-            const locations = ['São Paulo - SP', 'Rio de Janeiro - RJ', 'Belo Horizonte - MG', 'Florianópolis - SC'];
+            const companies = [
+                'Nubank', 'iFood', 'Stone', 'PicPay', 'Mercado Livre', 'Globo', 'Magazine Luiza', 
+                'Banco Inter', 'Creditas', 'QuintoAndar', 'Loft', 'Movile', 'Wildlife Studios',
+                'Grupo Boticário', 'Carrefour', 'Natura', 'C6 Bank', 'XP Inc', 'BTG Pactual',
+                'Ambev', 'Petrobras', 'Vale', 'Embraer', 'Shopee', 'Zé Delivery', 'Loggi'
+            ];
             
-            if (query.includes('python')) {
-                return [{
-                    id: `jsearch_python_${Date.now()}`,
+            const locations = [
+                'São Paulo - SP', 'Rio de Janeiro - RJ', 'Belo Horizonte - MG', 
+                'Florianópolis - SC', 'Curitiba - PR', 'Porto Alegre - RS',
+                'Brasília - DF', 'Campinas - SP', 'Recife - PE', 'Salvador - BA'
+            ];
+            
+            const workModes = ['(Remoto)', '(Híbrido)', '(Presencial)', '(Remoto Parcial)'];
+            
+            const jobs = [];
+            const timestamp = Date.now();
+            
+            if (query.includes('python') || query.includes('backend')) {
+                jobs.push({
+                    id: `jsearch_python_${timestamp}_${Math.random()}`,
                     title: 'Python Developer Sênior',
                     company: companies[Math.floor(Math.random() * companies.length)],
-                    location: `${locations[Math.floor(Math.random() * locations.length)]} (Remoto)`,
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
                     salary: 'R$ 12.000 - R$ 18.000',
-                    description: 'Desenvolvimento backend com Python, Django/Flask, APIs REST, bancos de dados, cloud AWS/GCP.',
+                    description: 'Desenvolvimento backend com Python, Django/Flask, APIs REST, bancos de dados, cloud AWS/GCP, arquitetura de microservices.',
                     link: 'https://www.linkedin.com/jobs/search/?keywords=python%20developer',
                     category: 'cientista',
                     type: 'senior'
-                }];
-            } else if (query.includes('data scientist')) {
-                return [{
-                    id: `jsearch_ds_${Date.now()}`,
+                });
+                
+                jobs.push({
+                    id: `jsearch_backend_${timestamp}_${Math.random()}`,
+                    title: 'Backend Developer Python Pleno',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 8.000 - R$ 14.000',
+                    description: 'APIs REST, Django, PostgreSQL, Redis, testes automatizados, CI/CD com Docker.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=backend%20python',
+                    category: 'cientista',
+                    type: 'pleno'
+                });
+            }
+            
+            if (query.includes('data scientist')) {
+                jobs.push({
+                    id: `jsearch_ds_${timestamp}_${Math.random()}`,
                     title: 'Data Scientist Pleno',
                     company: companies[Math.floor(Math.random() * companies.length)],
-                    location: `${locations[Math.floor(Math.random() * locations.length)]} (Híbrido)`,
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
                     salary: 'R$ 14.000 - R$ 22.000',
                     description: 'Machine learning, Python, SQL, estatística, modelos preditivos, deploy em produção, MLOps.',
                     link: 'https://www.linkedin.com/jobs/search/?keywords=data%20scientist',
                     category: 'cientista',
                     type: 'pleno'
-                }];
-            } else if (query.includes('mobile')) {
-                return [{
-                    id: `jsearch_mobile_${Date.now()}`,
+                });
+                
+                jobs.push({
+                    id: `jsearch_ds_senior_${timestamp}_${Math.random()}`,
+                    title: 'Senior Data Scientist',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 18.000 - R$ 28.000',
+                    description: 'Deep learning, NLP, computer vision, TensorFlow, PyTorch, big data, Spark.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=senior%20data%20scientist',
+                    category: 'cientista',
+                    type: 'senior'
+                });
+            }
+            
+            if (query.includes('mobile') || query.includes('react native') || query.includes('flutter')) {
+                jobs.push({
+                    id: `jsearch_mobile_${timestamp}_${Math.random()}`,
                     title: 'Mobile Developer React Native',
                     company: companies[Math.floor(Math.random() * companies.length)],
-                    location: `${locations[Math.floor(Math.random() * locations.length)]} (Remoto)`,
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
                     salary: 'R$ 10.000 - R$ 16.000',
                     description: 'Desenvolvimento mobile React Native, integração APIs, testes automatizados, publicação stores.',
                     link: 'https://www.linkedin.com/jobs/search/?keywords=react%20native',
                     category: 'mobile',
                     type: 'senior'
-                }];
+                });
+                
+                jobs.push({
+                    id: `jsearch_flutter_${timestamp}_${Math.random()}`,
+                    title: 'Flutter Developer Senior',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 11.000 - R$ 17.000',
+                    description: 'Desenvolvimento Flutter, Dart, BLoC, GetX, integração APIs, testes de widget.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=flutter%20developer',
+                    category: 'mobile',
+                    type: 'senior'
+                });
             }
-            return [];
+            
+            if (query.includes('machine learning') || query.includes('ml engineer')) {
+                jobs.push({
+                    id: `jsearch_ml_${timestamp}_${Math.random()}`,
+                    title: 'Machine Learning Engineer',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 15.000 - R$ 25.000',
+                    description: 'MLOps, Kubernetes, Python, modelos em produção, monitoramento, pipelines de ML.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=machine%20learning%20engineer',
+                    category: 'ia',
+                    type: 'senior'
+                });
+            }
+            
+            if (query.includes('data analyst') || query.includes('business intelligence')) {
+                jobs.push({
+                    id: `jsearch_analyst_${timestamp}_${Math.random()}`,
+                    title: 'Data Analyst Pleno',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 7.000 - R$ 12.000',
+                    description: 'SQL avançado, Python, Power BI, dashboards, análise de dados de negócio.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=data%20analyst',
+                    category: 'analista',
+                    type: 'pleno'
+                });
+                
+                jobs.push({
+                    id: `jsearch_bi_${timestamp}_${Math.random()}`,
+                    title: 'Business Intelligence Analyst',
+                    company: companies[Math.floor(Math.random() * companies.length)],
+                    location: `${locations[Math.floor(Math.random() * locations.length)]} ${workModes[Math.floor(Math.random() * workModes.length)]}`,
+                    salary: 'R$ 8.000 - R$ 13.000',
+                    description: 'Tableau, Power BI, SQL, ETL, análise de métricas de negócio, relatórios executivos.',
+                    link: 'https://www.linkedin.com/jobs/search/?keywords=business%20intelligence',
+                    category: 'analista',
+                    type: 'pleno'
+                });
+            }
+            
+            return jobs;
         }
 
-        // Gerador de vagas brasileiras realistas
+        // Gerador de vagas brasileiras realistas - MUITO EXPANDIDO
         function generateMockBrazilianJobs() {
+            const timestamp = Date.now();
             return [
+                // Júnior positions
                 {
-                    id: `adzuna_1_${Date.now()}`,
+                    id: `adzuna_junior_1_${timestamp}`,
                     title: 'Analista de Dados Júnior',
                     company: 'Creditas',
                     location: 'São Paulo - SP (Híbrido)',
@@ -1417,7 +1690,31 @@
                     type: 'junior'
                 },
                 {
-                    id: `adzuna_2_${Date.now()}`,
+                    id: `adzuna_junior_2_${timestamp}`,
+                    title: 'Desenvolvedor Mobile Júnior',
+                    company: 'Gympass',
+                    location: 'São Paulo - SP (Remoto)',
+                    salary: 'R$ 5.500 - R$ 8.500',
+                    description: 'React Native, JavaScript, desenvolvimento de features simples, testes básicos.',
+                    link: 'https://gympass.com/carreiras',
+                    category: 'mobile',
+                    type: 'junior'
+                },
+                {
+                    id: `adzuna_junior_3_${timestamp}`,
+                    title: 'Data Scientist Trainee',
+                    company: 'Banco Santander',
+                    location: 'São Paulo - SP (Híbrido)',
+                    salary: 'R$ 4.500 - R$ 7.000',
+                    description: 'Python, pandas, estatística básica, modelos supervisionados simples, mentorias.',
+                    link: 'https://santander.com.br/carreiras',
+                    category: 'cientista',
+                    type: 'junior'
+                },
+                
+                // Pleno positions
+                {
+                    id: `adzuna_pleno_1_${timestamp}`,
                     title: 'ML Engineer Senior',
                     company: 'QuintoAndar',
                     location: 'São Paulo - SP (Remoto)',
@@ -1426,6 +1723,109 @@
                     link: 'https://quintoandar.com.br/carreiras',
                     category: 'ia',
                     type: 'senior'
+                },
+                {
+                    id: `adzuna_pleno_2_${timestamp}`,
+                    title: 'Senior Data Engineer',
+                    company: 'Uber',
+                    location: 'São Paulo - SP (Híbrido)',
+                    salary: 'R$ 16.000 - R$ 24.000',
+                    description: 'Apache Spark, Airflow, Python, Scala, big data, data lakes, streaming.',
+                    link: 'https://uber.com/carreiras',
+                    category: 'cientista',
+                    type: 'senior'
+                },
+                {
+                    id: `adzuna_pleno_3_${timestamp}`,
+                    title: 'iOS Developer Senior',
+                    company: '99',
+                    location: 'São Paulo - SP (Remoto)',
+                    salary: 'R$ 14.000 - R$ 20.000',
+                    description: 'Swift, UIKit, SwiftUI, arquitetura MVVM, Core Data, testes unitários.',
+                    link: 'https://99app.com/carreiras',
+                    category: 'mobile',
+                    type: 'senior'
+                },
+                {
+                    id: `adzuna_pleno_4_${timestamp}`,
+                    title: 'Data Analytics Manager',
+                    company: 'Rappi',
+                    location: 'São Paulo - SP (Híbrido)',
+                    salary: 'R$ 15.000 - R$ 22.000',
+                    description: 'Gestão de equipe, SQL avançado, Python, dashboards estratégicos, métricas de negócio.',
+                    link: 'https://rappi.com.br/carreiras',
+                    category: 'analista',
+                    type: 'senior'
+                },
+                
+                // Senior/Specialist positions
+                {
+                    id: `adzuna_senior_1_${timestamp}`,
+                    title: 'Principal Data Scientist',
+                    company: 'Meta (Facebook)',
+                    location: 'São Paulo - SP (Remoto)',
+                    salary: 'R$ 25.000 - R$ 40.000',
+                    description: 'Research, deep learning, NLP, computer vision, publicações, liderança técnica.',
+                    link: 'https://careers.meta.com',
+                    category: 'ia',
+                    type: 'senior'
+                },
+                {
+                    id: `adzuna_senior_2_${timestamp}`,
+                    title: 'Staff Mobile Engineer',
+                    company: 'Microsoft Brasil',
+                    location: 'São Paulo - SP (Híbrido)',
+                    salary: 'R$ 22.000 - R$ 35.000',
+                    description: 'Arquitetura mobile, React Native, performance, mentoria, design patterns.',
+                    link: 'https://careers.microsoft.com',
+                    category: 'mobile',
+                    type: 'senior'
+                },
+                {
+                    id: `adzuna_senior_3_${timestamp}`,
+                    title: 'AI Research Scientist',
+                    company: 'Google Brasil',
+                    location: 'São Paulo - SP (Híbrido)',
+                    salary: 'R$ 28.000 - R$ 45.000',
+                    description: 'Research em IA, machine learning, deep learning, publicações científicas.',
+                    link: 'https://careers.google.com',
+                    category: 'ia',
+                    type: 'senior'
+                },
+                
+                // Remote International
+                {
+                    id: `adzuna_international_1_${timestamp}`,
+                    title: 'Remote Data Scientist',
+                    company: 'Stripe',
+                    location: '🌍 Remoto (América Latina)',
+                    salary: 'USD 90.000 - USD 130.000',
+                    description: 'Fraud detection, payment analytics, Python, ML models, A/B testing.',
+                    link: 'https://stripe.com/jobs',
+                    category: 'cientista',
+                    type: 'remote'
+                },
+                {
+                    id: `adzuna_international_2_${timestamp}`,
+                    title: 'Senior Mobile Developer',
+                    company: 'Spotify',
+                    location: '🌍 Remoto Global',
+                    salary: 'USD 100.000 - USD 150.000',
+                    description: 'iOS/Android, music streaming features, real-time systems, performance.',
+                    link: 'https://spotify.com/careers',
+                    category: 'mobile',
+                    type: 'remote'
+                },
+                {
+                    id: `adzuna_international_3_${timestamp}`,
+                    title: 'ML Infrastructure Engineer',
+                    company: 'Netflix',
+                    location: '🌍 Remoto (LATAM)',
+                    salary: 'USD 120.000 - USD 180.000',
+                    description: 'MLOps, recommendation systems, distributed systems, TensorFlow, Kubernetes.',
+                    link: 'https://netflix.com/careers',
+                    category: 'ia',
+                    type: 'remote'
                 }
             ];
         }
