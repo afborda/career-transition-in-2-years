@@ -60,10 +60,32 @@ Pequeno contrato para `RoiCalculator` em React:
 - Output: { monthlyIncrease, roiPercentage, paybackMonths, fiveYearReturn }
 - Erros: entradas vazias ou target <= current devem retornar mensagem amigável.
 
-### Como ver a página localmente
+### Como acessar o site
+
+#### URLs disponíveis (após deploy):
+- **Domínio personalizado**: https://abnerfonseca.com.br
+- **GitHub Pages padrão**: https://afborda.github.io/career-transition-in-2-years/
+
+#### Configuração DNS necessária
+Para o domínio personalizado funcionar, configure estes registros DNS no seu provedor:
+
+**Registros A** (aponte para os IPs do GitHub Pages):
+```
+abnerfonseca.com.br  A  185.199.108.153
+abnerfonseca.com.br  A  185.199.109.153  
+abnerfonseca.com.br  A  185.199.110.153
+abnerfonseca.com.br  A  185.199.111.153
+```
+
+**Registro CNAME** (opcional, para www):
+```
+www.abnerfonseca.com.br  CNAME  afborda.github.io
+```
+
+#### Como ver localmente (durante desenvolvimento)
 
 1. Abra o arquivo `index.html` no navegador (duplo-clique ou `Open File` no editor).
-2. Para servir localmente (opcional), use um servidor estático simples. Por exemplo, com Python 3:
+2. Para servir localmente (opcional), use um servidor estático simples:
 
 ```bash
 python3 -m http.server 8000
