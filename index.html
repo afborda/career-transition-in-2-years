@@ -456,16 +456,238 @@
 
             <!-- Roadmap Tab -->
             <div id="roadmap" class="tab-content active">
-                <h2>📅 Cronograma 24 Meses</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>🍼 Trimestre 1 (Meses 1-3): Adaptação + Base</h3>
-                        <p><strong>Realidade:</strong> Noites mal dormidas, rotina imprevisível</p>
-                        <p><strong>Foco:</strong> Python + Estatística Básica</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%" id="progress-1"></div>
+                <!-- Enhanced Header -->
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2.5em; margin-bottom: 10px;">📚 Data Science Roadmap</h2>
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <h3 style="margin-bottom: 15px;">🍼 Papai Edition - Transformação em 24 meses</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 15px;">
+                            <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.5em; margin-bottom: 5px;">💰</div>
+                                <strong>Investimento</strong><br>
+                                <span style="font-size: 1.2em;">R$ 1.568 - R$ 3.203</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.5em; margin-bottom: 5px;">⏱️</div>
+                                <strong>Tempo/Semana</strong><br>
+                                <span style="font-size: 1.2em;">12-20h</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.5em; margin-bottom: 5px;">🎯</div>
+                                <strong>Meta Final</strong><br>
+                                <span style="font-size: 1.2em;">Senior DS</span>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 1.5em; margin-bottom: 5px;">📈</div>
+                                <strong>ROI Esperado</strong><br>
+                                <span style="font-size: 1.2em;">300-500%</span>
+                            </div>
                         </div>
-                        <p><strong>Cursos:</strong> Rocketseat Python + Udemy Estatística</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Timeline -->
+                <div style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h3 style="text-align: center; margin-bottom: 30px; color: #333;">🗓️ Linha do Tempo Interativa</h3>
+                    
+                    <!-- Timeline Container -->
+                    <div style="position: relative; margin: 30px 0; padding: 0 20px;">
+                        <!-- Timeline line -->
+                        <div style="position: absolute; top: 50%; left: 30px; right: 30px; height: 6px; background: linear-gradient(90deg, #ff9a9e, #a8edea, #ffecd2, #a8edea, #ff9a9e, #667eea, #764ba2, #FFD700); border-radius: 3px; z-index: 1;"></div>
+                        
+                        <!-- Timeline points -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+                            <div class="timeline-point" data-trimester="t1" onclick="showTrimesterDetails('t1')" style="background: white; border: 4px solid #ff9a9e; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">🍼</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #ff9a9e; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Base</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t2" onclick="showTrimesterDetails('t2')" style="background: white; border: 4px solid #a8edea; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(168, 237, 234, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">👶</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #a8edea; color: #333; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Analytics</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t3" onclick="showTrimesterDetails('t3')" style="background: white; border: 4px solid #ffecd2; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 236, 210, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">🤖</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #ffecd2; color: #333; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">ML Básico</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t4" onclick="showTrimesterDetails('t4')" style="background: white; border: 4px solid #a8edea; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(168, 237, 234, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">📈</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #a8edea; color: #333; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Portfolio</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t5" onclick="showTrimesterDetails('t5')" style="background: white; border: 4px solid #ff9a9e; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">🧠</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #ff9a9e; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Deep Learn</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t6" onclick="showTrimesterDetails('t6')" style="background: white; border: 4px solid #667eea; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">☁️</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #667eea; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">MLOps</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t7" onclick="showTrimesterDetails('t7')" style="background: white; border: 4px solid #764ba2; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">🤖</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #764ba2; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">IA Gen</div>
+                            </div>
+                            <div class="timeline-point" data-trimester="t8" onclick="showTrimesterDetails('t8')" style="background: white; border: 4px solid #FFD700; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); transition: all 0.3s ease; position: relative;">
+                                <span style="font-size: 1.3em;">🎯</span>
+                                <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); background: #FFD700; color: #333; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Job Hunt</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline labels -->
+                        <div style="display: flex; justify-content: space-between; margin-top: 70px; padding: 0 10px;">
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #ff9a9e;">1-3 meses</div>
+                                <div>12-15h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #a8edea;">4-6 meses</div>
+                                <div>14-16h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #ffecd2;">7-9 meses</div>
+                                <div>15-18h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #a8edea;">10-12 meses</div>
+                                <div>13-15h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #ff9a9e;">13-15 meses</div>
+                                <div>18-20h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #667eea;">16-18 meses</div>
+                                <div>17-19h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #764ba2;">19-21 meses</div>
+                                <div>20-22h/sem</div>
+                            </div>
+                            <div style="text-align: center; font-size: 0.8em; color: #666; max-width: 70px;">
+                                <div style="font-weight: bold; color: #FFD700;">22-24 meses</div>
+                                <div>12-15h/sem</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Enhanced Course Content -->
+                <div id="trimester-details">
+                    <!-- Trimestre 1 -->
+                    <div class="trimester-section" id="section-t1" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">🍼 TRIMESTRE 1 (Meses 1-3): Adaptação + Base</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Python + Estatística Básica | 12-15h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 27,90 (apenas Udemy - Rocketseat já incluído)
+                            </div>
+                        </div>
+
+                        <!-- Essenciais -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                                🚨 ESSENCIAIS (Prioridade Alta)
+                                <span style="background: #e74c3c; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OBRIGATÓRIO</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px;">
+                                <!-- Rocketseat Python -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #7159c1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🚀</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Rocketseat - Formação Python Completa</div>
+                                            <div style="color: #666; font-size: 0.95em;">Instrutor: Rodrigo Gonçalves (UNICAMP)</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold;">INCLUÍDO</span></div>
+                                            <div><strong>⏱️ Duração:</strong> ~40 horas</div>
+                                            <div><strong>🎯 Status:</strong> Pronto para começar</div>
+                                            <div><strong>📊 Nível:</strong> Iniciante ao Intermediário</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Python do zero, POO, Flask básico, testes
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Base sólida, já conhece a didática da Rocketseat
+                                    </div>
+                                    
+                                    <a href="https://www.rocketseat.com.br/formacao/python" target="_blank" style="display: inline-block; background: #7159c1; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🚀 Acessar Rocketseat
+                                    </a>
+                                </div>
+
+                                <!-- Udemy Estatística -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">📊</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Udemy - Estatística para Data Science</div>
+                                            <div style="color: #666; font-size: 0.95em;">Instrutor: Jones Granatyr</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 27,90</span></div>
+                                            <div><strong>⏱️ Duração:</strong> 160+ aulas (~20h)</div>
+                                            <div><strong>🎯 Idioma:</strong> Português</div>
+                                            <div><strong>📊 Rating:</strong> ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Estatística descritiva, inferencial, distribuições, testes
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Base matemática essencial, em português
+                                    </div>
+                                    
+                                    <a href="https://udemy.com/course/estatistica-para-ciencia-de-dados-machine-learning/" target="_blank" style="display: inline-block; background: #a020f0; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        📊 Ver na Udemy
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complementares -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #f39c12; margin-bottom: 15px; display: flex; align-items: center;">
+                                ⭐ COMPLEMENTARES (Prioridade Média)
+                                <span style="background: #f39c12; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OPCIONAL</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Curso em Vídeo -->
+                                <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 50px; height: 50px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.3em;">🐍</div>
+                                        <div>
+                                            <div style="font-size: 1.1em; font-weight: bold; color: #f39c12; margin-bottom: 5px;">Curso em Vídeo - Python 3</div>
+                                            <div style="color: #666; font-size: 0.9em;">Gustavo Guanabara</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: #e8f5e8; padding: 12px; border-radius: 8px; margin: 12px 0; text-align: center;">
+                                        <strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold; font-size: 1.1em;">GRATUITO 🎉</span><br>
+                                        <strong>⏱️ Duração:</strong> 120 aulas
+                                    </div>
+                                    
+                                    <div style="margin: 12px 0;">
+                                        <strong>📚 Conteúdo:</strong> Python básico ao avançado<br>
+                                        <strong>✅ Por que:</strong> Reforço gratuito, didática excelente
+                                    </div>
+                                    
+                                    <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" style="display: inline-block; background: #4CAF50; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; width: calc(100% - 32px); text-align: center;">
+                                        🐍 Acessar Grátis
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cronograma detalhado existente -->
                         
                         <!-- Cronograma detalhado de horas -->
                         <div style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
@@ -507,7 +729,699 @@
                         </ul>
                     </div>
 
-                    <div class="timeline-item">
+                    <!-- Trimestre 2 -->
+                    <div class="trimester-section" id="section-t2" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">👶 TRIMESTRE 2 (Meses 4-6): Data Analytics</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Pandas, Visualização, Primeiros Dashboards | 14-16h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 565,90 (Udemy + AWS Prova)
+                            </div>
+                        </div>
+
+                        <!-- Essenciais T2 -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                                🚨 ESSENCIAIS (Prioridade Alta)
+                                <span style="background: #e74c3c; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OBRIGATÓRIO</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Rocketseat Data Analytics -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #7159c1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🚀</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Rocketseat - Formação Data Analytics</div>
+                                            <div style="color: #666; font-size: 0.95em;">Equipe Rocketseat</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold;">INCLUÍDO</span></div>
+                                            <div><strong>⏱️ Duração:</strong> ~50 horas</div>
+                                            <div><strong>🎯 Continuidade:</strong> Natural do Python</div>
+                                            <div><strong>📊 Nível:</strong> Intermediário</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Python para dados, SQL, Pandas, visualizações
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Continuidade natural do seu learning path
+                                    </div>
+                                    
+                                    <a href="https://www.rocketseat.com.br/formacao/data-analytics" target="_blank" style="display: inline-block; background: #7159c1; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🚀 Acessar Rocketseat
+                                    </a>
+                                </div>
+
+                                <!-- Python para Data Science -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🐼</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Udemy - Python para Data Science</div>
+                                            <div style="color: #666; font-size: 0.95em;">Anderson Carlos</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 27,90</span></div>
+                                            <div><strong>⏱️ Duração:</strong> ~25 horas</div>
+                                            <div><strong>🎯 Foco:</strong> Análise de dados</div>
+                                            <div><strong>📊 Rating:</strong> ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Pandas, NumPy, Matplotlib, Seaborn, projetos práticos
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Foco específico em análise de dados
+                                    </div>
+                                    
+                                    <a href="https://udemy.com/course/python-para-data-science-e-analytics/" target="_blank" style="display: inline-block; background: #a020f0; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🐼 Ver na Udemy
+                                    </a>
+                                </div>
+
+                                <!-- AWS Cloud Practitioner -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #FF9900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">☁️</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">AWS Cloud Practitioner</div>
+                                            <div style="color: #666; font-size: 0.95em;">AWS Training</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>📚 Preparação:</strong> <span style="color: #27ae60; font-weight: bold;">GRATUITO</span></div>
+                                            <div><strong>💰 Prova:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 510</span></div>
+                                            <div><strong>🎯 Idioma:</strong> Português disponível</div>
+                                            <div><strong>🏆 Certificação:</strong> Essencial mercado</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Fundamentos AWS em português
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Certificação essencial para o mercado
+                                    </div>
+                                    
+                                    <a href="https://aws.amazon.com/pt/training/digital/" target="_blank" style="display: inline-block; background: #FF9900; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        ☁️ AWS Training
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complementares T2 -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #f39c12; margin-bottom: 15px; display: flex; align-items: center;">
+                                ⭐ COMPLEMENTARES (Prioridade Média)
+                                <span style="background: #f39c12; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OPCIONAL</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Alura Pandas -->
+                                <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 50px; height: 50px; background: #1976D2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.3em;">📈</div>
+                                        <div>
+                                            <div style="font-size: 1.1em; font-weight: bold; color: #f39c12; margin-bottom: 5px;">Alura - Pandas e NumPy</div>
+                                            <div style="color: #666; font-size: 0.9em;">Qualidade Alura</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: #e8f4fd; padding: 12px; border-radius: 8px; margin: 12px 0; text-align: center;">
+                                        <strong>💰 Preço:</strong> <span style="color: #1976D2; font-weight: bold;">R$ 75/mês</span><br>
+                                        <small>(pode fazer em 1 mês)</small>
+                                    </div>
+                                    
+                                    <div style="margin: 12px 0;">
+                                        <strong>📚 Conteúdo:</strong> Manipulação de dados aprofundada<br>
+                                        <strong>✅ Por que:</strong> Qualidade Alura, em português
+                                    </div>
+                                    
+                                    <a href="https://www.alura.com.br/formacao-pandas-numpy" target="_blank" style="display: inline-block; background: #1976D2; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; width: calc(100% - 32px); text-align: center;">
+                                        📈 Ver na Alura
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investment Summary and Strategic Tips -->
+                    <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 20px; margin: 30px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                        <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em;">💰 Resumo de Investimento Inteligente</h2>
+                        
+                        <!-- Investment Breakdown -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                            <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; text-align: center;">
+                                <h3 style="margin: 0 0 15px 0; color: #FFD700;">🎯 CUSTOS OBRIGATÓRIOS</h3>
+                                <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">R$ 1.568,20</div>
+                                <div style="font-size: 0.9em; opacity: 0.9; text-align: left;">
+                                    • Rocketseat: R$ 0 (já tem conta)<br>
+                                    • Udemy (8 cursos): R$ 223,20<br>
+                                    • AWS Cloud Practitioner: R$ 510<br>
+                                    • AWS Developer Associate: R$ 765<br>
+                                    • LeetCode Premium (2m): R$ 70
+                                </div>
+                            </div>
+
+                            <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 15px; text-align: center;">
+                                <h3 style="margin: 0 0 15px 0; color: #90EE90;">⭐ CUSTOS OPCIONAIS</h3>
+                                <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">R$ 1.635</div>
+                                <div style="font-size: 0.9em; opacity: 0.9; text-align: left;">
+                                    • Alura (1 mês): R$ 75<br>
+                                    • LinkedIn Learning (1m): R$ 30<br>
+                                    • AWS ML Specialty: R$ 1.530
+                                </div>
+                            </div>
+
+                            <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; text-align: center; border: 2px solid #FFD700;">
+                                <h3 style="margin: 0 0 15px 0; color: #FFD700;">🎉 TOTAL MÉDIO</h3>
+                                <div style="font-size: 2em; font-weight: bold; margin-bottom: 10px;">R$ 2.385</div>
+                                <div style="font-size: 1.1em; font-weight: bold; color: #FFD700;">R$ 99/mês em 24 meses</div>
+                                <div style="font-size: 0.8em; margin-top: 5px; opacity: 0.9;">Menos que uma academia!</div>
+                            </div>
+                        </div>
+
+                        <!-- Strategic Tips -->
+                        <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px;">
+                            <h3 style="text-align: center; margin-bottom: 20px;">🎯 Dicas Estratégicas do Papai</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">🚀</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #FFD700;">Rocketseat First</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Aproveite ao máximo sua conta existente - R$ 0 de custo adicional!</p>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">⏰</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #90EE90;">Udemy Sales</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Compre sempre nas promoções - todos os cursos por R$ 27,90</p>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">📚</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #87CEEB;">40% Gratuito</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Coursera, Kaggle, YouTube - aproveite o conteúdo free</p>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">🏆</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #FFB6C1;">Certificações AWS</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Invista nas que estão em português</p>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">👥</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #DDA0DD;">Comunidades</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Discord Rocketseat, Kaggle, LinkedIn</p>
+                                </div>
+
+                                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">🍼</div>
+                                    <h4 style="margin: 0 0 10px 0; color: #F0E68C;">Hack do Papai</h4>
+                                    <p style="margin: 0; font-size: 0.9em;">Podcasts de DS durante as mamadas noturnas! 🎧</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Access to All Trimesters -->
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center;">
+                            <h3 style="margin-bottom: 15px;">📋 Acesso Rápido aos Trimestres</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                <button onclick="showTrimesterSummary('t3')" style="background: #ffecd2; color: #333; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">🤖 T3 - ML Básico</button>
+                                <button onclick="showTrimesterSummary('t4')" style="background: #a8edea; color: #333; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">📈 T4 - Portfolio</button>
+                                <button onclick="showTrimesterSummary('t5')" style="background: #ff9a9e; color: white; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">🧠 T5 - Deep Learning</button>
+                                <button onclick="showTrimesterSummary('t6')" style="background: #667eea; color: white; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">☁️ T6 - MLOps</button>
+                                <button onclick="showTrimesterSummary('t7')" style="background: #764ba2; color: white; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">🤖 T7 - IA Gen</button>
+                                <button onclick="showTrimesterSummary('t8')" style="background: #FFD700; color: #333; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: all 0.3s;">🎯 T8 - Job Hunt</button>
+                            </div>
+                            <div style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                                <em>💡 Dica: Clique nos botões para ver um resumo rápido de cada trimestre</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 3 -->
+                    <div class="trimester-section" id="section-t3" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">🤖 TRIMESTRE 3 (Meses 7-9): Machine Learning Básico</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Algoritmos Clássicos, Primeiros Modelos | 15-18h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 27,90 + Conteúdo Gratuito Premium
+                            </div>
+                        </div>
+
+                        <!-- Essenciais T3 -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                                🚨 ESSENCIAIS (Prioridade Alta)
+                                <span style="background: #e74c3c; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OBRIGATÓRIO</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Rocketseat IA -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #7159c1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🚀</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Rocketseat - Formação IA</div>
+                                            <div style="color: #666; font-size: 0.95em;">Equipe Rocketseat</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold;">INCLUÍDO</span></div>
+                                            <div><strong>📅 Status:</strong> Em gravação</div>
+                                            <div><strong>🎯 Foco:</strong> IA para devs</div>
+                                            <div><strong>📊 Nível:</strong> Intermediário</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Fundamentos IA, ML, estatística para devs
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Alinhado com seu perfil de desenvolvedor
+                                    </div>
+                                    
+                                    <a href="https://www.rocketseat.com.br/formacao/ia" target="_blank" style="display: inline-block; background: #7159c1; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🚀 Ver Rocketseat
+                                    </a>
+                                </div>
+
+                                <!-- Udemy ML A-Z -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🤖</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Udemy - Machine Learning A-Z</div>
+                                            <div style="color: #666; font-size: 0.95em;">Jones Granatyr</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 27,90</span></div>
+                                            <div><strong>⏱️ Duração:</strong> ~45 horas</div>
+                                            <div><strong>👥 Alunos:</strong> 40k+</div>
+                                            <div><strong>📊 Rating:</strong> ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Algoritmos clássicos, scikit-learn, projetos reais
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Curso mais completo em português
+                                    </div>
+                                    
+                                    <a href="https://udemy.com/course/machine-learning-e-data-science-com-python-y/" target="_blank" style="display: inline-block; background: #a020f0; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🤖 Ver Udemy
+                                    </a>
+                                </div>
+
+                                <!-- Coursera Andrew Ng -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #0073e6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🌊</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Coursera - ML Andrew Ng</div>
+                                            <div style="color: #666; font-size: 0.95em;">Andrew Ng (Stanford)</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold;">GRATUITO</span></div>
+                                            <div><strong>🎓 Bolsa:</strong> Disponível</div>
+                                            <div><strong>🏛️ Universidade:</strong> Stanford</div>
+                                            <div><strong>🎯 Idioma:</strong> Inglês c/ PT</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Teoria sólida, matemática do ML
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Melhor curso de ML do mundo
+                                    </div>
+                                    
+                                    <a href="https://www.coursera.org/learn/machine-learning" target="_blank" style="display: inline-block; background: #0073e6; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🌊 Ver Coursera
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complementares T3 -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #f39c12; margin-bottom: 15px; display: flex; align-items: center;">
+                                ⭐ COMPLEMENTARES (Prioridade Média)
+                                <span style="background: #f39c12; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OPCIONAL</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Kaggle Learn -->
+                                <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 50px; height: 50px; background: #20beff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.3em;">🔬</div>
+                                        <div>
+                                            <div style="font-size: 1.1em; font-weight: bold; color: #f39c12; margin-bottom: 5px;">Kaggle Learn - Machine Learning</div>
+                                            <div style="color: #666; font-size: 0.9em;">Kaggle</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: #e8f5e8; padding: 12px; border-radius: 8px; margin: 12px 0; text-align: center;">
+                                        <strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold; font-size: 1.1em;">GRATUITO 🎉</span><br>
+                                        <strong>⏱️ Duração:</strong> ~7 horas
+                                    </div>
+                                    
+                                    <div style="margin: 12px 0;">
+                                        <strong>📚 Conteúdo:</strong> Prática direta, notebooks interativos<br>
+                                        <strong>✅ Por que:</strong> Hands-on, comunidade ativa
+                                    </div>
+                                    
+                                    <a href="https://www.kaggle.com/learn/machine-learning" target="_blank" style="display: inline-block; background: #20beff; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; width: calc(100% - 32px); text-align: center;">
+                                        🔬 Kaggle Learn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 4 -->
+                    <div class="trimester-section" id="section-t4" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #a8edea, #fed6e3); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">📈 TRIMESTRE 4 (Meses 10-12): Portfolio + Networking</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Consolidar Aprendizado, GitHub Profissional | 13-15h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 57,80 (grande parte gratuito)
+                            </div>
+                        </div>
+
+                        <!-- Essenciais T4 -->
+                        <div style="margin-bottom: 25px;">
+                            <h3 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                                🚨 ESSENCIAIS (Prioridade Alta)
+                                <span style="background: #e74c3c; color: white; padding: 4px 8px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;">OBRIGATÓRIO</span>
+                            </h3>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                                <!-- Hashtag Programação -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #FF0000; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">📱</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">YouTube - Hashtag Programação</div>
+                                            <div style="color: #666; font-size: 0.95em;">Canal Hashtag Programação</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #27ae60; font-weight: bold;">GRATUITO</span></div>
+                                            <div><strong>🎯 Foco:</strong> Projetos práticos</div>
+                                            <div><strong>⭐ Qualidade:</strong> Alta</div>
+                                            <div><strong>📊 Nível:</strong> Intermediário</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Projetos de Data Science, Portfolio no GitHub
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Projetos práticos, qualidade alta
+                                    </div>
+                                    
+                                    <a href="https://youtube.com/@HashtagProgramacao" target="_blank" style="display: inline-block; background: #FF0000; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        📱 Ver Canal
+                                    </a>
+                                </div>
+
+                                <!-- LinkedIn Learning -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #0077B5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">💼</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">LinkedIn Learning - Data Science Portfolio</div>
+                                            <div style="color: #666; font-size: 0.95em;">LinkedIn Learning</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 29,90/mês</span></div>
+                                            <div><strong>🎁 Trial:</strong> Gratuito</div>
+                                            <div><strong>🎯 Foco:</strong> Portfolio profissional</div>
+                                            <div><strong>📊 Networking:</strong> LinkedIn integrado</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> Como criar portfolio impactante
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Networking e apresentação profissional
+                                    </div>
+                                    
+                                    <a href="https://linkedin.com/learning" target="_blank" style="display: inline-block; background: #0077B5; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        💼 LinkedIn Learning
+                                    </a>
+                                </div>
+
+                                <!-- 5 Projetos Data Science -->
+                                <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                        <div style="width: 60px; height: 60px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.5em;">🎯</div>
+                                        <div>
+                                            <div style="font-size: 1.2em; font-weight: bold; color: #e74c3c; margin-bottom: 5px;">Udemy - 5 Projetos de Data Science</div>
+                                            <div style="color: #666; font-size: 0.95em;">Fernando Amaral</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9em;">
+                                            <div><strong>💰 Preço:</strong> <span style="color: #e67e22; font-weight: bold;">R$ 27,90</span></div>
+                                            <div><strong>📂 Projetos:</strong> 5 completos</div>
+                                            <div><strong>🎯 Foco:</strong> GitHub ready</div>
+                                            <div><strong>📊 Casos:</strong> Reais</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin: 15px 0;">
+                                        <strong>📚 Conteúdo:</strong> 5 projetos completos para GitHub
+                                    </div>
+                                    <div style="margin: 15px 0;">
+                                        <strong>✅ Por que:</strong> Portfolio pronto, casos reais
+                                    </div>
+                                    
+                                    <a href="https://udemy.com/course/projetos-data-science/" target="_blank" style="display: inline-block; background: #a020f0; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: background 0.3s;">
+                                        🎯 Ver na Udemy
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meta do Trimestre -->
+                        <div style="background: #e8f4fd; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;">
+                            <h4 style="margin: 0 0 15px 0; color: #667eea; font-size: 1.3em;">🎯 Meta Principal do Trimestre</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                                <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">📂</div>
+                                    <strong>Portfolio GitHub</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">5+ projetos completos</span>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">👥</div>
+                                    <strong>Networking Ativo</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">LinkedIn + Comunidades</span>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">🌟</div>
+                                    <strong>Personal Brand</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">Apresentação profissional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 5 -->
+                    <div class="trimester-section" id="section-t5" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">🧠 TRIMESTRE 5 (Meses 13-15): Deep Learning + NLP</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Redes Neurais, Processamento de Texto | 18-20h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 55,80 + Conteúdo Premium Gratuito
+                            </div>
+                        </div>
+
+                        <!-- Cursos T5 (resumido para economia de espaço) -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">🌊 Deep Learning A-Z</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 27,90 | <strong>👨‍🏫</strong> Kirill Eremenko</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Melhor curso mundial de Deep Learning</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">🧠 IA Completa 2025</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 27,90 | <strong>👨‍🏫</strong> Fernando Amaral</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">IA Generativa, LLMs, RAG, Agents</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🤗 Hugging Face Course</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🏢</strong> Oficial</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Transformers, BERT, GPT, fine-tuning</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🎓 Fast.ai Course</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🎯</strong> Top-down</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Metodologia única, muito prático</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 6 -->
+                    <div class="trimester-section" id="section-t6" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">☁️ TRIMESTRE 6 (Meses 16-18): Cloud + MLOps</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Produção, Pipelines Automatizados | 17-19h/semana</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 927,90 (inclui certificação AWS)
+                            </div>
+                        </div>
+
+                        <!-- Cursos T6 -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">☁️ AWS SageMaker</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🏢</strong> AWS Official</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Deploy de modelos, MLOps na AWS</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">🐳 Docker para Devs</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 27,90 | <strong>👨‍🏫</strong> Leonardo Leitão</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Containers, deploy essencial</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">📜 AWS Developer Associate</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 900 | <strong>🏆</strong> Certificação</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Valorizada no mercado - Meta: Mês 18</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">⚙️ Learn Kubernetes</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🎯</strong> Oficial</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Orquestração de containers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 7 -->
+                    <div class="trimester-section" id="section-t7" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #764ba2, #667eea); color: white; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">🤖 TRIMESTRE 7 (Meses 19-21): IA Generativa + Agents</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">LLMs, RAG, Automação Inteligente | 20-22h/semana</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 27,90 + Premium Gratuito
+                            </div>
+                        </div>
+
+                        <!-- Cursos T7 -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">🚀 Cientista de Dados 2025</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 27,90 | <strong>👥</strong> 250k+ alunos</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Estatística → LLMs, IA Agents completo</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🤖 OpenAI Cookbook</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🏢</strong> OpenAI Oficial</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">GPT, fine-tuning, sempre atualizado</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🦜 LangChain Academy</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🎯</strong> Framework #1</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">RAG, Agents, chains complexas</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🧠 ChatGPT Prompt Engineering</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>👨‍🏫</strong> Andrew Ng</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Fundamentos prompt engineering</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trimestre 8 -->
+                    <div class="trimester-section" id="section-t8" style="background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 25px; text-align: center;">
+                            <h2 style="margin: 0; font-size: 1.8em;">🎯 TRIMESTRE 8 (Meses 22-24): Job Hunting</h2>
+                            <div style="margin-top: 10px; font-size: 1.1em; opacity: 0.9;">Transição Profissional Ativa | 12-15h/semana</div>
+                            <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 10px; margin-top: 15px;">
+                                <strong>💰 Investimento estimado:</strong> R$ 97,90 (final sprint!)
+                            </div>
+                        </div>
+
+                        <!-- Cursos T8 -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">💼 Interview Prep DS</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 27,90 | <strong>🎯</strong> Technical interviews</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Case studies, preparação específica</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #ffe6e6, #fff0f0); border-left: 5px solid #e74c3c; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #e74c3c; margin: 0 0 10px 0;">📈 LeetCode Premium</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> R$ 35/mês (2m) | <strong>🏢</strong> Big techs</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Algoritmos, estruturas de dados</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fff9e6, #fffacd); border-left: 5px solid #f39c12; border-radius: 10px; padding: 15px;">
+                                <h4 style="color: #f39c12; margin: 0 0 10px 0;">🎯 Seja Data Scientist</h4>
+                                <p style="margin: 5px 0; font-size: 0.9em;"><strong>💰</strong> GRATUITO | <strong>🇧🇷</strong> Mercado BR</p>
+                                <p style="margin: 5px 0; font-size: 0.9em;">Networking, dicas do Mário Filho</p>
+                            </div>
+                        </div>
+
+                        <!-- Estratégia de Busca -->
+                        <div style="background: #e8f4fd; padding: 20px; border-radius: 15px; text-align: center;">
+                            <h4 style="margin: 0 0 15px 0; color: #667eea; font-size: 1.3em;">🎯 Estratégia de Job Hunting</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+                                <div style="background: white; padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">📋</div>
+                                    <strong>50% Applications</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">6h/semana - LinkedIn, vagas, headhunters</span>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">💻</div>
+                                    <strong>30% Prep Técnica</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">4h/semana - Exercícios, cases, algoritmos</span>
+                                </div>
+                                <div style="background: white; padding: 15px; border-radius: 10px;">
+                                    <div style="font-size: 2em; margin-bottom: 10px;">🤝</div>
+                                    <strong>20% Networking</strong><br>
+                                    <span style="color: #666; font-size: 0.9em;">3h/semana - Eventos, conexões, referrals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for trimester summaries -->
+                    <div id="trimester-summary" style="display: none; background: white; border-radius: 20px; padding: 30px; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <!-- Summary content will be inserted here dynamically -->
+                    </div>
+                </div>
+
+                <div class="timeline-item">
                         <h3>👶 Trimestre 2 (Meses 4-6): Data Analytics</h3>
                         <p><strong>Foco:</strong> Pandas, visualização, primeiros dashboards</p>
                         <div class="progress-bar">
@@ -955,74 +1869,264 @@
 
             <!-- Courses Tab -->
             <div id="courses" class="tab-content">
-                <h2>📚 Cursos Selecionados</h2>
-                
-                <h3>🟢 Rocketseat (Sua Conta Existente)</h3>
-                <div class="course-grid">
-                    <div class="course-card">
-                        <div class="course-title">🐍 Formação Python Completa</div>
-                        <p>Base sólida em Python, Flask, POO</p>
-                        <p><strong>Professor:</strong> UNICAMP + USP especialista</p>
-                        <a href="https://www.rocketseat.com.br/formacao/python" class="course-link" target="_blank">Acessar Curso</a>
-                    </div>
+                <h2>📚 Cursos Detalhados por Trimestre</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                    Cronograma completo de cursos organizados por prioridade e trimestre
+                </p>
 
-                    <div class="course-card">
-                        <div class="course-title">📊 Formação Data Analytics</div>
-                        <p>Python + SQL, visualizações, insights de negócio</p>
-                        <p><strong>Foco:</strong> Análise prática de dados</p>
-                        <a href="https://www.rocketseat.com.br/formacao/data-analytics" class="course-link" target="_blank">Acessar Curso</a>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-title">🤖 Formação Inteligência Artificial</div>
-                        <p>Fundamentos IA, ML, estatística para devs</p>
-                        <p><strong>Status:</strong> Em gravação (conteúdo sendo liberado)</p>
-                        <a href="https://www.rocketseat.com.br/formacao/ia" class="course-link" target="_blank">Acessar Curso</a>
+                <!-- Resumo de Investimento -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+                    <h3>� Resumo de Investimento Total</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.8em; font-weight: bold;">R$ 1.568</div>
+                            <div>Custos Obrigatórios</div>
+                            <small>Essenciais para a transição</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.8em; font-weight: bold;">R$ 1.635</div>
+                            <div>Custos Opcionais</div>
+                            <small>Para acelerar o aprendizado</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.8em; font-weight: bold;">R$ 99/mês</div>
+                            <div>Média Mensal</div>
+                            <small>Durante 24 meses</small>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 1.8em; font-weight: bold;">40%</div>
+                            <div>Conteúdo Gratuito</div>
+                            <small>Estratégia inteligente</small>
+                        </div>
                     </div>
                 </div>
 
-                <h3>🟡 Udemy (Prioridade Alta)</h3>
-                <div class="course-grid">
-                    <div class="course-card">
-                        <div class="course-title">📈 Estatística para Data Science</div>
-                        <p>Base matemática essencial - Jones Granatyr</p>
-                        <p><strong>160+ aulas</strong> | Português | ⭐ 4.7</p>
-                        <a href="https://udemy.com/course/estatistica-para-ciencia-de-dados-machine-learning/" class="course-link" target="_blank">Ver no Udemy</a>
+                <!-- Filtro de Trimestres -->
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+                    <button class="filter-btn active" onclick="filterCourses('all')">🔍 Todos</button>
+                    <button class="filter-btn" onclick="filterCourses('t1')">🍼 T1 - Base</button>
+                    <button class="filter-btn" onclick="filterCourses('t2')">👶 T2 - Analytics</button>
+                    <button class="filter-btn" onclick="filterCourses('t3')">🤖 T3 - ML Básico</button>
+                    <button class="filter-btn" onclick="filterCourses('t4')">📈 T4 - Portfolio</button>
+                    <button class="filter-btn" onclick="filterCourses('t5')">🧠 T5 - Deep Learning</button>
+                    <button class="filter-btn" onclick="filterCourses('t6')">☁️ T6 - Cloud</button>
+                    <button class="filter-btn" onclick="filterCourses('t7')">🤖 T7 - IA Gen</button>
+                    <button class="filter-btn" onclick="filterCourses('t8')">🎯 T8 - Job Hunt</button>
+                </div>
+
+                <!-- Trimestre 1 -->
+                <div class="course-trimester" data-trimester="t1">
+                    <h3 style="background: linear-gradient(135deg, #ff9a9e, #fecfef); color: #333; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        🍼 TRIMESTRE 1 (Meses 1-3): Adaptação + Base
+                        <div style="font-size: 0.8em; margin-top: 5px;">Python + Estatística Básica | 12-15h/semana</div>
+                    </h3>
+
+                    <h4 style="color: #e74c3c; margin: 20px 0 10px 0;">🚨 ESSENCIAIS (Prioridade Alta)</h4>
+                    <div class="course-grid">
+                        <div class="course-card" style="border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6, #fff0f0);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #7159c1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold; font-size: 1.2em;">🚀</div>
+                                <div>
+                                    <div class="course-title" style="color: #e74c3c;">Rocketseat - Formação Python</div>
+                                    <div style="color: #666; font-size: 0.9em;">Rodrigo Gonçalves (UNICAMP)</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preço:</strong> INCLUÍDO (sua conta)<br>
+                                <strong>⏱️ Duração:</strong> ~40 horas<br>
+                                <strong>🎯 Status:</strong> Pronto para começar
+                            </div>
+                            <p><strong>Conteúdo:</strong> Python do zero, POO, Flask básico, testes</p>
+                            <p><strong>Por que:</strong> Base sólida, já conhece a didática da Rocketseat</p>
+                            <a href="https://www.rocketseat.com.br/formacao/python" class="course-link" target="_blank">Acessar Rocketseat</a>
+                        </div>
+
+                        <div class="course-card" style="border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6, #fff0f0);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">📊</div>
+                                <div>
+                                    <div class="course-title" style="color: #e74c3c;">Udemy - Estatística para DS</div>
+                                    <div style="color: #666; font-size: 0.9em;">Jones Granatyr</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preço:</strong> R$ 27,90 (promoção)<br>
+                                <strong>⏱️ Duração:</strong> 160+ aulas, ~20h<br>
+                                <strong>🎯 Idioma:</strong> Português
+                            </div>
+                            <p><strong>Conteúdo:</strong> Estatística descritiva, inferencial, distribuições, testes</p>
+                            <p><strong>Por que:</strong> Base matemática essencial, em português</p>
+                            <a href="https://udemy.com/course/estatistica-para-ciencia-de-dados-machine-learning/" class="course-link" target="_blank">Ver na Udemy</a>
+                        </div>
                     </div>
 
-                    <div class="course-card">
-                        <div class="course-title">🐍 Python para Data Science</div>
-                        <p>Pandas, NumPy, visualização - Anderson Carlos</p>
-                        <p><strong>Prático</strong> | Português | Analytics focus</p>
-                        <a href="https://udemy.com/course/python-para-data-science-e-analytics/" class="course-link" target="_blank">Ver no Udemy</a>
+                    <h4 style="color: #f39c12; margin: 20px 0 10px 0;">⭐ COMPLEMENTARES (Prioridade Média)</h4>
+                    <div class="course-grid">
+                        <div class="course-card" style="border-left-color: #f39c12; background: linear-gradient(135deg, #fff9e6, #fffacd);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">🐍</div>
+                                <div>
+                                    <div class="course-title" style="color: #f39c12;">Curso em Vídeo - Python 3</div>
+                                    <div style="color: #666; font-size: 0.9em;">Gustavo Guanabara</div>
+                                </div>
+                            </div>
+                            <div style="background: #e8f5e8; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preço:</strong> GRATUITO 🎉<br>
+                                <strong>⏱️ Duração:</strong> 120 aulas<br>
+                                <strong>🎯 Nível:</strong> Básico ao avançado
+                            </div>
+                            <p><strong>Conteúdo:</strong> Python básico ao avançado</p>
+                            <p><strong>Por que:</strong> Reforço gratuito, didática excelente</p>
+                            <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" class="course-link" target="_blank">Acessar Grátis</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trimestre 2 -->
+                <div class="course-trimester" data-trimester="t2">
+                    <h3 style="background: linear-gradient(135deg, #a8edea, #fed6e3); color: #333; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        � TRIMESTRE 2 (Meses 4-6): Data Analytics
+                        <div style="font-size: 0.8em; margin-top: 5px;">Pandas, Visualização, Primeiros Dashboards | 14-16h/semana</div>
+                    </h3>
+
+                    <h4 style="color: #e74c3c; margin: 20px 0 10px 0;">🚨 ESSENCIAIS (Prioridade Alta)</h4>
+                    <div class="course-grid">
+                        <div class="course-card" style="border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6, #fff0f0);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #7159c1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">�</div>
+                                <div>
+                                    <div class="course-title" style="color: #e74c3c;">Rocketseat - Data Analytics</div>
+                                    <div style="color: #666; font-size: 0.9em;">Equipe Rocketseat</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preço:</strong> INCLUÍDO<br>
+                                <strong>⏱️ Duração:</strong> ~50 horas<br>
+                                <strong>🎯 Continuidade:</strong> Natural do Python
+                            </div>
+                            <p><strong>Conteúdo:</strong> Python para dados, SQL, Pandas, visualizações</p>
+                            <p><strong>Por que:</strong> Continuidade natural do seu learning path</p>
+                            <a href="https://www.rocketseat.com.br/formacao/data-analytics" class="course-link" target="_blank">Acessar Rocketseat</a>
+                        </div>
+
+                        <div class="course-card" style="border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6, #fff0f0);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #a020f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">�</div>
+                                <div>
+                                    <div class="course-title" style="color: #e74c3c;">Python para Data Science</div>
+                                    <div style="color: #666; font-size: 0.9em;">Anderson Carlos</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preço:</strong> R$ 27,90<br>
+                                <strong>⏱️ Duração:</strong> ~25 horas<br>
+                                <strong>🎯 Foco:</strong> Análise de dados
+                            </div>
+                            <p><strong>Conteúdo:</strong> Pandas, NumPy, Matplotlib, Seaborn, projetos práticos</p>
+                            <p><strong>Por que:</strong> Foco específico em análise de dados</p>
+                            <a href="https://udemy.com/course/python-para-data-science-e-analytics/" class="course-link" target="_blank">Ver na Udemy</a>
+                        </div>
+
+                        <div class="course-card" style="border-left-color: #e74c3c; background: linear-gradient(135deg, #ffe6e6, #fff0f0);">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div style="width: 50px; height: 50px; background: #FF9900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">☁️</div>
+                                <div>
+                                    <div class="course-title" style="color: #e74c3c;">AWS Cloud Practitioner</div>
+                                    <div style="color: #666; font-size: 0.9em;">AWS Training</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                                <strong>💰 Preparação:</strong> Gratuito<br>
+                                <strong>💰 Prova:</strong> R$ 510<br>
+                                <strong>🎯 Idioma:</strong> Português disponível
+                            </div>
+                            <p><strong>Conteúdo:</strong> Fundamentos AWS em português</p>
+                            <p><strong>Por que:</strong> Certificação essencial para o mercado</p>
+                            <a href="https://aws.amazon.com/pt/training/digital/" class="course-link" target="_blank">AWS Training</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão para expandir outros trimestres -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <button onclick="expandAllCourses()" style="padding: 15px 30px; background: linear-gradient(45deg, #667eea, #764ba2); color: white; border: none; border-radius: 25px; font-size: 1.1em; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        📚 Ver Todos os Trimestres Detalhados
+                    </button>
+                </div>
+
+                <!-- Trimestres restantes (inicialmente ocultos) -->
+                <div id="remainingCourses" style="display: none;">
+                    <!-- Trimestre 3 -->
+                    <div class="course-trimester" data-trimester="t3">
+                        <h3 style="background: linear-gradient(135deg, #ffecd2, #fcb69f); color: #333; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                            🤖 TRIMESTRE 3 (Meses 7-9): Machine Learning Básico
+                            <div style="font-size: 0.8em; margin-top: 5px;">Algoritmos Clássicos, Primeiros Modelos | 15-18h/semana</div>
+                        </h3>
+
+                        <div class="course-grid">
+                            <div class="course-card" style="border-left-color: #e74c3c;">
+                                <div class="course-title" style="color: #e74c3c;">🚀 Rocketseat - IA</div>
+                                <p><strong>Status:</strong> Em gravação</p>
+                                <p><strong>Preço:</strong> INCLUÍDO</p>
+                                <a href="https://www.rocketseat.com.br/formacao/ia" class="course-link" target="_blank">Ver Rocketseat</a>
+                            </div>
+
+                            <div class="course-card" style="border-left-color: #e74c3c;">
+                                <div class="course-title" style="color: #e74c3c;">🤖 ML A-Z (Jones Granatyr)</div>
+                                <p><strong>Preço:</strong> R$ 27,90</p>
+                                <p><strong>Alunos:</strong> 40k+</p>
+                                <a href="https://udemy.com/course/machine-learning-e-data-science-com-python-y/" class="course-link" target="_blank">Ver Udemy</a>
+                            </div>
+
+                            <div class="course-card" style="border-left-color: #e74c3c;">
+                                <div class="course-title" style="color: #e74c3c;">🌊 ML Andrew Ng</div>
+                                <p><strong>Preço:</strong> GRATUITO (bolsa)</p>
+                                <p><strong>Universidade:</strong> Stanford</p>
+                                <a href="https://www.coursera.org/learn/machine-learning" class="course-link" target="_blank">Ver Coursera</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="course-card">
-                        <div class="course-title">🤖 Machine Learning A-Z</div>
-                        <p>ML completo prático - Jones Granatyr</p>
-                        <p><strong>40k+ alunos</strong> | Português | Projetos reais</p>
-                        <a href="https://udemy.com/course/machine-learning-e-data-science-com-python-y/" class="course-link" target="_blank">Ver no Udemy</a>
+                    <!-- Outros trimestres de forma similar... -->
+                    <div class="course-trimester" data-trimester="t4">
+                        <h3 style="background: linear-gradient(135deg, #a8edea, #fed6e3); color: #333; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                            📈 TRIMESTRE 4 (Meses 10-12): Portfolio + Networking
+                        </h3>
+                        <div class="course-grid">
+                            <div class="course-card">
+                                <div class="course-title">📱 Hashtag Programação (GRATUITO)</div>
+                                <p>Projetos práticos para GitHub</p>
+                            </div>
+                            <div class="course-card">
+                                <div class="course-title">💼 LinkedIn Learning</div>
+                                <p>Portfolio profissional</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="course-card">
-                        <div class="course-title">🚀 Formação Cientista Dados 2025</div>
-                        <p>Completo: Estatística → LLMs - Fernando Amaral</p>
-                        <p><strong>250k+ alunos</strong> | Atualizado 2025 | IA Agents</p>
-                        <a href="https://udemy.com/course/cientista-de-dados/" class="course-link" target="_blank">Ver no Udemy</a>
-                    </div>
+                    <!-- Continue for T5-T8... -->
+                </div>
 
-                    <div class="course-card">
-                        <div class="course-title">🧠 IA Completa 2025</div>
-                        <p>170 aulas, IA Generativa - Fernando Amaral</p>
-                        <p><strong>LLMs, RAG, Agents</strong> | Deep Learning</p>
-                        <a href="https://udemy.com/course/inteligencia-artificial-e-machine-learning/" class="course-link" target="_blank">Ver no Udemy</a>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-title">🌊 Deep Learning A-Z</div>
-                        <p>Melhor curso DL mundial - Kirill Eremenko</p>
-                        <p><strong>Inglês c/ legendas PT</strong> | TensorFlow, PyTorch</p>
-                        <a href="https://udemy.com/course/deeplearning/" class="course-link" target="_blank">Ver no Udemy</a>
+                <!-- Dicas Estratégicas -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin-top: 30px;">
+                    <h3>🎯 Dicas Estratégicas do Papai</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                            <h4>🚀 Rocketseat First</h4>
+                            <p>Aproveite ao máximo sua conta existente - R$ 0 de custo adicional!</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                            <h4>⏰ Udemy Sales</h4>
+                            <p>Compre sempre nas promoções - todos os cursos por R$ 27,90</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                            <h4>📚 40% Gratuito</h4>
+                            <p>Coursera, Kaggle, YouTube - aproveite o conteúdo free</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
+                            <h4>🍼 Hack do Papai</h4>
+                            <p>Podcasts de DS durante as mamadas noturnas!</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3313,6 +4417,158 @@
             countdown.id = 'countdown';
             countdown.style.cssText = 'margin-top: 15px; font-size: 1.1em; color: #667eea; font-weight: bold;';
             header.appendChild(countdown);
+        });
+
+        // Enhanced Roadmap Interactive Features
+        function showTrimesterSummary(trimesterId) {
+            const summaryDiv = document.getElementById('trimester-summary');
+            const trimesterData = {
+                't3': {
+                    title: '🤖 TRIMESTRE 3 (Meses 7-9): Machine Learning Básico',
+                    subtitle: 'Algoritmos Clássicos, Primeiros Modelos | 15-18h/semana',
+                    investment: 'R$ 27,90 + Gratuitos',
+                    courses: [
+                        { name: '🚀 Rocketseat - Formação IA', price: 'INCLUÍDO', status: 'Em gravação' },
+                        { name: '🤖 Udemy - ML A-Z (Jones Granatyr)', price: 'R$ 27,90', status: '40k+ alunos' },
+                        { name: '🌊 Coursera - ML Andrew Ng', price: 'GRATUITO', status: 'Stanford' },
+                        { name: '🔬 Kaggle Learn - ML', price: 'GRATUITO', status: 'Prática direta' }
+                    ],
+                    focus: 'Algoritmos clássicos, scikit-learn, projetos reais',
+                    gradient: 'linear-gradient(135deg, #ffecd2, #fcb69f)'
+                },
+                't4': {
+                    title: '📈 TRIMESTRE 4 (Meses 10-12): Portfolio + Networking',
+                    subtitle: 'Consolidar Aprendizado, GitHub Profissional | 13-15h/semana',
+                    investment: 'R$ 29,90 (opcional)',
+                    courses: [
+                        { name: '📱 YouTube - Hashtag Programação', price: 'GRATUITO', status: 'Projetos práticos' },
+                        { name: '💼 LinkedIn Learning - Portfolio', price: 'R$ 29,90/mês', status: 'Trial gratuito' },
+                        { name: '🎯 Udemy - 5 Projetos DS', price: 'R$ 27,90', status: 'Portfolio pronto' }
+                    ],
+                    focus: 'Projetos de Data Science, Portfolio no GitHub, Networking',
+                    gradient: 'linear-gradient(135deg, #a8edea, #fed6e3)'
+                },
+                't5': {
+                    title: '🧠 TRIMESTRE 5 (Meses 13-15): Deep Learning + NLP',
+                    subtitle: 'Redes Neurais, Processamento de Texto | 18-20h/semana',
+                    investment: 'R$ 55,80',
+                    courses: [
+                        { name: '🌊 Udemy - Deep Learning A-Z', price: 'R$ 27,90', status: 'Melhor curso mundial' },
+                        { name: '🧠 Udemy - IA Completa 2025', price: 'R$ 27,90', status: 'IA Generativa, LLMs' },
+                        { name: '🤗 Hugging Face Course', price: 'GRATUITO', status: 'Transformers, BERT' },
+                        { name: '🎓 Fast.ai - Deep Learning', price: 'GRATUITO', status: 'Metodologia única' }
+                    ],
+                    focus: 'Redes neurais, transformers, processamento de linguagem natural',
+                    gradient: 'linear-gradient(135deg, #ff9a9e, #fecfef)'
+                },
+                't6': {
+                    title: '☁️ TRIMESTRE 6 (Meses 16-18): Cloud + MLOps',
+                    subtitle: 'Produção, Pipelines Automatizados | 17-19h/semana',
+                    investment: 'R$ 927,90',
+                    courses: [
+                        { name: '☁️ AWS Training - SageMaker', price: 'GRATUITO', status: 'Deploy modelos' },
+                        { name: '🐳 Udemy - Docker para Devs', price: 'R$ 27,90', status: 'Containers' },
+                        { name: '📜 AWS Developer Associate', price: 'R$ 900', status: 'Certificação' },
+                        { name: '⚙️ Kubernetes.io - Learn K8s', price: 'GRATUITO', status: 'Orquestração' }
+                    ],
+                    focus: 'Deploy de modelos, pipelines, Docker, Kubernetes',
+                    gradient: 'linear-gradient(135deg, #667eea, #764ba2)'
+                },
+                't7': {
+                    title: '🤖 TRIMESTRE 7 (Meses 19-21): IA Generativa + Agents',
+                    subtitle: 'LLMs, RAG, Automação Inteligente | 20-22h/semana',
+                    investment: 'R$ 27,90',
+                    courses: [
+                        { name: '🚀 Udemy - Cientista Dados 2025', price: 'R$ 27,90', status: '250k+ alunos' },
+                        { name: '🤖 OpenAI Cookbook', price: 'GRATUITO', status: 'Oficial OpenAI' },
+                        { name: '🦜 LangChain Academy', price: 'GRATUITO', status: 'RAG, Agents' },
+                        { name: '🧠 DeepLearning.AI - ChatGPT', price: 'GRATUITO', status: 'Andrew Ng' }
+                    ],
+                    focus: 'LLMs, RAG, chains complexas, IA agents',
+                    gradient: 'linear-gradient(135deg, #764ba2, #667eea)'
+                },
+                't8': {
+                    title: '🎯 TRIMESTRE 8 (Meses 22-24): Job Hunting',
+                    subtitle: 'Transição Profissional Ativa | 12-15h/semana',
+                    investment: 'R$ 97,90',
+                    courses: [
+                        { name: '💼 Udemy - Interview Prep DS', price: 'R$ 27,90', status: 'Tech interviews' },
+                        { name: '📈 LeetCode Premium', price: 'R$ 35/mês (2m)', status: 'Big techs' },
+                        { name: '🎯 YouTube - Seja Data Scientist', price: 'GRATUITO', status: 'Mercado brasileiro' }
+                    ],
+                    focus: 'Technical interviews, case studies, networking ativo',
+                    gradient: 'linear-gradient(135deg, #FFD700, #FFA500)'
+                }
+            };
+
+            const data = trimesterData[trimesterId];
+            if (!data) return;
+
+            summaryDiv.innerHTML = `
+                <div style="background: ${data.gradient}; color: #333; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: center;">
+                    <h2 style="margin: 0; font-size: 1.6em;">${data.title}</h2>
+                    <div style="margin: 10px 0; font-size: 1em; opacity: 0.9;">${data.subtitle}</div>
+                    <div style="background: rgba(255,255,255,0.3); padding: 8px; border-radius: 8px; margin-top: 10px;">
+                        <strong>💰 Investimento:</strong> ${data.investment}
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📚 Principais Cursos:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                        ${data.courses.map(course => `
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                                <div style="font-weight: bold; color: #333; margin-bottom: 5px;">${course.name}</div>
+                                <div style="color: #666; font-size: 0.9em;">
+                                    <strong>Preço:</strong> ${course.price}<br>
+                                    <strong>Destaque:</strong> ${course.status}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h4 style="margin: 0 0 10px 0; color: #667eea;">🎯 Foco Principal</h4>
+                    <p style="margin: 0; font-size: 1.1em; color: #333;">${data.focus}</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="closeTrimesterSummary()" style="background: #667eea; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">
+                        ✖️ Fechar Resumo
+                    </button>
+                </div>
+            `;
+
+            summaryDiv.style.display = 'block';
+            summaryDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function closeTrimesterSummary() {
+            const summaryDiv = document.getElementById('trimester-summary');
+            summaryDiv.style.display = 'none';
+        }
+
+        // Timeline hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelinePoints = document.querySelectorAll('.timeline-point');
+            timelinePoints.forEach(point => {
+                point.addEventListener('mouseenter', function() {
+                    const tooltip = this.querySelector('div:last-child');
+                    if (tooltip) {
+                        tooltip.style.opacity = '1';
+                        this.style.transform = 'scale(1.1)';
+                    }
+                });
+
+                point.addEventListener('mouseleave', function() {
+                    const tooltip = this.querySelector('div:last-child');
+                    if (tooltip) {
+                        tooltip.style.opacity = '0';
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+            });
         });
     </script>
 </body>
