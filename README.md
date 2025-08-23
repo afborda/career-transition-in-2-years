@@ -60,13 +60,26 @@ Pequeno contrato para `RoiCalculator` em React:
 - Output: { monthlyIncrease, roiPercentage, paybackMonths, fiveYearReturn }
 - Erros: entradas vazias ou target <= current devem retornar mensagem amigável.
 
-### Como acessar o site
+## Como ativar GitHub Pages (configuração manual necessária)
 
-#### URLs disponíveis (após deploy):
-- **Domínio personalizado**: https://abnerfonseca.com.br
+**IMPORTANTE**: Após fazer push do código, você precisa configurar manualmente no GitHub:
+
+### Passo 1: Configurar GitHub Pages
+1. Vá em: https://github.com/afborda/career-transition-in-2-years/settings/pages
+2. Em **"Build and deployment"** → **"Source"**, selecione **"GitHub Actions"** 
+   (NÃO selecione "Deploy from a branch")
+3. Salve as configurações
+
+### Passo 2: Aguardar o deploy
+- A GitHub Action executará automaticamente após push na branch `main`
+- Primeiro deploy pode levar até 10 minutos
+- Deployments subsequentes são mais rápidos (1-3 minutos)
+
+### URLs disponíveis (após configuração):
 - **GitHub Pages padrão**: https://afborda.github.io/career-transition-in-2-years/
+- **Domínio personalizado**: https://abnerfonseca.com.br (após configurar DNS)
 
-#### Configuração DNS necessária
+### Configuração DNS necessária
 Para o domínio personalizado funcionar, configure estes registros DNS no seu provedor:
 
 **Registros A** (aponte para os IPs do GitHub Pages):
