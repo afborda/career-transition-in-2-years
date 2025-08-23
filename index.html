@@ -1331,17 +1331,34 @@
             lastUpdateDiv.textContent = `Última atualização: ${new Date().toLocaleTimeString()}`;
             
             const apis = [
-                { name: 'RemoteOK', status: results.remoteOK > 0, count: results.remoteOK },
-                { name: 'JSearch', status: results.jSearch > 0, count: results.jSearch },
-                { name: 'Adzuna', status: results.adzuna > 0, count: results.adzuna },
-                { name: 'Cache Local', status: true, count: mockJobs.length }
+                { 
+                    name: 'RemoteOK', 
+                    status: results.remoteOK > 0, 
+                    count: results.remoteOK,
+                    note: results.fallback ? ' (Fallback)' : ''
+                },
+                { name: 'JSearch', status: results.jSearch > 0, count: results.jSearch, note: '' },
+                { name: 'Adzuna', status: results.adzuna > 0, count: results.adzuna, note: '' },
+                { name: 'Cache Local', status: true, count: mockJobs.length, note: '' }
             ];
             
             indicatorsDiv.innerHTML = apis.map(api => `
                 <span style="display: inline-block; margin-right: 15px; padding: 5px 10px; border-radius: 15px; font-size: 0.85em; ${api.status ? 'background: #d4edda; color: #155724;' : 'background: #f8d7da; color: #721c24;'}">
-                    ${api.status ? '✅' : '❌'} ${api.name}: ${api.count} vagas
+                    ${api.status ? '✅' : '❌'} ${api.name}${api.note}: ${api.count} vagas
                 </span>
             `).join('');
+            
+            // Mostrar aviso sobre CORS se necessário
+            if (results.fallback) {
+                const corsWarning = document.createElement('div');
+                corsWarning.style.cssText = 'margin-top: 10px; padding: 10px; background: #fff3cd; color: #856404; border-radius: 5px; font-size: 0.9em;';
+                corsWarning.innerHTML = `
+                    <strong>ℹ️ Informação:</strong> RemoteOK API bloqueada por CORS. 
+                    Usando vagas de fallback de alta qualidade (Automattic, Buffer, GitLab). 
+                    <a href="#" onclick="refreshJobs()" style="color: #856404; text-decoration: underline;">Tentar novamente</a>
+                `;
+                indicatorsDiv.appendChild(corsWarning);
+            }
         }
 
         // Função para mostrar estatísticas das vagas carregadas
@@ -1366,7 +1383,7 @@
 
         // Função para buscar vagas de APIs reais
         async function fetchJobsFromAPIs() {
-            const results = { remoteOK: 0, jSearch: 0, adzuna: 0 };
+            const results = { remoteOK: 0, jSearch: 0, adzuna: 0, fallback: false };
             const allJobs = [];
             
             try {
@@ -1375,6 +1392,12 @@
                 const remoteJobs = await fetchRemoteOKJobs();
                 allJobs.push(...remoteJobs);
                 results.remoteOK = remoteJobs.length;
+                
+                // Verificar se são vagas de fallback
+                if (remoteJobs.some(job => job.id.includes('fallback'))) {
+                    results.fallback = true;
+                    console.log('⚠️ RemoteOK usando dados de fallback devido a CORS');
+                }
                 
                 // 2. JSearch API - Vagas brasileiras (simulado por enquanto)
                 console.log('🇧🇷 Buscando vagas JSearch...');
@@ -1402,29 +1425,73 @@
             }
         }
 
-        // 1. RemoteOK API - Gratuita, sem necessidade de chave
+        // 1. RemoteOK API - Com múltiplos proxies CORS
         async function fetchRemoteOKJobs() {
+            const corsProxies = [
+                'https://api.allorigins.win/raw?url=',
+                'https://corsproxy.io/?',
+                'https://cors-anywhere.herokuapp.com/',
+                'https://api.codetabs.com/v1/proxy?quest='
+            ];
+            
+            const apiUrl = 'https://remoteok.io/api';
+            
             try {
-                // Usar proxy CORS se necessário
-                const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                const apiUrl = 'https://remoteok.io/api';
+                console.log('🌍 Tentando RemoteOK direto...');
                 
+                // Primeira tentativa: direto (quase sempre falha por CORS)
                 let response;
                 try {
-                    // Tentar direto primeiro
-                    response = await fetch(apiUrl);
-                } catch (corsError) {
-                    // Se falhar por CORS, usar proxy
-                    console.log('Usando proxy CORS para RemoteOK...');
-                    response = await fetch(proxyUrl + encodeURIComponent(apiUrl));
+                    response = await fetch(apiUrl, {
+                        mode: 'cors',
+                        headers: {
+                            'Accept': 'application/json',
+                        }
+                    });
+                    if (response.ok) {
+                        console.log('✅ RemoteOK direto funcionou!');
+                    }
+                } catch (directError) {
+                    console.log('❌ CORS bloqueado, tentando proxies...');
+                    
+                    // Tentar cada proxy
+                    for (let i = 0; i < corsProxies.length; i++) {
+                        try {
+                            const proxyUrl = corsProxies[i] + encodeURIComponent(apiUrl);
+                            console.log(`🔄 Tentando proxy ${i + 1}/${corsProxies.length}...`);
+                            
+                            response = await fetch(proxyUrl, {
+                                headers: { 'Accept': 'application/json' },
+                                timeout: 10000
+                            });
+                            
+                            if (response.ok) {
+                                console.log(`✅ Proxy ${i + 1} funcionou!`);
+                                break;
+                            }
+                        } catch (proxyError) {
+                            console.log(`❌ Proxy ${i + 1} falhou:`, proxyError.message);
+                            if (i === corsProxies.length - 1) {
+                                throw new Error('Todos os proxies falharam');
+                            }
+                        }
+                    }
+                }
+                
+                if (!response || !response.ok) {
+                    throw new Error('Nenhuma resposta válida obtida');
                 }
                 
                 const data = await response.json();
                 
-                // Remove o primeiro item que é apenas metadata
-                const jobs = Array.isArray(data) ? data.slice(1) : [];
+                // Verificar se os dados são válidos
+                if (!Array.isArray(data) || data.length === 0) {
+                    throw new Error('Dados inválidos da API');
+                }
                 
-                console.log(`RemoteOK retornou ${jobs.length} vagas`);
+                // Remove o primeiro item que é apenas metadata
+                const jobs = data.slice(1);
+                console.log(`📊 RemoteOK retornou ${jobs.length} vagas brutas`);
                 
                 const filteredJobs = jobs
                     .filter(job => {
@@ -1450,9 +1517,9 @@
                         const content = `${title} ${tags} ${description} ${company}`;
                         return techKeywords.some(keyword => content.includes(keyword));
                     })
-                    .slice(0, 12) // Aumenta limite para 12 vagas
+                    .slice(0, 10) // Limitar para não sobrecarregar
                     .map(job => ({
-                        id: `remote_${job.id || Math.random()}`,
+                        id: `remote_${job.id || Math.random().toString(36)}`,
                         title: job.position || 'Título não informado',
                         company: job.company || 'Empresa não informada',
                         location: `🌍 Remoto ${job.location ? `(${job.location})` : ''}`,
@@ -1467,12 +1534,48 @@
                         type: 'remote'
                     }));
                 
-                console.log(`RemoteOK filtrado: ${filteredJobs.length} vagas relevantes`);
+                console.log(`✅ RemoteOK filtrado: ${filteredJobs.length} vagas relevantes`);
                 return filteredJobs;
                 
             } catch (error) {
-                console.error('Erro RemoteOK API:', error);
-                return [];
+                console.error('❌ Erro RemoteOK API (usando fallback):', error.message);
+                
+                // Fallback: retornar algumas vagas mock remotas realistas
+                return [
+                    {
+                        id: 'remote_fallback_1',
+                        title: 'Senior Python Developer (Remote)',
+                        company: 'Automattic',
+                        location: '🌍 Remoto Global',
+                        salary: 'USD 70.000 - USD 120.000',
+                        description: 'WordPress.com backend development, distributed team, Python, MySQL, REST APIs.',
+                        link: 'https://automattic.com/work-with-us/',
+                        category: 'cientista',
+                        type: 'remote'
+                    },
+                    {
+                        id: 'remote_fallback_2',
+                        title: 'React Native Developer',
+                        company: 'Buffer',
+                        location: '🌍 Remoto Global',
+                        salary: 'USD 60.000 - USD 100.000',
+                        description: 'Mobile app development, React Native, social media tools, remote-first company.',
+                        link: 'https://buffer.com/journey',
+                        category: 'mobile',
+                        type: 'remote'
+                    },
+                    {
+                        id: 'remote_fallback_3',
+                        title: 'Data Scientist (Remote)',
+                        company: 'GitLab',
+                        location: '🌍 Remoto Global',
+                        salary: 'USD 80.000 - USD 140.000',
+                        description: 'Product analytics, ML models, Python, SQL, growth analysis, A/B testing.',
+                        link: 'https://about.gitlab.com/jobs/',
+                        category: 'cientista',
+                        type: 'remote'
+                    }
+                ];
             }
         }
 
