@@ -435,9 +435,9 @@
                 <small>Ritmo familiar sustentável</small>
             </div>
             <div class="stat-card" onclick="celebrate('🎯')">
-                <div class="stat-number">10+</div>
-                <div>Projetos Portfolio</div>
-                <small>GitHub impactante</small>
+                <div class="stat-number">R$ 15k</div>
+                <div>Investimento Total</div>
+                <small>Cursos + Formação + Certificações</small>
             </div>
         </div>
 
@@ -446,6 +446,7 @@
             <div class="tabs">
                 <button class="tab-btn active" onclick="openTab(event, 'roadmap')">📅 Roadmap</button>
                 <button class="tab-btn" onclick="openTab(event, 'courses')">📚 Cursos</button>
+                <button class="tab-btn" onclick="openTab(event, 'formations')">🎓 Formações EAD</button>
                 <button class="tab-btn" onclick="openTab(event, 'certifications')">🏆 Certificações</button>
                 <button class="tab-btn" onclick="openTab(event, 'tools')">🛠️ Ferramentas</button>
                 <button class="tab-btn" onclick="openTab(event, 'jobs')">💼 Vagas</button>
@@ -932,9 +933,10 @@
                                 <label>Horas/sábado:</label>
                                 <input type="number" id="horasSabado" value="3" min="0" max="12" step="0.5" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
                             </div>
-                            <div>
-                                <label>Horas/domingo:</label>
-                                <input type="number" id="horasDomingo" value="2" min="0" max="12" step="0.5" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
+                            <div style="background: #e8f4fd; padding: 10px; border-radius: 5px; text-align: center;">
+                                <strong>🏠 Domingo Sagrado</strong><br>
+                                <span style="color: #667eea;">Reservado para família!</span><br>
+                                <small>Sua filha é prioridade ❤️</small>
                             </div>
                             <div>
                                 <label>Dias úteis/semana:</label>
@@ -1022,6 +1024,350 @@
                         <p><strong>Inglês c/ legendas PT</strong> | TensorFlow, PyTorch</p>
                         <a href="https://udemy.com/course/deeplearning/" class="course-link" target="_blank">Ver no Udemy</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Formations Tab -->
+            <div id="formations" class="tab-content">
+                <h2>🎓 Formações EAD Superiores</h2>
+                <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                    MBA & Especializações pós-ADS (Dezembro 2024) - Cronograma sem domingos: 14h/semana
+                </p>
+
+                <!-- Calculadora de Relevância -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+                    <h3>🧮 Calculadora de Relevância Personalizada</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                        <div>
+                            <label>💰 Orçamento máximo mensal:</label>
+                            <input type="number" id="orcamentoMensal" value="1000" min="200" max="5000" step="100" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
+                        </div>
+                        <div>
+                            <label>⏰ Tempo disponível (meses):</label>
+                            <input type="number" id="tempoDisponivel" value="18" min="6" max="36" step="6" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
+                        </div>
+                        <div>
+                            <label>🎯 Foco principal:</label>
+                            <select id="focoPrincipal" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
+                                <option value="tecnico">Técnico/Hands-on</option>
+                                <option value="gestao">Gestão/Liderança</option>
+                                <option value="networking">Networking/Brand</option>
+                                <option value="custo">Custo-benefício</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>📍 Modalidade preferida:</label>
+                            <select id="modalidadePreferida" style="width: 100%; padding: 8px; border-radius: 5px; border: none; margin-top: 5px;">
+                                <option value="ead">100% EAD</option>
+                                <option value="hibrido">Híbrido</option>
+                                <option value="ambos">Tanto faz</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="calcularMelhorFormacao()" style="width: 100%; padding: 12px; background: white; color: #667eea; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px;">
+                        🎯 Encontrar Melhor Formação
+                    </button>
+                    <div id="recomendacaoFormacao" style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 8px; display: none;">
+                        <!-- Recomendação será inserida aqui -->
+                    </div>
+                </div>
+
+                <!-- Tier S - Relevância Máxima -->
+                <h3 style="color: #FFD700; font-size: 1.5em; margin-bottom: 20px;">🏆 TIER S - RELEVÂNCIA MÁXIMA</h3>
+                <div class="course-grid">
+                    <div class="course-card" style="border-left-color: #FFD700; background: linear-gradient(135deg, #fff9e6, #fffacd);">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #1e3d59; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">FGV</div>
+                            <div>
+                                <div class="course-title" style="color: #b8860b;">MBA Data Science & Analytics - FGV</div>
+                                <div style="color: #d4af37; font-size: 0.9em;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> 100% EAD | <strong>Duração:</strong> 12 meses</p>
+                        <p><strong>Investimento:</strong> R$ 1.890/mês (total ~R$ 22.680)</p>
+                        
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>🎯 Conteúdo:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>Estatística Aplicada e Probabilidade</li>
+                                <li>Python para Data Science</li>
+                                <li>Machine Learning & Deep Learning</li>
+                                <li>Big Data & Cloud Computing</li>
+                                <li>Business Intelligence & Analytics</li>
+                                <li>Ethics in AI & Data Privacy</li>
+                                <li>Capstone Project com empresa real</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #e8f5e8; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>✅ Por que é relevante:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>Brand FGV = peso no currículo</li>
+                                <li>Networking corporativo de alto nível</li>
+                                <li>Professores PhD de Stanford, MIT</li>
+                                <li>Projeto final em empresa parceira</li>
+                                <li>Certificação internacional válida no exterior</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://educacao-executiva.fgv.br/cursos/online/mba-data-science-analytics" class="course-link" target="_blank">Ver Detalhes FGV</a>
+                    </div>
+
+                    <div class="course-card" style="border-left-color: #FFD700; background: linear-gradient(135deg, #fff9e6, #fffacd);">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #8B0000; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">PUC</div>
+                            <div>
+                                <div class="course-title" style="color: #b8860b;">Especialização Data Science - PUC-RS</div>
+                                <div style="color: #d4af37; font-size: 0.9em;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> EAD com labs presenciais opcionais | <strong>Duração:</strong> 18 meses</p>
+                        <p><strong>Investimento:</strong> R$ 890/mês (total ~R$ 16.020)</p>
+                        
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>🎯 Conteúdo:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>Fundamentos Matemáticos para IA</li>
+                                <li>Programming for Data Science (Python/R)</li>
+                                <li>Machine Learning Algorithms</li>
+                                <li>Deep Learning & Neural Networks</li>
+                                <li>Natural Language Processing</li>
+                                <li>Computer Vision</li>
+                                <li>MLOps & Model Deployment</li>
+                                <li>Research Project</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #e8f5e8; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>✅ Por que é relevante:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>Reconhecimento MEC (pós-graduação lato sensu)</li>
+                                <li>Laboratórios práticos com GPUs</li>
+                                <li>Parcerias com IBM, AWS, Microsoft</li>
+                                <li>TCC obrigatório = portfolio diferenciado</li>
+                                <li>Professores atuantes no mercado</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://online.pucrs.br/especializacao/data-science" class="course-link" target="_blank">Ver Detalhes PUC-RS</a>
+                    </div>
+
+                    <div class="course-card" style="border-left-color: #FFD700; background: linear-gradient(135deg, #fff9e6, #fffacd);">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #FF0080; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-weight: bold;">FIAP</div>
+                            <div>
+                                <div class="course-title" style="color: #b8860b;">MBA Artificial Intelligence - FIAP</div>
+                                <div style="color: #d4af37; font-size: 0.9em;">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> 100% Online | <strong>Duração:</strong> 12 meses</p>
+                        <p><strong>Investimento:</strong> R$ 1.290/mês (total ~R$ 15.480)</p>
+                        
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>🎯 Conteúdo:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>AI Strategy & Business Applications</li>
+                                <li>Machine Learning Engineering</li>
+                                <li>Generative AI & LLMs</li>
+                                <li>Computer Vision & Robotics</li>
+                                <li>AI Ethics & Governance</li>
+                                <li>Startup Methodology</li>
+                                <li>Pitch de projeto final</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #e8f5e8; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <strong>✅ Por que é relevante:</strong>
+                            <ul style="font-size: 0.9em; margin: 5px 0 0 15px;">
+                                <li>FIAP = referência em tech no Brasil</li>
+                                <li>Networking startup/scale-up</li>
+                                <li>Projetos com empresas reais</li>
+                                <li>Metodologia hands-on</li>
+                                <li>Certificações AWS/Azure incluídas</li>
+                                <li>Demo Day com investidores</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.fiap.com.br/mba/mba-artificial-intelligence/" class="course-link" target="_blank">Ver Detalhes FIAP</a>
+                    </div>
+                </div>
+
+                <!-- Tier A - Alta Relevância -->
+                <h3 style="color: #C0C0C0; font-size: 1.3em; margin: 30px 0 20px 0;">🥈 TIER A - ALTA RELEVÂNCIA</h3>
+                <div class="course-grid">
+                    <div class="course-card" style="border-left-color: #C0C0C0;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #003366; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-size: 0.8em;">UFRGS</div>
+                            <div>
+                                <div class="course-title">Especialização Big Data & Data Science - UFRGS</div>
+                                <div style="color: #C0C0C0; font-size: 0.9em;">⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> EAD | <strong>Duração:</strong> 18 meses</p>
+                        <p><strong>Investimento:</strong> R$ 450/mês (total ~R$ 8.100)</p>
+                        <p><strong>Diferencial:</strong> Universidade federal, preço acessível, foco em Big Data</p>
+                        <a href="https://www.ufrgs.br/ufrgs/ensino/especializacao-big-data" class="course-link" target="_blank">Ver UFRGS</a>
+                    </div>
+
+                    <div class="course-card" style="border-left-color: #C0C0C0;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #8B0000; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-size: 0.8em;">MACK</div>
+                            <div>
+                                <div class="course-title">MBA Gestão de Dados - Mackenzie</div>
+                                <div style="color: #C0C0C0; font-size: 0.9em;">⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> Híbrido (80% EAD) | <strong>Duração:</strong> 24 meses</p>
+                        <p><strong>Investimento:</strong> R$ 980/mês (total ~R$ 23.520)</p>
+                        <p><strong>Diferencial:</strong> Foco gerencial, network executivo, certificação PMI incluída</p>
+                        <a href="https://www.mackenzie.br/pos-graduacao/mba-gestao-dados/" class="course-link" target="_blank">Ver Mackenzie</a>
+                    </div>
+
+                    <div class="course-card" style="border-left-color: #C0C0C0;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #1E90FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-size: 0.7em;">UNISINOS</div>
+                            <div>
+                                <div class="course-title">Especialização Data Science - UNISINOS</div>
+                                <div style="color: #C0C0C0; font-size: 0.9em;">⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Modalidade:</strong> 100% EAD | <strong>Duração:</strong> 12 meses</p>
+                        <p><strong>Investimento:</strong> R$ 590/mês (total ~R$ 7.080)</p>
+                        <p><strong>Diferencial:</strong> 70% hands-on, certificações Google Cloud incluídas</p>
+                        <a href="https://www.unisinos.br/especializacao/data-science/" class="course-link" target="_blank">Ver UNISINOS</a>
+                    </div>
+                </div>
+
+                <!-- Tier B - Relevância Moderada -->
+                <h3 style="color: #CD7F32; font-size: 1.2em; margin: 30px 0 20px 0;">🥉 TIER B - RELEVÂNCIA MODERADA</h3>
+                <div class="course-grid">
+                    <div class="course-card" style="border-left-color: #CD7F32;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #FF6600; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-size: 0.8em;">XPE</div>
+                            <div>
+                                <div class="course-title">MBA Data Analytics - XPE</div>
+                                <div style="color: #CD7F32; font-size: 0.9em;">⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Investimento:</strong> R$ 1.497/mês | <strong>Diferencial:</strong> Network fintech</p>
+                        <a href="https://www.xpeducacao.com.br/mba/data-analytics/" class="course-link" target="_blank">Ver XPE</a>
+                    </div>
+
+                    <div class="course-card" style="border-left-color: #CD7F32;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div style="width: 50px; height: 50px; background: #4169E1; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white; font-size: 0.7em;">CRUZEIRO</div>
+                            <div>
+                                <div class="course-title">Pós IA & ML - Cruzeiro do Sul</div>
+                                <div style="color: #CD7F32; font-size: 0.9em;">⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p><strong>Investimento:</strong> R$ 299/mês | <strong>Diferencial:</strong> Preço acessível</p>
+                        <a href="https://www.cruzeirodosulvirtual.com.br/pos-graduacao/inteligencia-artificial-machine-learning/" class="course-link" target="_blank">Ver Cruzeiro Sul</a>
+                    </div>
+                </div>
+
+                <!-- Comparativo de Investimento -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin-top: 30px;">
+                    <h3>💰 Comparativo de Investimento & ROI</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.2);">
+                                    <th style="padding: 12px; text-align: left;">Instituição</th>
+                                    <th style="padding: 12px; text-align: center;">Duração</th>
+                                    <th style="padding: 12px; text-align: center;">Mensal</th>
+                                    <th style="padding: 12px; text-align: center;">Total</th>
+                                    <th style="padding: 12px; text-align: center;">ROI Esperado</th>
+                                    <th style="padding: 12px; text-align: center;">Relevância</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px;"><strong>FGV</strong></td>
+                                    <td style="padding: 10px; text-align: center;">12m</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 1.890</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 22.680</td>
+                                    <td style="padding: 10px; text-align: center;">+40%</td>
+                                    <td style="padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr style="background: rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px;"><strong>PUC-RS</strong></td>
+                                    <td style="padding: 10px; text-align: center;">18m</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 890</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 16.020</td>
+                                    <td style="padding: 10px; text-align: center;">+35%</td>
+                                    <td style="padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px;"><strong>FIAP</strong></td>
+                                    <td style="padding: 10px; text-align: center;">12m</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 1.290</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 15.480</td>
+                                    <td style="padding: 10px; text-align: center;">+30%</td>
+                                    <td style="padding: 10px; text-align: center;">⭐⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr style="background: rgba(255,255,255,0.05);">
+                                    <td style="padding: 10px;"><strong>UNISINOS</strong></td>
+                                    <td style="padding: 10px; text-align: center;">12m</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 590</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 7.080</td>
+                                    <td style="padding: 10px; text-align: center;">+25%</td>
+                                    <td style="padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px;"><strong>UFRGS</strong></td>
+                                    <td style="padding: 10px; text-align: center;">18m</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 450</td>
+                                    <td style="padding: 10px; text-align: center;">R$ 8.100</td>
+                                    <td style="padding: 10px; text-align: center;">+20%</td>
+                                    <td style="padding: 10px; text-align: center;">⭐⭐⭐⭐</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Timeline Sugerida -->
+                <div style="background: #e8f4fd; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h3>📅 Timeline Sugerida para Você</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
+                            <h4>🎓 Dezembro 2024</h4>
+                            <p>Formatura ADS</p>
+                            <p><strong>Ação:</strong> Definir qual formação iniciar</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #764ba2;">
+                            <h4>🚀 Janeiro 2025</h4>
+                            <p>Início MBA/Especialização</p>
+                            <p><strong>Paralelo:</strong> Cursos técnicos Udemy</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                            <h4>📈 2025-2026</h4>
+                            <p>Formação + Certificações AWS</p>
+                            <p><strong>Meta:</strong> Portfolio robusto</p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107;">
+                            <h4>💼 Meio 2026</h4>
+                            <p>Job hunting ativo</p>
+                            <p><strong>Objetivo:</strong> Data Scientist Pleno</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hack do Papai -->
+                <div style="background: linear-gradient(135deg, #FFB6C1, #DDA0DD); color: white; padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3>🍼 Hack Final do Papai</h3>
+                    <p style="font-size: 1.1em; line-height: 1.6;">
+                        <strong>Combinação PERFEITA para sua situação:</strong><br><br>
+                        🎯 <strong>Especialização UNISINOS</strong> (R$ 590/mês, 12 meses, 70% prática)<br>
+                        📚 <strong>Cursos técnicos paralelos</strong> (Udemy, Rocketseat)<br>
+                        ☁️ <strong>Certificações AWS</strong> (português disponível)<br><br>
+                        <strong>💰 Total investimento:</strong> ~R$ 15.000 em 24 meses<br>
+                        <strong>🚀 ROI esperado:</strong> +150% no salário<br><br>
+                        <em>🏠 Lembrando: Domingo é sagrado para a família!<br>
+                        Sua filha vai entender quando crescer que o papai estudou<br>
+                        para dar uma vida melhor para ela. ❤️</em>
+                    </p>
                 </div>
             </div>
 
@@ -2476,7 +2822,7 @@
         function calcularTempoPersonalizado() {
             const horasUtil = parseFloat(document.getElementById('horasUtil').value) || 0;
             const horasSabado = parseFloat(document.getElementById('horasSabado').value) || 0;
-            const horasDomingo = parseFloat(document.getElementById('horasDomingo').value) || 0;
+            const horasDomingo = 0; // Removido - domingo é sagrado para família!
             const diasUteis = parseFloat(document.getElementById('diasUteis').value) || 5;
 
             const horasSemanais = (horasUtil * diasUteis) + horasSabado + horasDomingo;
@@ -2484,16 +2830,16 @@
             const horasAnuais = horasSemanais * 52;
             const horas24Meses = horasSemanais * 104;
 
-            // Metas de horas por fase
+            // Metas de horas por fase (ajustadas sem domingo)
             const metasPorFase = {
-                'Python + Estatística (T1)': 150,
-                'Data Analytics (T2)': 180,
-                'Machine Learning (T3)': 200,
-                'Portfolio + Networking (T4)': 170,
-                'Deep Learning + NLP (T5)': 230,
-                'Cloud + MLOps (T6)': 220,
-                'IA Generativa (T7)': 250,
-                'Job Hunting (T8)': 150
+                'Python + Estatística (T1)': 144,
+                'Data Analytics (T2)': 168,
+                'Machine Learning (T3)': 180,
+                'Portfolio + Networking (T4)': 156,
+                'Deep Learning + NLP (T5)': 216,
+                'Cloud + MLOps (T6)': 204,
+                'IA Generativa (T7)': 240,
+                'Job Hunting (T8)': 144
             };
 
             const totalMetaHoras = Object.values(metasPorFase).reduce((a, b) => a + b, 0);
@@ -2512,7 +2858,7 @@
                 avisoRitmo = `<div style="background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin: 10px 0;">
                     ⚠️ <strong>Ritmo muito lento!</strong> Com menos de 10h/semana, a transição pode levar mais de 3 anos.
                 </div>`;
-            } else if (horasSemanais < 15) {
+            } else if (horasSemanais < 14) {
                 avisoRitmo = `<div style="background: #fff3cd; color: #856404; padding: 10px; border-radius: 5px; margin: 10px 0;">
                     ⚡ <strong>Ritmo moderado.</strong> Você está no caminho certo, mas considere otimizar alguns horários.
                 </div>`;
@@ -2521,6 +2867,10 @@
                     🚀 <strong>Ritmo excelente!</strong> Com essa dedicação, você pode até acelerar o cronograma.
                 </div>`;
             }
+
+            const domingoSagrado = `<div style="background: #e8f4fd; color: #0c5460; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                ❤️ <strong>Domingo Sagrado:</strong> Reservado para a família! Sua filha vai agradecer no futuro.
+            </div>`;
 
             const resultado = `
                 <h4>📊 Seu Cronograma Personalizado</h4>
@@ -2544,6 +2894,7 @@
                     </div>
                 </div>
 
+                ${domingoSagrado}
                 ${avisoRitmo}
 
                 <h5>⏰ Tempo Estimado por Fase:</h5>
@@ -2553,7 +2904,7 @@
 
                 <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 5px; margin-top: 15px;">
                     <strong>💡 Dicas para otimizar:</strong><br>
-                    ${horasSemanais < 15 ? 
+                    ${horasSemanais < 14 ? 
                         '• Considere acordar 30min mais cedo<br>• Use transporte público para estudar<br>• Aproveite intervalos de almoço' :
                         '• Mantenha a consistência<br>• Reserve horários para descanso<br>• Documente seu progresso'
                     }
@@ -2561,6 +2912,217 @@
             `;
 
             const resultDiv = document.getElementById('resultadoPersonalizado');
+            resultDiv.innerHTML = resultado;
+            resultDiv.style.display = 'block';
+
+            // Scroll suave para o resultado
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Calculadora de melhor formação
+        function calcularMelhorFormacao() {
+            const orcamento = parseFloat(document.getElementById('orcamentoMensal').value) || 1000;
+            const tempo = parseFloat(document.getElementById('tempoDisponivel').value) || 18;
+            const foco = document.getElementById('focoPrincipal').value;
+            const modalidade = document.getElementById('modalidadePreferida').value;
+
+            // Base de dados das formações
+            const formacoes = [
+                {
+                    nome: 'MBA Data Science - FGV',
+                    valor: 1890,
+                    duracao: 12,
+                    total: 22680,
+                    relevancia: 5,
+                    modalidade: 'ead',
+                    foco: 'networking',
+                    roi: 40,
+                    pros: ['Brand FGV', 'Network corporativo', 'Certificação internacional'],
+                    contras: ['Mais caro', 'Menos hands-on']
+                },
+                {
+                    nome: 'Especialização Data Science - PUC-RS',
+                    valor: 890,
+                    duracao: 18,
+                    total: 16020,
+                    relevancia: 5,
+                    modalidade: 'hibrido',
+                    foco: 'tecnico',
+                    roi: 35,
+                    pros: ['Labs práticos', 'TCC obrigatório', 'Professores do mercado'],
+                    contras: ['Mais longa', 'Algumas atividades presenciais']
+                },
+                {
+                    nome: 'MBA Artificial Intelligence - FIAP',
+                    valor: 1290,
+                    duracao: 12,
+                    total: 15480,
+                    relevancia: 5,
+                    modalidade: 'ead',
+                    foco: 'tecnico',
+                    roi: 30,
+                    pros: ['Referência tech', 'Certificações incluídas', 'Demo Day'],
+                    contras: ['Foco específico IA', 'Menos business']
+                },
+                {
+                    nome: 'Especialização Data Science - UNISINOS',
+                    valor: 590,
+                    duracao: 12,
+                    total: 7080,
+                    relevancia: 4,
+                    modalidade: 'ead',
+                    foco: 'tecnico',
+                    roi: 25,
+                    pros: ['Excelente custo-benefício', '70% hands-on', 'Google Cloud'],
+                    contras: ['Menos networking', 'Brand regional']
+                },
+                {
+                    nome: 'Especialização Big Data - UFRGS',
+                    valor: 450,
+                    duracao: 18,
+                    total: 8100,
+                    relevancia: 4,
+                    modalidade: 'ead',
+                    foco: 'tecnico',
+                    roi: 20,
+                    pros: ['Muito barato', 'Universidade federal', 'Foco Big Data'],
+                    contras: ['Menos atual', 'Menos networking']
+                },
+                {
+                    nome: 'MBA Gestão de Dados - Mackenzie',
+                    valor: 980,
+                    duracao: 24,
+                    total: 23520,
+                    relevancia: 4,
+                    modalidade: 'hibrido',
+                    foco: 'gestao',
+                    roi: 35,
+                    pros: ['Foco gerencial', 'Network executivo', 'PMI incluído'],
+                    contras: ['Muito longa', 'Menos técnico']
+                }
+            ];
+
+            // Filtrar por orçamento
+            const dentroOrcamento = formacoes.filter(f => f.valor <= orcamento);
+            
+            if (dentroOrcamento.length === 0) {
+                const resultDiv = document.getElementById('recomendacaoFormacao');
+                resultDiv.innerHTML = `
+                    <h4>💸 Orçamento Insuficiente</h4>
+                    <p>Com R$ ${orcamento}/mês, considere:</p>
+                    <ul>
+                        <li><strong>UFRGS:</strong> R$ 450/mês (excelente custo-benefício)</li>
+                        <li><strong>UNISINOS:</strong> R$ 590/mês (ideal para você!)</li>
+                        <li><strong>Aguardar promoções:</strong> Muitas instituições fazem descontos</li>
+                    </ul>
+                    <p><em>💡 Dica: Comece com cursos técnicos e certifique-se depois!</em></p>
+                `;
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            // Calcular score baseado nos critérios
+            const scoredFormacoes = dentroOrcamento.map(f => {
+                let score = f.relevancia * 20; // Base da relevância
+                
+                // Ajuste por foco
+                if (f.foco === foco) score += 15;
+                
+                // Ajuste por modalidade
+                if (modalidade === 'ambos' || f.modalidade === modalidade || 
+                    (modalidade === 'ead' && f.modalidade === 'hibrido')) score += 10;
+                
+                // Ajuste por duração vs tempo disponível
+                if (f.duracao <= tempo) score += 10;
+                else score -= (f.duracao - tempo) * 2;
+                
+                // Ajuste por custo-benefício
+                const custoBeneficio = f.roi / (f.valor / 1000);
+                score += custoBeneficio;
+                
+                return { ...f, score: Math.round(score) };
+            });
+
+            // Ordenar por score
+            scoredFormacoes.sort((a, b) => b.score - a.score);
+            const melhor = scoredFormacoes[0];
+            const segunda = scoredFormacoes[1];
+
+            let recomendacao = '';
+            if (melhor.score >= 85) {
+                recomendacao = '🎯 PERFEITA para você!';
+            } else if (melhor.score >= 75) {
+                recomendacao = '✅ MUITO BOA opção';
+            } else if (melhor.score >= 65) {
+                recomendacao = '👍 BOA opção';
+            } else {
+                recomendacao = '🤔 Considere ajustar critérios';
+            }
+
+            const resultado = `
+                <h4>${recomendacao}</h4>
+                
+                <div style="background: rgba(255,255,255,0.3); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <h5>🏆 #1 Recomendação: ${melhor.nome}</h5>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 10px 0;">
+                        <div style="text-align: center;">
+                            <strong>R$ ${melhor.valor}</strong><br>
+                            <small>por mês</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>${melhor.duracao}m</strong><br>
+                            <small>duração</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>${melhor.score}pts</strong><br>
+                            <small>score total</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <strong>+${melhor.roi}%</strong><br>
+                            <small>ROI esperado</small>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 10px 0;">
+                        <strong>✅ Vantagens:</strong>
+                        <ul style="margin: 5px 0 0 15px; font-size: 0.9em;">
+                            ${melhor.pros.map(pro => `<li>${pro}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div style="margin: 10px 0;">
+                        <strong>⚠️ Considere:</strong>
+                        <ul style="margin: 5px 0 0 15px; font-size: 0.9em;">
+                            ${melhor.contras.map(contra => `<li>${contra}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                ${segunda ? `
+                <div style="background: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+                    <h5>🥈 Alternativa: ${segunda.nome}</h5>
+                    <p><strong>R$ ${segunda.valor}/mês</strong> | <strong>${segunda.duracao} meses</strong> | <strong>${segunda.score} pontos</strong></p>
+                    <p style="font-size: 0.9em;">
+                        <strong>Melhor se:</strong> ${
+                            segunda.valor < melhor.valor ? 'orçamento mais apertado' :
+                            segunda.duracao < melhor.duracao ? 'quer terminar mais rápido' :
+                            segunda.foco === 'gestao' ? 'foca em liderança' :
+                            'quer mais opções'
+                        }
+                    </p>
+                </div>
+                ` : ''}
+
+                <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; margin-top: 15px;">
+                    <strong>💡 Dica Final:</strong> ${
+                        orcamento >= 1500 ? 'Com seu orçamento, pode focar no melhor networking (FGV/FIAP)' :
+                        orcamento >= 1000 ? 'Equilíbrio perfeito entre qualidade e custo' :
+                        'Foque no custo-benefício, depois invista em certificações'
+                    }
+                </div>
+            `;
+
+            const resultDiv = document.getElementById('recomendacaoFormacao');
             resultDiv.innerHTML = resultado;
             resultDiv.style.display = 'block';
 
