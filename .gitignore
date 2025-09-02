@@ -1,0 +1,16 @@
+# 🔒 Arquivo de configuração com chaves sensíveis
+firebase-config.js
+
+# 📱 Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# 🔧 Arquivos de desenvolvimento
+*.log
+node_modules/
+.env
+.env.local
+
+# 💾 Backups locais
+*.backup
+*.bak

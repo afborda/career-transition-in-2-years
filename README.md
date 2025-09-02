@@ -111,10 +111,127 @@ python3 -m http.server 8000
 - Criar testes unitários pequenos para o `RoiCalculator`.
 - Extrair os textos para i18n (pt-BR / en).
 
+## ☁️ Configuração Firebase (Sincronização Multi-Dispositivo)
+
+O site agora suporta sincronização automática entre dispositivos usando Firebase! Siga os passos abaixo:
+
+### 🚀 Passo 1: Criar Projeto Firebase
+
+1. Acesse: https://console.firebase.google.com
+2. Clique em **"Criar um projeto"**
+3. Nome do projeto: `roadmap-papai-edition` (ou outro nome)
+4. **Desative** o Google Analytics (opcional)
+5. Clique **"Criar projeto"**
+
+### 🔧 Passo 2: Configurar Authentication
+
+1. No painel do Firebase, vá em **"Authentication"**
+2. Clique em **"Começar"**
+3. Na aba **"Sign-in method"**, habilite:
+   - **Google** (recomendado)
+   - **Anônimo** (opcional)
+
+### 📊 Passo 3: Configurar Firestore Database
+
+1. Vá em **"Firestore Database"**
+2. Clique **"Criar banco de dados"**
+3. Escolha **"Começar no modo de teste"**
+4. Selecione uma localização (ex: `southamerica-east1`)
+
+### ⚙️ Passo 4: Obter Configuração
+
+1. Vá em **"Visão geral do projeto"** > ⚙️ **"Configurações do projeto"**
+2. Role até **"Seus apps"** e clique **"</>"** (Web)
+3. Nome do app: `Roadmap Papai Edition`
+4. **COPIE** a configuração que aparece (algo como):
+
+```javascript
+const firebaseConfig = {
+  apiKey: "AIzaSyC...",
+  authDomain: "roadmap-papai-edition.firebaseapp.com",
+  projectId: "roadmap-papai-edition",
+  storageBucket: "roadmap-papai-edition.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abc123def456"
+};
+```
+
+### 🔄 Passo 5: Atualizar o Site
+
+1. Abra o arquivo `index.html`
+2. Encontre a seção **"Firebase Configuration"** (linha ~3233)
+3. **SUBSTITUA** a configuração demo pela sua:
+
+```javascript
+// ANTES (demo):
+const firebaseConfig = {
+    apiKey: "AIzaSyDemoKey-SubstituirPelaSuaChave",
+    // ...
+};
+
+// DEPOIS (sua configuração):
+const firebaseConfig = {
+    apiKey: "AIzaSyC...", // SUA chave aqui
+    authDomain: "SEU-PROJETO.firebaseapp.com",
+    projectId: "SEU-PROJETO",
+    // ... resto da SUA configuração
+};
+```
+
+### 🎯 Como Usar a Sincronização
+
+1. **Fazer Login**: Clique **"📱 Fazer Login com Google"**
+2. **Sincronização Automática**: Dados são salvos automaticamente na nuvem
+3. **Outro Dispositivo**: Faça login com a mesma conta Google
+4. **Sincronização Manual**: Use **"☁️ Sincronizar Dados"** se necessário
+
+### 🛡️ Configuração de Segurança (Importante!)
+
+Para proteger seus dados, configure as regras do Firestore:
+
+1. Vá em **"Firestore Database"** > **"Regras"**
+2. Substitua pelas regras abaixo:
+
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Usuários só podem acessar seus próprios dados
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
+```
+
+3. Clique **"Publicar"**
+
+### ✅ Recursos da Sincronização
+
+- **🔄 Sync Automático**: Login automático salva/carrega dados
+- **📱 Multi-Dispositivo**: Acesse de qualquer lugar
+- **💾 Backup Local**: localStorage como fallback
+- **🔒 Seguro**: Dados protegidos por autenticação
+- **⚡ Rápido**: Sincronização em tempo real
+
+### 🆓 Custos
+
+O plano gratuito do Firebase inclui:
+- **50k leituras/dia**
+- **20k escritas/dia**  
+- **1GB armazenamento**
+
+**Mais que suficiente** para seu roadmap de 24 meses! 🚀
+
 ### Status da solicitação
 
-- Requisito: "gerar um README explicando esse site" — Concluído: README criado na raiz do repositório (`README.md`).
+- ✅ Requisito: "gerar um README explicando esse site" — Concluído
+- ✅ Requisito: "salvar dados em firebase" — Concluído: Sistema completo de sincronização implementado!
 
 ---
 
-Se quiser, posso: (1) gerar a versão React automaticamente; (2) transformar a UI em componentes e criar um starter com Vite. Diga qual opção prefere.
+🎯 **AGORA SEU ROADMAP ESTÁ PROFISSIONAL**: Dashboard inteligente + Sincronização na nuvem + Interface otimizada para 24 meses de estudos!

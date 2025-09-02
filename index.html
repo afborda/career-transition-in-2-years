@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍼 Data Science Roadmap - Papai Edition 🚀</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍼</text></svg>">
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    
+    <!-- 🔒 Configuração Firebase (arquivo separado para segurança) -->
+    <script src="firebase-config.js"></script>
     <style>
         * {
             margin: 0;
@@ -39,8 +47,10 @@
             font-size: 2.5em;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
         }
 
         .stats-grid {
@@ -69,8 +79,10 @@
             font-weight: bold;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
         }
 
         .tab-container {
@@ -204,6 +216,190 @@
             background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 25px;
             transition: width 0.3s ease;
+        }
+
+        /* Novas classes para otimização do código inline */
+        .schedule-container {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .schedule-card {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .schedule-total {
+            margin-top: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .gradient-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .course-highlight {
+            background: linear-gradient(135deg, #ffe6e6, #fff0f0);
+            border-left: 5px solid #e74c3c;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gradient {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .text-red {
+            color: #e74c3c;
+        }
+
+        .text-blue {
+            color: #667eea;
+        }
+
+        .mb-15 {
+            margin-bottom: 15px;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+
+        /* Melhorias de responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 90%;
+                margin-bottom: 5px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                padding: 15px;
+                margin-left: -10px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .gradient-card {
+                margin: 10px 0;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            
+            .stat-number {
+                font-size: 2em;
+            }
+            
+            .tab-content {
+                padding: 15px;
+            }
+            
+            .schedule-card {
+                padding: 8px;
+            }
+            
+            /* Responsividade para Metas Diárias */
+            .daily-goal {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+            
+            #dailyGoalsList {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Responsividade para Pomodoro */
+            #pomodoroTimer {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            #pomodoroTimer > div {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            #timerDisplay {
+                font-size: 1.8em !important;
+            }
         }
 
         .tech-icons {
@@ -417,6 +613,43 @@
             <p><em>Cronograma adaptado para a vida de pai com bebê recém-nascido</em></p>
         </div>
 
+        <!-- Enhanced Progress Dashboard -->
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; align-items: center;">
+                <!-- Progress Circle -->
+                <div>
+                    <h3 style="margin-bottom: 20px; color: #333;">📊 Seu Progresso na Jornada</h3>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div id="progressCircle" style="width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#667eea 0deg, #e0e0e0 0deg); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <div id="progressText" style="font-size: 1.5em; font-weight: bold; color: #333;">0%</div>
+                        </div>
+                        <div>
+                            <div id="currentPhase" style="font-size: 1.2em; font-weight: bold; color: #667eea; margin-bottom: 5px;">📍 Início da Jornada</div>
+                            <div id="timeInfo" style="color: #666; margin-bottom: 10px;">Comece quando estiver pronto!</div>
+                            <div id="nextMilestone" style="color: #333; font-weight: bold;">🎯 Próximo: Configurar Python</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 12px;">
+                    <h4 style="margin-bottom: 15px;">⚡ Ações Rápidas</h4>
+                    
+                    <!-- Login Status -->
+                    <div id="loginStatus" style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9em;">
+                        <div id="loginInfo">🔄 Conectando...</div>
+                        <button id="loginBtn" onclick="signInWithGoogle()" style="width: 100%; padding: 8px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 6px; margin-top: 8px; cursor: pointer; font-size: 0.8em; display: none;">📱 Fazer Login com Google</button>
+                        <button id="logoutBtn" onclick="signOut()" style="width: 100%; padding: 8px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 6px; margin-top: 8px; cursor: pointer; font-size: 0.8em; display: none;">🚪 Logout</button>
+                    </div>
+                    
+                    <button onclick="setStartDate()" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">📅 Definir Data de Início</button>
+                    <button onclick="showWeeklyPlan()" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">📋 Plano Semanal</button>
+                    <button onclick="jumpToCurrentWeek()" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">🎯 Ir para Semana Atual</button>
+                    <button id="syncBtn" onclick="forceSyncData()" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; display: none;">☁️ Sincronizar Dados</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-card" onclick="celebrate('💰')">
@@ -445,6 +678,9 @@
         <div class="tab-container">
             <div class="tabs">
                 <button class="tab-btn active" onclick="openTab(event, 'roadmap')">📅 Roadmap</button>
+                <button class="tab-btn" onclick="openTab(event, 'weekly')">📋 Semana Atual</button>
+                <button class="tab-btn" onclick="openTab(event, 'daily')">🎯 Metas Diárias</button>
+                <button class="tab-btn" onclick="openTab(event, 'pomodoro')">⏰ Pomodoro</button>
                 <button class="tab-btn" onclick="openTab(event, 'courses')">📚 Cursos</button>
                 <button class="tab-btn" onclick="openTab(event, 'formations')">🎓 Formações EAD</button>
                 <button class="tab-btn" onclick="openTab(event, 'certifications')">🏆 Certificações</button>
@@ -454,11 +690,476 @@
                 <button class="tab-btn" onclick="openTab(event, 'tips')">👶 Dicas Papai</button>
             </div>
 
+            <!-- Weekly Plan Tab -->
+            <div id="weekly" class="tab-content">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: 2.2em; margin-bottom: 10px;">📋 Seu Plano Semanal</h2>
+                    <p style="color: #666; font-size: 1.1em;">Foque apenas no que precisa fazer esta semana</p>
+                </div>
+
+                <!-- Current Week Status -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">📅</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Semana Atual</div>
+                            <div id="currentWeekNumber">Semana 1 de 104</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">🎯</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Fase Atual</div>
+                            <div id="currentTrimesterName">T1 - Python + Estatística</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">⏱️</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Meta Semanal</div>
+                            <div id="weeklyHoursTarget">12-15 horas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekly Schedule -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <!-- Schedule -->
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                        <h3 style="margin-bottom: 20px; color: #333;">📅 Cronograma da Semana</h3>
+                        <div id="weeklySchedule">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8f9ff; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <div>
+                                    <strong>Segunda-feira</strong><br>
+                                    <small>1h30min - Python Fundamentos</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8f9ff; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <div>
+                                    <strong>Terça-feira</strong><br>
+                                    <small>1h30min - Estatística Básica</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8f9ff; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <div>
+                                    <strong>Quarta-feira</strong><br>
+                                    <small>1h30min - Python Exercícios</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8f9ff; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <div>
+                                    <strong>Quinta-feira</strong><br>
+                                    <small>1h30min - NumPy Introdução</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8f9ff; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                                <div>
+                                    <strong>Sexta-feira</strong><br>
+                                    <small>2h - Projeto: Primeiro Script</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #e8f5e8; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #28a745;">
+                                <div>
+                                    <strong>Sábado</strong><br>
+                                    <small>3h - Review + Exercícios</small>
+                                </div>
+                                <input type="checkbox" style="transform: scale(1.5);">
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #ffe6e6; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                                <div>
+                                    <strong>Domingo</strong><br>
+                                    <small>👨‍👩‍👧‍👦 LIVRE - Família</small>
+                                </div>
+                                <span style="color: #e74c3c; font-size: 1.5em;">❤️</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Tracking -->
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                        <h3 style="margin-bottom: 20px; color: #333;">📊 Progresso Semanal</h3>
+                        
+                        <!-- Hours tracker -->
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Horas Completadas:</span>
+                                <span id="hoursCompleted" style="font-weight: bold; color: #667eea;">0h / 12h</span>
+                            </div>
+                            <div style="background: #e0e0e0; border-radius: 10px; overflow: hidden;">
+                                <div id="weeklyProgressBar" style="height: 10px; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s ease;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Quick actions -->
+                        <div style="margin-bottom: 20px;">
+                            <button onclick="logStudyTime()" style="width: 100%; padding: 12px; background: #667eea; color: white; border: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">⏰ Registrar Tempo de Estudo</button>
+                            <button onclick="markWeekComplete()" style="width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 8px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">✅ Semana Concluída</button>
+                            <button onclick="skipToNextWeek()" style="width: 100%; padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">⏭️ Pular para Próxima</button>
+                        </div>
+
+                        <!-- Motivation -->
+                        <div style="background: linear-gradient(135deg, #ffd89b, #19547b); color: white; padding: 15px; border-radius: 10px; text-align: center;">
+                            <div style="font-size: 1.5em; margin-bottom: 5px;">🚀</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Você consegue!</div>
+                            <div style="font-size: 0.9em;">Cada hora conta para sua transformação</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Resources -->
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                    <h3 style="margin-bottom: 20px; color: #333;">📚 Recursos da Semana</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong>🐍 Python para Iniciantes</strong><br>
+                            <small>Curso Rocketseat - Módulo 1</small><br>
+                            <a href="#" style="color: #667eea; text-decoration: none;">📖 Acessar</a>
+                        </div>
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong>📊 Estatística Básica</strong><br>
+                            <small>Khan Academy - Conceitos</small><br>
+                            <a href="#" style="color: #667eea; text-decoration: none;">📖 Acessar</a>
+                        </div>
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <strong>💻 VS Code Setup</strong><br>
+                            <small>Configuração ambiente</small><br>
+                            <a href="#" style="color: #667eea; text-decoration: none;">📖 Acessar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Goals Tab -->
+            <div id="daily" class="tab-content">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: 2.2em; margin-bottom: 10px;">🎯 Metas Diárias</h2>
+                    <p style="color: #666; font-size: 1.1em;">Pequenas vitórias diárias levam a grandes conquistas!</p>
+                </div>
+
+                <!-- Daily Stats Header -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">📅</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Hoje</div>
+                            <div id="currentDate">14 Dezembro</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">🔥</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Streak</div>
+                            <div id="currentStreak">0 dias</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">⭐</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Pontos Hoje</div>
+                            <div id="dailyPoints">0 / 30</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2em; margin-bottom: 5px;">🏆</div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Total Pontos</div>
+                            <div id="totalPoints">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Goals Grid -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <!-- Today's Goals -->
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                        <h3 style="margin-bottom: 20px; color: #333;">🎯 Metas de Hoje</h3>
+                        
+                        <div id="dailyGoalsList">
+                            <!-- Goal 1 -->
+                            <div class="daily-goal" data-goal="1" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9ff; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease;">
+                                <div>
+                                    <div style="font-weight: bold; margin-bottom: 5px;">📚 Estudar com Foco</div>
+                                    <div style="color: #666; font-size: 0.9em;">Meta: 1h15min de estudo concentrado</div>
+                                    <div style="color: #28a745; font-size: 0.8em; margin-top: 3px;">⚡ +10 pontos</div>
+                                </div>
+                                <div class="goal-status" style="font-size: 1.5em;">⭕</div>
+                            </div>
+
+                            <!-- Goal 2 -->
+                            <div class="daily-goal" data-goal="2" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9ff; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease;">
+                                <div>
+                                    <div style="font-weight: bold; margin-bottom: 5px;">💻 Praticar Código</div>
+                                    <div style="color: #666; font-size: 0.9em;">Meta: Resolver 5 exercícios práticos</div>
+                                    <div style="color: #28a745; font-size: 0.8em; margin-top: 3px;">⚡ +10 pontos</div>
+                                </div>
+                                <div class="goal-status" style="font-size: 1.5em;">⭕</div>
+                            </div>
+
+                            <!-- Goal 3 -->
+                            <div class="daily-goal" data-goal="3" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9ff; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #667eea; cursor: pointer; transition: all 0.3s ease;">
+                                <div>
+                                    <div style="font-weight: bold; margin-bottom: 5px;">📖 Consumir Conteúdo</div>
+                                    <div style="color: #666; font-size: 0.9em;">Meta: Ler 1 artigo ou assistir 1 vídeo</div>
+                                    <div style="color: #28a745; font-size: 0.8em; margin-top: 3px;">⚡ +10 pontos</div>
+                                </div>
+                                <div class="goal-status" style="font-size: 1.5em;">⭕</div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div style="margin-top: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="font-weight: bold;">Progresso do Dia:</span>
+                                <span id="dailyProgress" style="font-weight: bold; color: #667eea;">0/3 metas</span>
+                            </div>
+                            <div style="background: #e0e0e0; border-radius: 10px; overflow: hidden; height: 12px;">
+                                <div id="dailyProgressBar" style="height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.5s ease;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Bonus Challenge -->
+                        <div style="background: linear-gradient(135deg, #ffd89b, #19547b); color: white; padding: 15px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                            <div style="font-weight: bold; margin-bottom: 5px;">🎊 Desafio Bônus</div>
+                            <div style="font-size: 0.9em;">Complete todas as 3 metas = +10 pontos extras!</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats & Achievements -->
+                    <div>
+                        <!-- Weekly Progress -->
+                        <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                            <h4 style="margin-bottom: 15px; color: #333;">📊 Progresso Semanal</h4>
+                            <div id="weeklyGoalsGrid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">
+                                <!-- Days of week -->
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">S</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">T</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">Q</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">Q</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">S</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #666;">S</div>
+                                <div style="text-align: center; font-size: 0.8em; color: #e74c3c;">D</div>
+                                <!-- Progress dots -->
+                                <div class="day-progress" data-day="0" style="width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; margin: 2px auto;"></div>
+                                <div class="day-progress" data-day="1" style="width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; margin: 2px auto;"></div>
+                                <div class="day-progress" data-day="2" style="width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; margin: 2px auto;"></div>
+                                <div class="day-progress" data-day="3" style="width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; margin: 2px auto;"></div>
+                                <div class="day-progress" data-day="4" style="width: 20px; height: 20px; border-radius: 50%; background: #28a745; margin: 2px auto;" title="3/3 metas"></div>
+                                <div class="day-progress" data-day="5" style="width: 20px; height: 20px; border-radius: 50%; background: #ffc107; margin: 2px auto;" title="2/3 metas"></div>
+                                <div class="day-progress" data-day="6" style="width: 20px; height: 20px; border-radius: 50%; background: #e74c3c; margin: 2px auto; opacity: 0.5;" title="Domingo livre"></div>
+                            </div>
+                            <div style="margin-top: 10px; font-size: 0.8em; color: #666; text-align: center;">
+                                🟢 3/3 • 🟡 2/3 • 🔴 0-1/3 • 🏠 Domingo livre
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                            <h4 style="margin-bottom: 15px; color: #333;">🏆 Conquistas</h4>
+                            <div id="achievementsList">
+                                <div class="achievement locked" style="display: flex; align-items: center; padding: 8px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; opacity: 0.6;">
+                                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 1em;">🍼</div>
+                                    <div>
+                                        <div style="font-weight: bold; font-size: 0.9em;">First Steps</div>
+                                        <div style="font-size: 0.8em; color: #666;">Complete sua primeira meta</div>
+                                    </div>
+                                </div>
+                                <div class="achievement locked" style="display: flex; align-items: center; padding: 8px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; opacity: 0.6;">
+                                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 1em;">🔥</div>
+                                    <div>
+                                        <div style="font-weight: bold; font-size: 0.9em;">Hot Streak</div>
+                                        <div style="font-size: 0.8em; color: #666;">7 dias consecutivos</div>
+                                    </div>
+                                </div>
+                                <div class="achievement locked" style="display: flex; align-items: center; padding: 8px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; opacity: 0.6;">
+                                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 1em;">🚀</div>
+                                    <div>
+                                        <div style="font-weight: bold; font-size: 0.9em;">Power Dad</div>
+                                        <div style="font-size: 0.8em; color: #666;">50 metas em 1 mês</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Debug Panel -->
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: #333; margin: 0;">🔍 Painel de Verificação</h3>
+                        <button onclick="toggleDebugPanel()" id="debugToggle" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em;">Mostrar Debug</button>
+                    </div>
+                    
+                    <div id="debugPanel" style="display: none;">
+                        <!-- Real-time Stats -->
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 10px; color: #333;">📊 Status em Tempo Real</h4>
+                            <div style="font-family: monospace; font-size: 0.9em; line-height: 1.6;">
+                                <div><strong>Data Hoje:</strong> <span id="debugToday"></span></div>
+                                <div><strong>Última Atividade:</strong> <span id="debugLastActive"></span></div>
+                                <div><strong>Pontos Hoje:</strong> <span id="debugDailyPoints"></span></div>
+                                <div><strong>Total de Pontos:</strong> <span id="debugTotalPoints"></span></div>
+                                <div><strong>Streak Atual:</strong> <span id="debugStreak"></span></div>
+                                <div><strong>Metas Hoje:</strong> <span id="debugTodayGoals"></span></div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 15px;">
+                            <button onclick="testCompleteGoal()" style="padding: 10px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">✅ Testar Meta</button>
+                            <button onclick="resetTodayGoals()" style="padding: 10px; background: #ffc107; color: #333; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">🔄 Reset Hoje</button>
+                            <button onclick="addTestStreak()" style="padding: 10px; background: #fd7e14; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">🔥 +1 Streak</button>
+                            <button onclick="simulateWeekData()" style="padding: 10px; background: #6f42c1; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">📈 Simular Semana</button>
+                            <button onclick="exportGoalsData()" style="padding: 10px; background: #17a2b8; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">💾 Exportar Dados</button>
+                            <button onclick="clearAllData()" style="padding: 10px; background: #dc3545; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.8em;">🗑️ Limpar Tudo</button>
+                        </div>
+
+                        <!-- Weekly History -->
+                        <div style="background: #f0f8ff; padding: 15px; border-radius: 10px;">
+                            <h4 style="margin-bottom: 10px; color: #333;">📅 Histórico dos Últimos 7 Dias</h4>
+                            <div id="weeklyHistoryTable" style="font-size: 0.8em;">
+                                <!-- Será preenchido dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motivation Section -->
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px; text-align: center;">
+                    <h3 style="margin-bottom: 15px;">💪 Motivação do Dia</h3>
+                    <div id="dailyMotivation" style="font-size: 1.1em; font-style: italic; margin-bottom: 15px;">
+                        "Cada pequena vitória hoje é um passo gigante em direção ao seu futuro como Data Scientist! 🚀"
+                    </div>
+                    <div style="font-size: 0.9em; opacity: 0.9;">
+                        Lembre-se: você não está apenas estudando, está construindo o futuro da sua família! 👨‍👩‍👧‍👦
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pomodoro Timer Tab -->
+            <div id="pomodoro" class="tab-content">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: 2.2em; margin-bottom: 10px;">⏰ Timer Pomodoro</h2>
+                    <p style="color: #666; font-size: 1.1em;">Máximo foco em sessões de 25 minutos</p>
+                </div>
+
+                <!-- Pomodoro Main Timer -->
+                <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-bottom: 30px;">
+                    <!-- Timer Circle -->
+                    <div style="background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); text-align: center;">
+                        <div style="margin-bottom: 30px;">
+                            <div id="pomodoroStatus" style="font-size: 1.2em; font-weight: bold; color: #667eea; margin-bottom: 10px;">🍅 Pronto para Foco</div>
+                            <div id="pomodoroPhase" style="color: #666; margin-bottom: 20px;">Clique "Iniciar" para começar sua sessão de 25 minutos</div>
+                        </div>
+
+                        <!-- Timer Display -->
+                        <div id="pomodoroTimer" style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(#667eea 0deg, #e0e0e0 0deg); display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; position: relative; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+                            <div style="width: 160px; height: 160px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <div id="timerDisplay" style="font-size: 2.5em; font-weight: bold; color: #333; margin-bottom: 5px;">25:00</div>
+                                <div id="timerSubtext" style="font-size: 0.9em; color: #666;">minutos</div>
+                            </div>
+                        </div>
+
+                        <!-- Timer Controls -->
+                        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                            <button id="startPomodoroBtn" onclick="startPomodoro()" style="padding: 12px 24px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em;">▶️ Iniciar</button>
+                            <button id="pausePomodoroBtn" onclick="pausePomodoro()" style="padding: 12px 24px; background: #ffc107; color: #333; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em; display: none;">⏸️ Pausar</button>
+                            <button id="stopPomodoroBtn" onclick="stopPomodoro()" style="padding: 12px 24px; background: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1em;">⏹️ Parar</button>
+                        </div>
+
+                        <!-- Volume Control -->
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; color: #666;">🔊 Volume do Alarme:</label>
+                            <input type="range" id="volumeControl" min="0" max="100" value="70" style="width: 200px;" onchange="updateVolume()">
+                            <div style="font-size: 0.8em; color: #666; margin-top: 5px;">Volume: <span id="volumeDisplay">70</span>%</div>
+                        </div>
+
+                        <!-- Sound Test -->
+                        <button onclick="testSound()" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em;">🔔 Testar Som</button>
+                    </div>
+
+                    <!-- Pomodoro Stats -->
+                    <div>
+                        <!-- Today's Pomodoros -->
+                        <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                            <h4 style="margin-bottom: 15px; color: #333;">🍅 Hoje</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.8em; font-weight: bold; color: #667eea;" id="todayPomodoros">0</div>
+                                    <div style="font-size: 0.8em; color: #666;">Pomodoros</div>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.8em; font-weight: bold; color: #28a745;" id="todayFocusTime">0h</div>
+                                    <div style="font-size: 0.8em; color: #666;">Foco Total</div>
+                                </div>
+                            </div>
+                            <div style="background: #f8f9ff; padding: 10px; border-radius: 8px;">
+                                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">Meta: 4 pomodoros (1h40min)</div>
+                                <div style="background: #e0e0e0; border-radius: 10px; overflow: hidden; height: 8px;">
+                                    <div id="pomodoroProgressBar" style="height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 0%; transition: width 0.3s ease;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Settings -->
+                        <div style="background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                            <h4 style="margin-bottom: 15px; color: #333;">⚙️ Configurações</h4>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-size: 0.9em;">Tempo de Foco:</label>
+                                <select id="focusTime" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                                    <option value="25">25 minutos (Clássico)</option>
+                                    <option value="15">15 minutos (Papai Mode)</option>
+                                    <option value="45">45 minutos (Deep Focus)</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; color: #666; font-size: 0.9em;">Tempo de Pausa:</label>
+                                <select id="breakTime" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px;">
+                                    <option value="5">5 minutos</option>
+                                    <option value="10">10 minutos</option>
+                                    <option value="15">15 minutos (Pausa longa)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" id="autoStartBreak" checked style="margin-right: 8px;">
+                                    <span style="font-size: 0.9em; color: #666;">Iniciar pausa automaticamente</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Productivity Tip -->
+                        <div style="background: linear-gradient(135deg, #ffd89b, #19547b); color: white; padding: 15px; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 1.2em; margin-bottom: 8px;">💡</div>
+                            <div style="font-weight: bold; margin-bottom: 5px; font-size: 0.9em;">Dica de Produtividade</div>
+                            <div style="font-size: 0.8em; line-height: 1.4;">Durante o Pomodoro, desligue notificações e foque 100% no estudo. É melhor 25min de foco total do que 2h disperso!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration with Daily Goals -->
+                <div style="background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                    <h3 style="margin-bottom: 20px; color: #333;">🎯 Integração com Metas Diárias</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: #f8f9ff; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <div style="font-weight: bold; margin-bottom: 8px;">📚 Meta de Estudo</div>
+                            <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Complete 3 pomodoros para atingir sua meta de 1h15min</div>
+                            <div style="display: flex; align-items: center;">
+                                <span style="margin-right: 10px;">Progresso:</span>
+                                <div style="flex: 1; background: #e0e0e0; border-radius: 10px; overflow: hidden; height: 8px;">
+                                    <div id="studyGoalProgress" style="height: 100%; background: #28a745; width: 0%; transition: width 0.3s ease;"></div>
+                                </div>
+                                <span style="margin-left: 10px; font-size: 0.8em; color: #666;" id="studyGoalText">0/3</span>
+                            </div>
+                        </div>
+                        <div style="background: #f0fff4; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745;">
+                            <div style="font-weight: bold; margin-bottom: 8px;">🏆 Bônus Produtividade</div>
+                            <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Use o Pomodoro para suas metas e ganhe +5 pontos extras!</div>
+                            <div style="font-size: 0.8em; color: #28a745;">⚡ Ativo quando cronômetro está rodando</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Roadmap Tab -->
             <div id="roadmap" class="tab-content active">
                 <!-- Enhanced Header -->
                 <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2.5em; margin-bottom: 10px;">📚 Data Science Roadmap</h2>
+                                                        <h2 style="background: linear-gradient(45deg, #667eea, #764ba2); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: 2.5em; margin-bottom: 10px;">📚 Data Science Roadmap</h2>
                     <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin: 20px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                         <h3 style="margin-bottom: 15px;">🍼 Papai Edition - Transformação em 24 meses</h3>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -690,31 +1391,31 @@
                         <!-- Cronograma detalhado existente -->
                         
                         <!-- Cronograma detalhado de horas -->
-                        <div style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <div class="schedule-container">
                             <h4>⏰ Cronograma de Estudos Detalhado:</h4>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                            <div class="schedule-grid">
+                                <div class="schedule-card">
                                     <strong>📅 Segunda a Sexta</strong><br>
-                                    <span style="color: #667eea;">1h30min/dia</span><br>
+                                    <span class="text-blue">1h30min/dia</span><br>
                                     <small>5:30-7:00 (antes do trabalho)</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                                <div class="schedule-card">
                                     <strong>🏠 Fim de Semana</strong><br>
-                                    <span style="color: #667eea;">2h30min/dia</span><br>
+                                    <span class="text-blue">2h30min/dia</span><br>
                                     <small>Dividido: manhã + tarde</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                                <div class="schedule-card">
                                     <strong>📱 Micro-sessões</strong><br>
-                                    <span style="color: #667eea;">30min/dia</span><br>
+                                    <span class="text-blue">30min/dia</span><br>
                                     <small>Transporte + intervalos</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                                <div class="schedule-card">
                                     <strong>🌙 Madrugadas</strong><br>
-                                    <span style="color: #667eea;">1h (opcional)</span><br>
+                                    <span class="text-blue">1h (opcional)</span><br>
                                     <small>Durante mamadas</small>
                                 </div>
                             </div>
-                            <div style="margin-top: 15px; padding: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 5px; text-align: center;">
+                            <div class="schedule-total">
                                 <strong>📊 Total Semanal: 12-15 horas</strong><br>
                                 <em>Meta mínima: 10h | Meta ideal: 15h</em>
                             </div>
@@ -1430,33 +2131,33 @@
                         <p><strong>Certificação:</strong> AWS Cloud Practitioner (Português)</p>
                         
                         <!-- Cronograma detalhado de horas -->
-                        <div style="background: #e8f4fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <div class="schedule-container">
                             <h4>⏰ Cronograma de Estudos Detalhado:</h4>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                            <div class="schedule-grid">
+                                <div class="schedule-card">
                                     <strong>📅 Segunda a Quinta</strong><br>
-                                    <span style="color: #667eea;">1h45min/dia</span><br>
+                                    <span class="text-blue">1h45min/dia</span><br>
                                     <small>5:15-7:00 (ritmo adaptado)</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                                <div class="schedule-card">
                                     <strong>🎯 Sexta-feira</strong><br>
-                                    <span style="color: #667eea;">2h (projetos)</span><br>
+                                    <span class="text-blue">2h (projetos)</span><br>
                                     <small>Foco em implementação</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
+                                <div class="schedule-card">
                                     <strong>🏠 Sábado</strong><br>
-                                    <span style="color: #667eea;">3h</span><br>
+                                    <span class="text-blue">3h</span><br>
                                     <small>Manhã: teoria | Tarde: prática</small>
                                 </div>
-                                <div style="background: white; padding: 10px; border-radius: 5px;">
-                                    <strong>☀️ Domingo</strong><br>
-                                    <span style="color: #667eea;">2h (revisão)</span><br>
-                                    <small>Consolidação semanal</small>
+                                <div class="schedule-card">
+                                    <strong>🏠 Domingo LIVRE</strong><br>
+                                    <span class="text-red">👨‍👩‍👧‍👦 Família</span><br>
+                                    <small>Tempo sagrado com quem você ama</small>
                                 </div>
                             </div>
-                            <div style="margin-top: 15px; padding: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 5px; text-align: center;">
-                                <strong>📊 Total Semanal: 14-16 horas</strong><br>
-                                <em>Rotina mais estabelecida | Bebê dormindo melhor</em>
+                            <div class="schedule-total">
+                                <strong>📊 Total Semanal: 12-14 horas</strong><br>
+                                <em>Rotina mais estabelecida | Bebê dormindo melhor | 🏠 Domingos livres</em>
                             </div>
                         </div>
                         
@@ -1550,14 +2251,14 @@
                                     <small>Finalização projetos</small>
                                 </div>
                                 <div style="background: white; padding: 10px; border-radius: 5px;">
-                                    <strong>🌐 Domingo</strong><br>
-                                    <span style="color: #667eea;">2h</span><br>
-                                    <small>Networking + comunidades</small>
+                                    <strong>🏠 Domingo LIVRE</strong><br>
+                                    <span style="color: #e74c3c;">👨‍👩‍👧‍👦 Família</span><br>
+                                    <small>Tempo sagrado com quem você ama</small>
                                 </div>
                             </div>
                             <div style="margin-top: 15px; padding: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 5px; text-align: center;">
-                                <strong>📊 Total Semanal: 13-15 horas</strong><br>
-                                <em>Foco em visibilidade profissional</em>
+                                <strong>📊 Total Semanal: 11-13 horas</strong><br>
+                                <em>Foco em visibilidade profissional | 🏠 Domingos livres</em>
                             </div>
                         </div>
                         
@@ -1711,14 +2412,14 @@
                                     <small>AI Agents development</small>
                                 </div>
                                 <div style="background: white; padding: 10px; border-radius: 5px;">
-                                    <strong>🚀 Domingo</strong><br>
-                                    <span style="color: #667eea;">2h</span><br>
-                                    <small>Deploy + automação</small>
+                                    <strong>🏠 Domingo LIVRE</strong><br>
+                                    <span style="color: #e74c3c;">👨‍👩‍👧‍👦 Família</span><br>
+                                    <small>Tempo sagrado com quem você ama</small>
                                 </div>
                             </div>
                             <div style="margin-top: 15px; padding: 10px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 5px; text-align: center;">
-                                <strong>📊 Total Semanal: 20-22 horas</strong><br>
-                                <em>Especialização cutting-edge</em>
+                                <strong>📊 Total Semanal: 18-20 horas</strong><br>
+                                <em>Especialização cutting-edge | 🏠 Domingos livres</em>
                             </div>
                         </div>
                         
@@ -2135,7 +2836,7 @@
             <div id="formations" class="tab-content">
                 <h2>🎓 Formações EAD Superiores</h2>
                 <p style="text-align: center; margin-bottom: 20px; color: #666;">
-                    MBA & Especializações pós-ADS (Dezembro 2024) - Cronograma sem domingos: 14h/semana
+                    MBA & Especializações pós-ADS (Dezembro 2024) - Cronograma sem domingos: 12h/semana
                 </p>
 
                 <!-- Calculadora de Relevância -->
@@ -2882,6 +3583,235 @@
     </div>
 
     <script>
+        // 🔥 FIREBASE CONFIGURATION - CARREGADO DE ARQUIVO SEPARADO
+        // 
+        // 🔒 SEGURANÇA: As chaves ficam no arquivo firebase-config.js (não commitado)
+        // 
+        // 📋 PARA CONFIGURAR:
+        // 1. Copie firebase-config.example.js → firebase-config.js
+        // 2. Edite firebase-config.js com suas chaves reais
+        // 3. O arquivo firebase-config.js fica apenas na sua máquina
+        // 4. O repo público fica seguro!
+        
+        // Tenta carregar configuração do arquivo separado
+        const firebaseConfig = window.firebaseConfig || {
+            // 👇 CONFIGURAÇÃO DEMO (fallback caso não encontre o arquivo)
+            apiKey: "demo-key-configure-firebase-config-js",
+            authDomain: "configure-firebase-config-js.firebaseapp.com",
+            projectId: "configure-firebase-config-js",
+            storageBucket: "configure-firebase-config-js.appspot.com",
+            messagingSenderId: "000000000",
+            appId: "demo:app:id"
+            // 👆 ESTA É UMA CONFIGURAÇÃO DEMO - NÃO VAI FUNCIONAR!
+        };
+        
+        // 💡 DICA: Configure firebase-config.js para funcionamento real
+
+        // Initialize Firebase
+        let firebase_initialized = false;
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            auth = firebase.auth();
+            firebase_initialized = true;
+            console.log('✅ Firebase inicializado com sucesso');
+        } catch (error) {
+            console.warn('⚠️ Firebase não configurado:', error.message);
+            // Fallback para localStorage apenas
+        }
+
+        // Authentication Functions
+        function signInWithGoogle() {
+            if (!firebase_initialized) {
+                alert('⚠️ Firebase não configurado. Dados serão salvos apenas localmente.');
+                return;
+            }
+
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    currentUser = result.user;
+                    updateLoginStatus();
+                    syncDataFromCloud();
+                    celebrate('🚀');
+                })
+                .catch((error) => {
+                    console.error('Erro no login:', error);
+                    alert('❌ Erro ao fazer login. Usando modo offline.');
+                });
+        }
+
+        function signOut() {
+            if (auth && currentUser) {
+                auth.signOut().then(() => {
+                    currentUser = null;
+                    updateLoginStatus();
+                    alert('👋 Logout realizado. Dados locais preservados.');
+                });
+            }
+        }
+
+        function updateLoginStatus() {
+            const loginInfo = document.getElementById('loginInfo');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const syncBtn = document.getElementById('syncBtn');
+            
+            if (currentUser) {
+                const name = currentUser.displayName || 'Usuário';
+                loginInfo.textContent = `👤 ${name.split(' ')[0]}`;
+                loginInfo.style.color = '#d4edda';
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                syncBtn.style.display = 'block';
+            } else if (firebase_initialized) {
+                loginInfo.textContent = '🔒 Offline - Clique para sincronizar';
+                loginInfo.style.color = '#fff3cd';
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+                syncBtn.style.display = 'none';
+            } else {
+                loginInfo.textContent = '💾 Modo Local (Configure Firebase)';
+                loginInfo.style.color = '#f8d7da';
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'none';
+                syncBtn.style.display = 'none';
+            }
+        }
+
+        // Data Synchronization Functions
+        async function saveToCloud(key, data) {
+            if (!currentUser || !db) {
+                // Fallback para localStorage
+                localStorage.setItem(key, typeof data === 'string' ? data : JSON.stringify(data));
+                return;
+            }
+
+            try {
+                await db.collection('users').doc(currentUser.uid).collection('progress').doc(key).set({
+                    data: data,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    updated: new Date().toISOString()
+                });
+                
+                // Também salva local como backup
+                localStorage.setItem(key, typeof data === 'string' ? data : JSON.stringify(data));
+                
+                console.log(`☁️ ${key} salvo na nuvem`);
+            } catch (error) {
+                console.error('Erro ao salvar na nuvem:', error);
+                // Fallback para localStorage
+                localStorage.setItem(key, typeof data === 'string' ? data : JSON.stringify(data));
+            }
+        }
+
+        async function loadFromCloud(key) {
+            if (!currentUser || !db) {
+                // Fallback para localStorage
+                const localData = localStorage.getItem(key);
+                return localData ? (key.includes('Date') ? localData : JSON.parse(localData)) : null;
+            }
+
+            try {
+                const doc = await db.collection('users').doc(currentUser.uid).collection('progress').doc(key).get();
+                
+                if (doc.exists) {
+                    const cloudData = doc.data().data;
+                    console.log(`☁️ ${key} carregado da nuvem`);
+                    
+                    // Atualiza localStorage também
+                    localStorage.setItem(key, typeof cloudData === 'string' ? cloudData : JSON.stringify(cloudData));
+                    
+                    return cloudData;
+                } else {
+                    // Se não existe na nuvem, tenta localStorage
+                    const localData = localStorage.getItem(key);
+                    return localData ? (key.includes('Date') ? localData : JSON.parse(localData)) : null;
+                }
+            } catch (error) {
+                console.error('Erro ao carregar da nuvem:', error);
+                // Fallback para localStorage
+                const localData = localStorage.getItem(key);
+                return localData ? (key.includes('Date') ? localData : JSON.parse(localData)) : null;
+            }
+        }
+
+        async function syncDataFromCloud() {
+            if (!currentUser) return;
+            
+            try {
+                // Carrega todos os dados principais da nuvem
+                journeyStartDate = await loadFromCloud('journeyStartDate');
+                if (journeyStartDate) journeyStartDate = new Date(journeyStartDate);
+                
+                const cloudWeek = await loadFromCloud('currentWeek');
+                if (cloudWeek) currentWeek = cloudWeek;
+                
+                const cloudWeeklyHours = await loadFromCloud(`week-${currentWeek}-hours`);
+                if (cloudWeeklyHours) weeklyHours = parseFloat(cloudWeeklyHours);
+                
+                // Atualiza interface
+                updateDashboard();
+                updateWeeklyProgress();
+                
+                celebrate('☁️');
+                console.log('✅ Sincronização completa!');
+                
+            } catch (error) {
+                console.error('Erro na sincronização:', error);
+                alert('⚠️ Erro na sincronização. Usando dados locais.');
+            }
+        }
+
+        async function forceSyncData() {
+            if (!currentUser) {
+                alert('⚠️ Faça login primeiro para sincronizar dados.');
+                return;
+            }
+            
+            // Força upload de todos os dados locais para a nuvem
+            try {
+                if (journeyStartDate) {
+                    await saveToCloud('journeyStartDate', journeyStartDate.toISOString());
+                }
+                
+                await saveToCloud('currentWeek', currentWeek);
+                await saveToCloud(`week-${currentWeek}-hours`, weeklyHours);
+                
+                // Sincroniza progresso dos trimestres
+                for (let i = 1; i <= 8; i++) {
+                    const progress = localStorage.getItem(`progress-${i}`);
+                    if (progress) {
+                        await saveToCloud(`progress-${i}`, progress);
+                    }
+                }
+                
+                alert('✅ Todos os dados sincronizados com sucesso!');
+                celebrate('☁️');
+                
+            } catch (error) {
+                console.error('Erro ao forçar sincronização:', error);
+                alert('❌ Erro na sincronização. Tente novamente mais tarde.');
+            }
+        }
+
+        // Monitor auth state changes
+        if (firebase_initialized) {
+            auth.onAuthStateChanged((user) => {
+                currentUser = user;
+                updateLoginStatus();
+                
+                if (user) {
+                    // Auto-sync quando faz login
+                    setTimeout(syncDataFromCloud, 1000);
+                }
+            });
+        }
+
         // Variáveis globais para vagas
         let allJobs = [];
         let currentFilter = 'all';
@@ -3891,35 +4821,110 @@
         }
 
         function calculateROI() {
-            const currentSalary = parseFloat(document.getElementById('currentSalary').value) || 0;
-            const targetSalary = parseFloat(document.getElementById('targetSalary').value) || 0;
-            const investmentCost = parseFloat(document.getElementById('investmentCost').value) || 0;
+            // Limpar mensagens de erro anteriores
+            clearValidationErrors();
+            
+            const currentSalary = parseFloat(document.getElementById('currentSalary').value);
+            const targetSalary = parseFloat(document.getElementById('targetSalary').value);
+            const investmentCost = parseFloat(document.getElementById('investmentCost').value);
             const timeMonths = parseFloat(document.getElementById('timeMonths').value) || 24;
 
-            if (currentSalary && targetSalary && investmentCost) {
-                const monthlySalaryIncrease = targetSalary - currentSalary;
-                const annualIncrease = monthlySalaryIncrease * 12;
-                const roiPercentage = ((annualIncrease - investmentCost) / investmentCost * 100).toFixed(1);
-                const paybackMonths = Math.ceil(investmentCost / monthlySalaryIncrease);
-                const fiveYearReturn = (annualIncrease * 5 - investmentCost).toLocaleString('pt-BR');
+            // Validações detalhadas
+            const errors = [];
+            
+            if (!currentSalary || currentSalary <= 0) {
+                errors.push('Salário atual deve ser maior que zero');
+                highlightError('currentSalary');
+            }
+            
+            if (!targetSalary || targetSalary <= 0) {
+                errors.push('Salário meta deve ser maior que zero');
+                highlightError('targetSalary');
+            }
+            
+            if (!investmentCost || investmentCost <= 0) {
+                errors.push('Custo de investimento deve ser maior que zero');
+                highlightError('investmentCost');
+            }
+            
+            if (currentSalary && targetSalary && currentSalary >= targetSalary) {
+                errors.push('Salário meta deve ser maior que o salário atual');
+                highlightError('targetSalary');
+            }
+            
+            if (currentSalary && currentSalary > 50000) {
+                errors.push('Salário atual parece muito alto. Verifique se está correto');
+                highlightError('currentSalary');
+            }
+            
+            if (targetSalary && targetSalary > 100000) {
+                errors.push('Salário meta parece muito alto. Verifique se está correto');
+                highlightError('targetSalary');
+            }
 
-                const result = `
-                    <div style="text-align: left;">
-                        <p><strong>📈 Aumento Mensal:</strong> R$ ${monthlySalaryIncrease.toLocaleString('pt-BR')}</p>
-                        <p><strong>💰 ROI Anual:</strong> ${roiPercentage}%</p>
-                        <p><strong>⏰ Payback:</strong> ${paybackMonths} meses</p>
-                        <p><strong>🚀 Retorno 5 anos:</strong> R$ ${fiveYearReturn}</p>
-                        <hr style="margin: 15px 0;">
-                        <p style="font-size: 1.2em;"><strong>💡 Conclusão:</strong> 
-                        ${roiPercentage > 100 ? 'INVESTIMENTO EXCELENTE! 🎯' : 
-                          roiPercentage > 50 ? 'BOM INVESTIMENTO! ✅' : 
-                          'CONSIDERE AJUSTAR METAS 🤔'}</p>
+            if (errors.length > 0) {
+                document.getElementById('roiResult').innerHTML = `
+                    <div style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; border-left: 4px solid #dc3545;">
+                        <h4>❌ Erros encontrados:</h4>
+                        <ul style="margin: 10px 0 0 20px;">
+                            ${errors.map(error => `<li>${error}</li>`).join('')}
+                        </ul>
                     </div>
                 `;
-                document.getElementById('roiResult').innerHTML = result;
-            } else {
-                document.getElementById('roiResult').innerHTML = "Por favor, preencha todos os campos!";
+                return;
             }
+
+            // Cálculos
+            const monthlySalaryIncrease = targetSalary - currentSalary;
+            const annualIncrease = monthlySalaryIncrease * 12;
+            const roiPercentage = ((annualIncrease - investmentCost) / investmentCost * 100).toFixed(1);
+            const paybackMonths = Math.ceil(investmentCost / monthlySalaryIncrease);
+            const fiveYearReturn = (annualIncrease * 5 - investmentCost).toLocaleString('pt-BR');
+
+            // Avisos adicionais
+            let warnings = '';
+            if (paybackMonths > 36) {
+                warnings += '<p style="color: #856404;">⚠️ Payback muito longo. Considere reduzir custos ou aumentar meta salarial.</p>';
+            }
+            if (monthlySalaryIncrease > currentSalary * 2) {
+                warnings += '<p style="color: #856404;">⚠️ Aumento muito ambicioso. Considere uma meta mais realista.</p>';
+            }
+
+            const result = `
+                <div style="text-align: left; background: #d4edda; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
+                    <h4 style="color: #155724; margin-bottom: 15px;">✅ Resultado do Cálculo ROI</h4>
+                    <p><strong>📈 Aumento Mensal:</strong> R$ ${monthlySalaryIncrease.toLocaleString('pt-BR')}</p>
+                    <p><strong>💰 ROI Anual:</strong> ${roiPercentage}%</p>
+                    <p><strong>⏰ Payback:</strong> ${paybackMonths} meses</p>
+                    <p><strong>🚀 Retorno 5 anos:</strong> R$ ${fiveYearReturn}</p>
+                    ${warnings}
+                    <hr style="margin: 15px 0;">
+                    <p style="font-size: 1.2em; color: #155724;"><strong>💡 Conclusão:</strong> 
+                    ${roiPercentage > 100 ? 'INVESTIMENTO EXCELENTE! 🎯' : 
+                      roiPercentage > 50 ? 'BOM INVESTIMENTO! ✅' : 
+                      'CONSIDERE AJUSTAR METAS 🤔'}</p>
+                </div>
+            `;
+            document.getElementById('roiResult').innerHTML = result;
+        }
+
+        function highlightError(fieldId) {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.style.borderColor = '#dc3545';
+                field.style.boxShadow = '0 0 0 0.2rem rgba(220, 53, 69, 0.25)';
+            }
+        }
+
+        function clearValidationErrors() {
+            const fields = ['currentSalary', 'targetSalary', 'investmentCost', 'timeMonths'];
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.style.borderColor = '';
+                    field.style.boxShadow = '';
+                }
+            });
         }
 
         // Calculadora de cronograma personalizado
@@ -4328,14 +5333,14 @@
         });
 
         // Salvar progresso no localStorage
-        function saveProgress(trimester, completed) {
-            localStorage.setItem(`progress-${trimester}`, completed);
+        async function saveProgress(trimester, completed) {
+            await saveToCloud(`progress-${trimester}`, completed);
             updateProgressDisplay();
         }
 
-        function loadProgress() {
+        async function loadProgress() {
             for (let i = 1; i <= 8; i++) {
-                const saved = localStorage.getItem(`progress-${i}`);
+                const saved = await loadFromCloud(`progress-${i}`);
                 if (saved) {
                     const element = document.getElementById(`progress-${i}`);
                     if (element) {
@@ -4407,9 +5412,59 @@
         }
 
         // Inicializar todas as funcionalidades
+        // Otimizações de performance
+        const performanceOptimizations = {
+            // Debounce para redimensionamento da janela
+            debounce: function(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+            
+            // Lazy loading para elementos pesados
+            lazyLoad: function() {
+                const images = document.querySelectorAll('img[data-src]');
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    });
+                    images.forEach(img => imageObserver.observe(img));
+                }
+            },
+            
+            // Otimizar para produção
+            optimizeForProduction: function() {
+                // Remove console.logs em produção
+                if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+                    console.log = function() {};
+                    console.warn = function() {};
+                }
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
-            addTooltips();
-            startCountdown();
+            // Aplicar otimizações de performance
+            performanceOptimizations.optimizeForProduction();
+            performanceOptimizations.lazyLoad();
+            
+            // Funcionalidades principais com delay para melhor UX
+            setTimeout(() => {
+                addTooltips();
+                startCountdown();
+            }, 100);
             
             // Adicionar contador no header
             const header = document.querySelector('.header');
@@ -4417,6 +5472,967 @@
             countdown.id = 'countdown';
             countdown.style.cssText = 'margin-top: 15px; font-size: 1.1em; color: #667eea; font-weight: bold;';
             header.appendChild(countdown);
+        });
+
+        // Enhanced Progress Dashboard Functions
+        let journeyStartDate = null;
+        let currentWeek = 1;
+        let totalWeeks = 104; // 24 meses = ~104 semanas
+
+        async function setStartDate() {
+            const startDate = prompt('📅 Quando você quer começar? (YYYY-MM-DD)', new Date().toISOString().substr(0, 10));
+            if (startDate) {
+                journeyStartDate = new Date(startDate);
+                await saveToCloud('journeyStartDate', startDate);
+                updateDashboard();
+                celebrate('🚀');
+            }
+        }
+
+        async function updateDashboard() {
+            if (!journeyStartDate) {
+                const savedDate = await loadFromCloud('journeyStartDate');
+                journeyStartDate = savedDate ? new Date(savedDate) : null;
+            }
+
+            if (journeyStartDate) {
+                const now = new Date();
+                const diffTime = Math.abs(now - journeyStartDate);
+                const diffWeeks = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 7));
+                currentWeek = Math.min(diffWeeks + 1, totalWeeks);
+                
+                const progressPercent = Math.round((currentWeek / totalWeeks) * 100);
+                const trimester = Math.ceil(currentWeek / 13);
+                
+                // Update progress circle
+                const progressCircle = document.getElementById('progressCircle');
+                const progressText = document.getElementById('progressText');
+                if (progressCircle && progressText) {
+                    const degrees = (progressPercent / 100) * 360;
+                    progressCircle.style.background = `conic-gradient(#667eea ${degrees}deg, #e0e0e0 ${degrees}deg)`;
+                    progressText.textContent = `${progressPercent}%`;
+                }
+
+                // Update phase info
+                const phases = [
+                    'Início da Jornada', 'Python + Estatística', 'Data Analytics', 'Machine Learning',
+                    'Portfolio + Networking', 'Deep Learning + NLP', 'Cloud + MLOps', 'IA Generativa', 'Job Hunting'
+                ];
+                
+                const currentPhaseEl = document.getElementById('currentPhase');
+                const timeInfoEl = document.getElementById('timeInfo');
+                const nextMilestoneEl = document.getElementById('nextMilestone');
+                
+                if (currentPhaseEl) currentPhaseEl.textContent = `📍 ${phases[trimester] || phases[0]}`;
+                if (timeInfoEl) timeInfoEl.textContent = `Semana ${currentWeek} de ${totalWeeks}`;
+                if (nextMilestoneEl) {
+                    const nextPhase = phases[trimester + 1] || 'Transição Concluída! 🎉';
+                    nextMilestoneEl.textContent = `🎯 Próximo: ${nextPhase}`;
+                }
+
+                // Update weekly tab info
+                updateWeeklyTab();
+            }
+        }
+
+        function updateWeeklyTab() {
+            const weekNumberEl = document.getElementById('currentWeekNumber');
+            const trimesterNameEl = document.getElementById('currentTrimesterName');
+            const hoursTargetEl = document.getElementById('weeklyHoursTarget');
+            
+            if (weekNumberEl) weekNumberEl.textContent = `Semana ${currentWeek} de ${totalWeeks}`;
+            
+            const trimesterNames = [
+                'Preparação', 'T1 - Python + Estatística', 'T2 - Data Analytics', 'T3 - Machine Learning',
+                'T4 - Portfolio + Networking', 'T5 - Deep Learning + NLP', 'T6 - Cloud + MLOps', 
+                'T7 - IA Generativa', 'T8 - Job Hunting'
+            ];
+            
+            const trimester = Math.ceil(currentWeek / 13);
+            if (trimesterNameEl) trimesterNameEl.textContent = trimesterNames[trimester] || trimesterNames[0];
+            
+            const hourTargets = ['12-15', '12-15', '14-16', '15-18', '13-15', '18-20', '17-19', '20-22', '12-15'];
+            if (hoursTargetEl) hoursTargetEl.textContent = `${hourTargets[trimester] || '12-15'} horas`;
+        }
+
+        function showWeeklyPlan() {
+            openTab({ target: document.querySelector('[onclick*="weekly"]') }, 'weekly');
+        }
+
+        function jumpToCurrentWeek() {
+            showWeeklyPlan();
+            document.getElementById('weekly').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Weekly Tab Functions
+        let weeklyHours = 0;
+        let weeklyTarget = 12;
+
+        async function logStudyTime() {
+            const hours = parseFloat(prompt('⏰ Quantas horas você estudou hoje?', '1.5'));
+            if (hours && hours > 0) {
+                weeklyHours += hours;
+                updateWeeklyProgress();
+                
+                // Save to cloud and localStorage
+                const weekKey = `week-${currentWeek}-hours`;
+                await saveToCloud(weekKey, weeklyHours.toString());
+                
+                celebrate('📚');
+            }
+        }
+
+        function updateWeeklyProgress() {
+            const hoursCompletedEl = document.getElementById('hoursCompleted');
+            const weeklyProgressBarEl = document.getElementById('weeklyProgressBar');
+            
+            if (hoursCompletedEl) {
+                hoursCompletedEl.textContent = `${weeklyHours}h / ${weeklyTarget}h`;
+            }
+            
+            if (weeklyProgressBarEl) {
+                const percent = Math.min((weeklyHours / weeklyTarget) * 100, 100);
+                weeklyProgressBarEl.style.width = `${percent}%`;
+            }
+        }
+
+        async function markWeekComplete() {
+            if (weeklyHours >= weeklyTarget * 0.8) { // 80% da meta
+                currentWeek++;
+                weeklyHours = 0;
+                
+                // Save progress to cloud
+                await saveToCloud('currentWeek', currentWeek);
+                await saveToCloud(`week-${currentWeek}-hours`, weeklyHours);
+                
+                updateDashboard();
+                updateWeeklyProgress();
+                celebrate('🎉');
+                
+                alert(`🎉 Parabéns! Semana ${currentWeek - 1} concluída!\n\nVocê está fazendo um trabalho incrível! 💪`);
+            } else {
+                alert(`⚠️ Você ainda precisa de ${(weeklyTarget * 0.8 - weeklyHours).toFixed(1)}h para completar 80% da meta semanal.`);
+            }
+        }
+
+        function skipToNextWeek() {
+            if (confirm('⏭️ Tem certeza que quer pular para a próxima semana?')) {
+                currentWeek++;
+                weeklyHours = 0;
+                updateDashboard();
+                updateWeeklyProgress();
+            }
+        }
+
+        // Initialize dashboard on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(async () => {
+                updateLoginStatus();
+                await updateDashboard();
+                
+                // Load saved weekly hours
+                if (currentWeek) {
+                    const savedHours = await loadFromCloud(`week-${currentWeek}-hours`);
+                    if (savedHours) {
+                        weeklyHours = parseFloat(savedHours);
+                        updateWeeklyProgress();
+                    }
+                }
+            }, 200);
+        });
+
+        // 🎯 DAILY GOALS SYSTEM
+        let dailyGoalsData = {
+            currentStreak: 0,
+            totalPoints: 0,
+            dailyPoints: 0,
+            lastActiveDate: null,
+            weeklyGoals: {}, // {date: completedGoals}
+            todayGoals: [
+                { id: 1, title: '📚 Estudar com Foco', description: 'Meta: 1h15min de estudo concentrado', points: 10, completed: false },
+                { id: 2, title: '💻 Praticar Código', description: 'Meta: Resolver 5 exercícios práticos', points: 10, completed: false },
+                { id: 3, title: '📖 Consumir Conteúdo', description: 'Meta: Ler 1 artigo ou assistir 1 vídeo', points: 10, completed: false }
+            ],
+            achievements: []
+        };
+
+        // ⏰ POMODORO TIMER SYSTEM
+        let pomodoroData = {
+            isRunning: false,
+            isPaused: false,
+            isBreak: false,
+            timeLeft: 25 * 60, // 25 minutes in seconds
+            focusTime: 25,
+            breakTime: 5,
+            todayPomodoros: 0,
+            volume: 0.7,
+            timerInterval: null,
+            audioContext: null,
+            alarmSound: null
+        };
+
+        // 🔊 SOUND SYSTEM FOR POMODORO
+        function initializeAudio() {
+            try {
+                pomodoroData.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                console.log('✅ Audio context initialized');
+            } catch (error) {
+                console.warn('⚠️ Audio not supported:', error);
+            }
+        }
+
+        function createBeepSound() {
+            if (!pomodoroData.audioContext) return null;
+
+            const oscillator = pomodoroData.audioContext.createOscillator();
+            const gainNode = pomodoroData.audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(pomodoroData.audioContext.destination);
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(800, pomodoroData.audioContext.currentTime);
+            
+            gainNode.gain.setValueAtTime(0, pomodoroData.audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(pomodoroData.volume, pomodoroData.audioContext.currentTime + 0.1);
+            gainNode.gain.linearRampToValueAtTime(0, pomodoroData.audioContext.currentTime + 0.5);
+            
+            return oscillator;
+        }
+
+        function playPomodoroAlarm() {
+            // Play multiple beeps for attention
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const beep = createBeepSound();
+                    if (beep) {
+                        beep.start();
+                        beep.stop(pomodoroData.audioContext.currentTime + 0.5);
+                    }
+                }, i * 600);
+            }
+            
+            // Fallback: browser notification sound
+            try {
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTOX3vLJ');
+                audio.volume = pomodoroData.volume;
+                audio.play().catch(e => console.log('Fallback audio failed:', e));
+            } catch (e) {
+                console.log('Audio fallback not available');
+            }
+        }
+
+        function testSound() {
+            playPomodoroAlarm();
+        }
+
+        function updateVolume() {
+            const volume = document.getElementById('volumeControl').value;
+            pomodoroData.volume = volume / 100;
+            document.getElementById('volumeDisplay').textContent = volume;
+        }
+
+        // 🎯 DAILY GOALS FUNCTIONS
+        async function initializeDailyGoals() {
+            // Load data from cloud/localStorage
+            const savedData = await loadFromCloud('dailyGoalsData');
+            if (savedData) {
+                dailyGoalsData = { ...dailyGoalsData, ...savedData };
+            }
+            
+            // Check if it's a new day and reset goals
+            checkAndResetDailyGoals();
+            
+            updateDailyGoalsDisplay();
+            updateCurrentDate();
+            updateWeeklyProgressDisplay();
+        }
+
+        function getTodayDateString() {
+            return new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+        }
+
+        function checkAndResetDailyGoals() {
+            const today = getTodayDateString();
+            const lastDate = dailyGoalsData.lastActiveDate;
+            
+            // If it's a new day, process previous day and reset
+            if (lastDate && lastDate !== today) {
+                processEndOfDay(lastDate);
+                resetDailyGoals();
+            }
+            
+            dailyGoalsData.lastActiveDate = today;
+        }
+
+        function processEndOfDay(date) {
+            const completedCount = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+            
+            // Save weekly progress
+            dailyGoalsData.weeklyGoals[date] = completedCount;
+            
+            // Update streak
+            if (completedCount >= 2) { // Need at least 2/3 goals for streak
+                dailyGoalsData.currentStreak++;
+            } else {
+                dailyGoalsData.currentStreak = 0;
+            }
+            
+            // Add daily points to total
+            dailyGoalsData.totalPoints += dailyGoalsData.dailyPoints;
+            
+            console.log(`📊 Day ${date} processed: ${completedCount}/3 goals, streak: ${dailyGoalsData.currentStreak}`);
+        }
+
+        function resetDailyGoals() {
+            // Reset daily goals for new day
+            dailyGoalsData.todayGoals.forEach(goal => goal.completed = false);
+            dailyGoalsData.dailyPoints = 0;
+            
+            console.log('🔄 Daily goals reset for new day');
+        }
+
+        function updateCurrentDate() {
+            const today = new Date();
+            const options = { day: 'numeric', month: 'long' };
+            document.getElementById('currentDate').textContent = today.toLocaleDateString('pt-BR', options);
+        }
+
+        async function toggleDailyGoal(goalId) {
+            const goal = dailyGoalsData.todayGoals.find(g => g.id === goalId);
+            if (!goal) return;
+
+            const wasCompleted = goal.completed;
+            goal.completed = !goal.completed;
+            
+            if (goal.completed && !wasCompleted) {
+                dailyGoalsData.dailyPoints += goal.points;
+                celebrate('⭐');
+                
+                // Check for achievements
+                checkAchievements();
+                
+                // Show immediate feedback
+                showGoalCompletedFeedback(goal.title);
+            } else if (!goal.completed && wasCompleted) {
+                dailyGoalsData.dailyPoints = Math.max(0, dailyGoalsData.dailyPoints - goal.points);
+            }
+
+            // Check for daily completion bonus
+            const allCompleted = dailyGoalsData.todayGoals.every(g => g.completed);
+            const currentBonus = dailyGoalsData.dailyPoints - dailyGoalsData.todayGoals.filter(g => g.completed).length * 10;
+            
+            if (allCompleted && currentBonus === 0) {
+                dailyGoalsData.dailyPoints += 10; // Bonus points
+                celebrate('🎉');
+                showGoalCompletedFeedback('🎊 TODAS AS METAS COMPLETAS! Bônus +10 pontos!');
+            } else if (!allCompleted && currentBonus > 0) {
+                dailyGoalsData.dailyPoints -= 10; // Remove bonus
+            }
+
+            await saveToCloud('dailyGoalsData', dailyGoalsData);
+            updateDailyGoalsDisplay();
+            updateWeeklyProgressDisplay();
+            
+            // Update debug panel if open
+            if (document.getElementById('debugPanel')?.style.display === 'block') {
+                updateDebugDisplay();
+            }
+        }
+
+        function showGoalCompletedFeedback(message) {
+            // Create temporary feedback element
+            const feedback = document.createElement('div');
+            feedback.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+                z-index: 1000;
+                font-weight: bold;
+                animation: slideInRight 0.3s ease;
+            `;
+            feedback.textContent = `✅ ${message}`;
+            
+            // Add animation keyframes if not exists
+            if (!document.getElementById('goalFeedbackStyles')) {
+                const style = document.createElement('style');
+                style.id = 'goalFeedbackStyles';
+                style.textContent = `
+                    @keyframes slideInRight {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(feedback);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                feedback.style.animation = 'slideInRight 0.3s ease reverse';
+                setTimeout(() => feedback.remove(), 300);
+            }, 3000);
+        }
+
+        function updateDailyGoalsDisplay() {
+            // Update header stats
+            document.getElementById('currentStreak').textContent = `${dailyGoalsData.currentStreak} dias`;
+            document.getElementById('dailyPoints').textContent = `${dailyGoalsData.dailyPoints} / 40`;
+            document.getElementById('totalPoints').textContent = dailyGoalsData.totalPoints.toLocaleString('pt-BR');
+
+            // Update goal status with animation
+            dailyGoalsData.todayGoals.forEach(goal => {
+                const goalElement = document.querySelector(`[data-goal="${goal.id}"]`);
+                const statusElement = goalElement?.querySelector('.goal-status');
+                
+                if (goalElement && statusElement) {
+                    if (goal.completed) {
+                        goalElement.style.background = 'linear-gradient(135deg, #d4edda, #c3e6cb)';
+                        goalElement.style.borderLeftColor = '#28a745';
+                        goalElement.style.transform = 'scale(1.02)';
+                        statusElement.textContent = '✅';
+                        statusElement.style.fontSize = '1.8em';
+                    } else {
+                        goalElement.style.background = '#f8f9ff';
+                        goalElement.style.borderLeftColor = '#667eea';
+                        goalElement.style.transform = 'scale(1)';
+                        statusElement.textContent = '⭕';
+                        statusElement.style.fontSize = '1.5em';
+                    }
+                }
+            });
+
+            // Update progress bar with animation
+            const completedGoals = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+            const progress = (completedGoals / dailyGoalsData.todayGoals.length) * 100;
+            
+            document.getElementById('dailyProgress').textContent = `${completedGoals}/${dailyGoalsData.todayGoals.length} metas`;
+            document.getElementById('dailyProgressBar').style.width = `${progress}%`;
+            
+            // Change progress bar color based on completion
+            const progressBar = document.getElementById('dailyProgressBar');
+            if (progress === 100) {
+                progressBar.style.background = 'linear-gradient(90deg, #28a745, #20c997)';
+            } else if (progress >= 66) {
+                progressBar.style.background = 'linear-gradient(90deg, #ffc107, #fd7e14)';
+            } else {
+                progressBar.style.background = 'linear-gradient(90deg, #667eea, #764ba2)';
+            }
+        }
+
+        function updateWeeklyProgressDisplay() {
+            // Get current week dates
+            const today = new Date();
+            const currentWeek = [];
+            
+            // Calculate week starting from Sunday
+            const startOfWeek = new Date(today);
+            startOfWeek.setDate(today.getDate() - today.getDay());
+            
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(startOfWeek);
+                date.setDate(startOfWeek.getDate() + i);
+                currentWeek.push(date.toISOString().split('T')[0]);
+            }
+            
+            // Update progress dots
+            const progressDots = document.querySelectorAll('.day-progress');
+            currentWeek.forEach((date, index) => {
+                const dot = progressDots[index];
+                if (!dot) return;
+                
+                const completedGoals = dailyGoalsData.weeklyGoals[date] || 0;
+                const isToday = date === getTodayDateString();
+                const isSunday = index === 6;
+                
+                if (isSunday) {
+                    // Sunday is always family day
+                    dot.style.background = '#e74c3c';
+                    dot.style.opacity = '0.5';
+                    dot.setAttribute('title', 'Domingo livre - Família');
+                } else if (isToday) {
+                    // Today - show current progress
+                    const todayCompleted = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+                    if (todayCompleted === 3) {
+                        dot.style.background = '#28a745';
+                        dot.style.boxShadow = '0 0 10px rgba(40, 167, 69, 0.5)';
+                    } else if (todayCompleted === 2) {
+                        dot.style.background = '#ffc107';
+                        dot.style.boxShadow = '0 0 10px rgba(255, 193, 7, 0.5)';
+                    } else if (todayCompleted === 1) {
+                        dot.style.background = '#fd7e14';
+                        dot.style.boxShadow = '0 0 10px rgba(253, 126, 20, 0.5)';
+                    } else {
+                        dot.style.background = '#e0e0e0';
+                        dot.style.boxShadow = 'none';
+                    }
+                    dot.setAttribute('title', `Hoje: ${todayCompleted}/3 metas`);
+                } else {
+                    // Past days
+                    if (completedGoals === 3) {
+                        dot.style.background = '#28a745';
+                        dot.setAttribute('title', '3/3 metas completas');
+                    } else if (completedGoals === 2) {
+                        dot.style.background = '#ffc107';
+                        dot.setAttribute('title', '2/3 metas completas');
+                    } else if (completedGoals === 1) {
+                        dot.style.background = '#fd7e14';
+                        dot.setAttribute('title', '1/3 metas completas');
+                    } else if (date < getTodayDateString()) {
+                        dot.style.background = '#dc3545';
+                        dot.setAttribute('title', '0/3 metas - dia perdido');
+                    } else {
+                        dot.style.background = '#e0e0e0';
+                        dot.setAttribute('title', 'Ainda não chegou');
+                    }
+                    dot.style.boxShadow = 'none';
+                }
+            });
+        }
+
+        function checkAchievements() {
+            const completedGoals = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+            
+            // First Steps achievement
+            if (completedGoals >= 1 && !dailyGoalsData.achievements.includes('first-steps')) {
+                dailyGoalsData.achievements.push('first-steps');
+                unlockAchievement('first-steps', '🍼 First Steps', 'Complete sua primeira meta');
+            }
+        }
+
+        function unlockAchievement(id, title, description) {
+            celebrate('🏆');
+            
+            // Visual update
+            const achievementElement = document.querySelector(`.achievement[data-id="${id}"]`);
+            if (achievementElement) {
+                achievementElement.style.opacity = '1';
+                achievementElement.style.background = 'linear-gradient(135deg, #ffd89b, #19547b)';
+                achievementElement.style.color = 'white';
+            }
+            
+            // Show notification
+            setTimeout(() => {
+                alert(`🏆 CONQUISTA DESBLOQUEADA!\n\n${title}\n${description}`);
+            }, 500);
+        }
+
+        // ⏰ POMODORO TIMER FUNCTIONS
+        async function initializePomodoro() {
+            // Load data from cloud/localStorage
+            const savedData = await loadFromCloud('pomodoroData');
+            if (savedData) {
+                pomodoroData = { ...pomodoroData, ...savedData };
+            }
+            
+            updatePomodoroDisplay();
+            initializeAudio();
+        }
+
+        function startPomodoro() {
+            if (pomodoroData.isPaused) {
+                resumePomodoro();
+                return;
+            }
+
+            // Enable audio context on user interaction
+            if (pomodoroData.audioContext?.state === 'suspended') {
+                pomodoroData.audioContext.resume();
+            }
+
+            pomodoroData.isRunning = true;
+            pomodoroData.isPaused = false;
+            pomodoroData.isBreak = false;
+            
+            const focusMinutes = parseInt(document.getElementById('focusTime').value);
+            pomodoroData.timeLeft = focusMinutes * 60;
+            pomodoroData.focusTime = focusMinutes;
+
+            startTimer();
+            updatePomodoroButtons();
+            updatePomodoroStatus('🍅 Foco Ativo', 'Concentre-se! Você consegue!');
+        }
+
+        function pausePomodoro() {
+            pomodoroData.isPaused = true;
+            clearInterval(pomodoroData.timerInterval);
+            updatePomodoroButtons();
+            updatePomodoroStatus('⏸️ Pausado', 'Timer pausado. Clique "Iniciar" para continuar.');
+        }
+
+        function resumePomodoro() {
+            pomodoroData.isPaused = false;
+            startTimer();
+            updatePomodoroButtons();
+            updatePomodoroStatus('🍅 Foco Ativo', 'Concentre-se! Você consegue!');
+        }
+
+        function stopPomodoro() {
+            pomodoroData.isRunning = false;
+            pomodoroData.isPaused = false;
+            clearInterval(pomodoroData.timerInterval);
+            
+            pomodoroData.timeLeft = pomodoroData.focusTime * 60;
+            updateTimerDisplay();
+            updatePomodoroButtons();
+            updatePomodoroStatus('🍅 Pronto para Foco', 'Clique "Iniciar" para começar sua sessão');
+        }
+
+        function startTimer() {
+            pomodoroData.timerInterval = setInterval(() => {
+                pomodoroData.timeLeft--;
+                updateTimerDisplay();
+                updateTimerCircle();
+
+                if (pomodoroData.timeLeft <= 0) {
+                    timerFinished();
+                }
+            }, 1000);
+        }
+
+        function timerFinished() {
+            clearInterval(pomodoroData.timerInterval);
+            playPomodoroAlarm();
+
+            if (!pomodoroData.isBreak) {
+                // Focus session completed
+                pomodoroData.todayPomodoros++;
+                
+                // Check if this completes study goal
+                checkPomodoroGoalProgress();
+                
+                celebrate('🍅');
+                
+                // Start break automatically if enabled
+                if (document.getElementById('autoStartBreak').checked) {
+                    startBreak();
+                } else {
+                    updatePomodoroStatus('🎉 Pomodoro Completo!', 'Ótimo trabalho! Faça uma pausa.');
+                    pomodoroData.isRunning = false;
+                    updatePomodoroButtons();
+                }
+            } else {
+                // Break completed
+                updatePomodoroStatus('⚡ Pausa Finalizada!', 'Pronto para o próximo pomodoro?');
+                pomodoroData.isRunning = false;
+                pomodoroData.isBreak = false;
+                updatePomodoroButtons();
+            }
+
+            savePomodoroData();
+            updatePomodoroStats();
+        }
+
+        function startBreak() {
+            pomodoroData.isBreak = true;
+            const breakMinutes = parseInt(document.getElementById('breakTime').value);
+            pomodoroData.timeLeft = breakMinutes * 60;
+            
+            startTimer();
+            updatePomodoroStatus('☕ Pausa Ativa', 'Relaxe e recarregue as energias!');
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(pomodoroData.timeLeft / 60);
+            const seconds = pomodoroData.timeLeft % 60;
+            const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timerDisplay').textContent = timeString;
+            
+            if (pomodoroData.isBreak) {
+                document.getElementById('timerSubtext').textContent = 'pausa';
+            } else {
+                document.getElementById('timerSubtext').textContent = 'foco';
+            }
+        }
+
+        function updateTimerCircle() {
+            const totalTime = pomodoroData.isBreak ? 
+                parseInt(document.getElementById('breakTime').value) * 60 : 
+                pomodoroData.focusTime * 60;
+            
+            const elapsed = totalTime - pomodoroData.timeLeft;
+            const percentage = (elapsed / totalTime) * 100;
+            const degrees = (percentage / 100) * 360;
+            
+            const color = pomodoroData.isBreak ? '#28a745' : '#667eea';
+            document.getElementById('pomodoroTimer').style.background = 
+                `conic-gradient(${color} ${degrees}deg, #e0e0e0 ${degrees}deg)`;
+        }
+
+        function updatePomodoroButtons() {
+            const startBtn = document.getElementById('startPomodoroBtn');
+            const pauseBtn = document.getElementById('pausePomodoroBtn');
+            
+            if (pomodoroData.isRunning && !pomodoroData.isPaused) {
+                startBtn.style.display = 'none';
+                pauseBtn.style.display = 'inline-block';
+            } else {
+                startBtn.style.display = 'inline-block';
+                pauseBtn.style.display = 'none';
+                
+                if (pomodoroData.isPaused) {
+                    startBtn.textContent = '▶️ Continuar';
+                } else {
+                    startBtn.textContent = '▶️ Iniciar';
+                }
+            }
+        }
+
+        function updatePomodoroStatus(status, phase) {
+            document.getElementById('pomodoroStatus').textContent = status;
+            document.getElementById('pomodoroPhase').textContent = phase;
+        }
+
+        function updatePomodoroStats() {
+            document.getElementById('todayPomodoros').textContent = pomodoroData.todayPomodoros;
+            
+            const focusHours = (pomodoroData.todayPomodoros * pomodoroData.focusTime / 60).toFixed(1);
+            document.getElementById('todayFocusTime').textContent = `${focusHours}h`;
+            
+            const progressPercent = Math.min((pomodoroData.todayPomodoros / 4) * 100, 100);
+            document.getElementById('pomodoroProgressBar').style.width = `${progressPercent}%`;
+        }
+
+        function checkPomodoroGoalProgress() {
+            const targetPomodoros = Math.ceil(75 / pomodoroData.focusTime); // 75 minutes = 1h15min goal
+            const progress = Math.min((pomodoroData.todayPomodoros / targetPomodoros) * 100, 100);
+            
+            document.getElementById('studyGoalProgress').style.width = `${progress}%`;
+            document.getElementById('studyGoalText').textContent = `${pomodoroData.todayPomodoros}/${targetPomodoros}`;
+            
+            // Auto-complete study goal if reached
+            if (pomodoroData.todayPomodoros >= targetPomodoros) {
+                const studyGoal = dailyGoalsData.todayGoals.find(g => g.id === 1);
+                if (studyGoal && !studyGoal.completed) {
+                    toggleDailyGoal(1);
+                }
+            }
+        }
+
+        async function savePomodoroData() {
+            await saveToCloud('pomodoroData', {
+                todayPomodoros: pomodoroData.todayPomodoros,
+                volume: pomodoroData.volume
+            });
+        }
+
+        function updatePomodoroDisplay() {
+            updateTimerDisplay();
+            updatePomodoroStats();
+            updatePomodoroButtons();
+            updatePomodoroStatus('🍅 Pronto para Foco', 'Clique "Iniciar" para começar sua sessão');
+            
+            // Update volume display
+            document.getElementById('volumeControl').value = Math.round(pomodoroData.volume * 100);
+            document.getElementById('volumeDisplay').textContent = Math.round(pomodoroData.volume * 100);
+        }
+
+        // 🔍 DEBUG AND VERIFICATION FUNCTIONS
+        function toggleDebugPanel() {
+            const panel = document.getElementById('debugPanel');
+            const button = document.getElementById('debugToggle');
+            
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+                button.textContent = 'Ocultar Debug';
+                updateDebugDisplay();
+            } else {
+                panel.style.display = 'none';
+                button.textContent = 'Mostrar Debug';
+            }
+        }
+
+        function updateDebugDisplay() {
+            document.getElementById('debugToday').textContent = getTodayDateString();
+            document.getElementById('debugLastActive').textContent = dailyGoalsData.lastActiveDate || 'Nunca';
+            document.getElementById('debugDailyPoints').textContent = dailyGoalsData.dailyPoints;
+            document.getElementById('debugTotalPoints').textContent = dailyGoalsData.totalPoints.toLocaleString('pt-BR');
+            document.getElementById('debugStreak').textContent = dailyGoalsData.currentStreak;
+            
+            const completedGoals = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+            document.getElementById('debugTodayGoals').textContent = `${completedGoals}/3 completas`;
+            
+            updateWeeklyHistoryTable();
+        }
+
+        function updateWeeklyHistoryTable() {
+            const historyDiv = document.getElementById('weeklyHistoryTable');
+            if (!historyDiv) return;
+            
+            // Get last 7 days
+            const today = new Date();
+            const last7Days = [];
+            
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(today.getDate() - i);
+                last7Days.push(date.toISOString().split('T')[0]);
+            }
+            
+            let tableHTML = `
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background: #e3f2fd; font-weight: bold;">
+                        <th style="padding: 8px; border: 1px solid #ddd; text-align: left;">Data</th>
+                        <th style="padding: 8px; border: 1px solid #ddd; text-align: center;">Metas</th>
+                        <th style="padding: 8px; border: 1px solid #ddd; text-align: center;">Status</th>
+                        <th style="padding: 8px; border: 1px solid #ddd; text-align: center;">Pontos</th>
+                    </tr>
+            `;
+            
+            last7Days.forEach(date => {
+                const completed = dailyGoalsData.weeklyGoals[date] || 0;
+                const isToday = date === getTodayDateString();
+                const dayName = new Date(date + 'T00:00:00').toLocaleDateString('pt-BR', { weekday: 'short' });
+                const points = completed === 3 ? 40 : completed * 10; // Include bonus
+                
+                let statusEmoji = '';
+                let rowColor = '';
+                
+                if (isToday) {
+                    const todayCompleted = dailyGoalsData.todayGoals.filter(g => g.completed).length;
+                    statusEmoji = todayCompleted === 3 ? '🔥' : todayCompleted === 2 ? '⚡' : todayCompleted === 1 ? '💡' : '⭕';
+                    rowColor = 'background: #fffacd;';
+                } else {
+                    statusEmoji = completed === 3 ? '🔥' : completed === 2 ? '⚡' : completed === 1 ? '💡' : '❌';
+                    rowColor = completed >= 2 ? 'background: #f0fff0;' : 'background: #fff5f5;';
+                }
+                
+                tableHTML += `
+                    <tr style="${rowColor}">
+                        <td style="padding: 8px; border: 1px solid #ddd;">${dayName} ${date.split('-').reverse().join('/')}${isToday ? ' (HOJE)' : ''}</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">${isToday ? dailyGoalsData.todayGoals.filter(g => g.completed).length : completed}/3</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center; font-size: 1.2em;">${statusEmoji}</td>
+                        <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">${isToday ? dailyGoalsData.dailyPoints : points}</td>
+                    </tr>
+                `;
+            });
+            
+            tableHTML += '</table>';
+            historyDiv.innerHTML = tableHTML;
+        }
+
+        async function testCompleteGoal() {
+            const incompleteGoals = dailyGoalsData.todayGoals.filter(g => !g.completed);
+            if (incompleteGoals.length > 0) {
+                await toggleDailyGoal(incompleteGoals[0].id);
+                updateDebugDisplay();
+                alert('✅ Meta teste completada! Verifique se os pontos aumentaram.');
+            } else {
+                alert('⚠️ Todas as metas já estão completas!');
+            }
+        }
+
+        async function resetTodayGoals() {
+            if (confirm('🔄 Tem certeza que quer resetar as metas de hoje?')) {
+                dailyGoalsData.todayGoals.forEach(goal => goal.completed = false);
+                dailyGoalsData.dailyPoints = 0;
+                await saveToCloud('dailyGoalsData', dailyGoalsData);
+                updateDailyGoalsDisplay();
+                updateDebugDisplay();
+                alert('🔄 Metas de hoje resetadas!');
+            }
+        }
+
+        async function addTestStreak() {
+            dailyGoalsData.currentStreak++;
+            await saveToCloud('dailyGoalsData', dailyGoalsData);
+            updateDailyGoalsDisplay();
+            updateDebugDisplay();
+            alert(`🔥 Streak aumentado para ${dailyGoalsData.currentStreak} dias!`);
+        }
+
+        async function simulateWeekData() {
+            if (confirm('📈 Quer simular dados da última semana para testar?')) {
+                const today = new Date();
+                
+                // Add data for last 6 days
+                for (let i = 6; i >= 1; i--) {
+                    const date = new Date(today);
+                    date.setDate(today.getDate() - i);
+                    const dateString = date.toISOString().split('T')[0];
+                    
+                    // Random goals completed (1-3)
+                    const completed = Math.floor(Math.random() * 3) + 1;
+                    dailyGoalsData.weeklyGoals[dateString] = completed;
+                }
+                
+                // Add some total points
+                dailyGoalsData.totalPoints += 200;
+                dailyGoalsData.currentStreak = 3;
+                
+                await saveToCloud('dailyGoalsData', dailyGoalsData);
+                updateDailyGoalsDisplay();
+                updateWeeklyProgressDisplay();
+                updateDebugDisplay();
+                
+                alert('📈 Dados simulados adicionados! Verifique o progresso semanal.');
+            }
+        }
+
+        function exportGoalsData() {
+            const data = JSON.stringify(dailyGoalsData, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `metas-diarias-${getTodayDateString()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            alert('💾 Dados exportados! Baixe o arquivo para backup.');
+        }
+
+        async function clearAllData() {
+            if (confirm('🗑️ ATENÇÃO: Isso vai apagar TODOS os dados de metas! Tem certeza?')) {
+                if (confirm('⚠️ ÚLTIMA CHANCE: Todos os pontos, streaks e histórico serão perdidos!')) {
+                    dailyGoalsData = {
+                        currentStreak: 0,
+                        totalPoints: 0,
+                        dailyPoints: 0,
+                        lastActiveDate: null,
+                        weeklyGoals: {},
+                        todayGoals: [
+                            { id: 1, title: '📚 Estudar com Foco', description: 'Meta: 1h15min de estudo concentrado', points: 10, completed: false },
+                            { id: 2, title: '💻 Praticar Código', description: 'Meta: Resolver 5 exercícios práticos', points: 10, completed: false },
+                            { id: 3, title: '📖 Consumir Conteúdo', description: 'Meta: Ler 1 artigo ou assistir 1 vídeo', points: 10, completed: false }
+                        ],
+                        achievements: []
+                    };
+                    
+                    await saveToCloud('dailyGoalsData', dailyGoalsData);
+                    updateDailyGoalsDisplay();
+                    updateWeeklyProgressDisplay();
+                    updateDebugDisplay();
+                    
+                    alert('🗑️ Todos os dados foram limpos! Começando do zero.');
+                }
+            }
+        }
+
+        // 🎯 EVENT LISTENERS FOR DAILY GOALS
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click listeners to daily goals
+            document.querySelectorAll('.daily-goal').forEach(goalElement => {
+                goalElement.addEventListener('click', function() {
+                    const goalId = parseInt(this.dataset.goal);
+                    toggleDailyGoal(goalId);
+                });
+            });
+
+            // Initialize both systems
+            setTimeout(async () => {
+                await initializeDailyGoals();
+                await initializePomodoro();
+            }, 300);
         });
 
         // Enhanced Roadmap Interactive Features
